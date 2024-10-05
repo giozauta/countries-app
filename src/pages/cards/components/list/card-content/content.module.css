@@ -1,0 +1,9 @@
+.cardContent{
+    padding: 4px;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  

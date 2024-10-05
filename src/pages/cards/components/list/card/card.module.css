@@ -1,0 +1,16 @@
+.cardLink{
+    margin: auto;
+    text-decoration: none;
+    color: black;
+}
+.card{
+    margin: auto;
+    width: 350px;
+    height: 500px;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    padding: 4px;
+    box-shadow: 0 0px 8px rgb(173, 173, 173);
+    overflow: hidden;
+  }
