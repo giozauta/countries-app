@@ -1,9 +1,32 @@
-.cardContent{
-    padding: 4px;
-    height: 30%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-  }
+.cardContent {
+  padding: 4px;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 
-  
+}
+
+.interactSection {
+  display: flex;
+  padding-right: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+.readMoreBtn{
+  background-color:#EEEEE9;
+  color: #72b1b1;
+  color: rgb(70, 62, 62);
+  padding:10px;
+  padding-left: 0px;
+  border: none;
+  display: flex;
+  align-items: center;
+}
+.likeIcon {
+  display: block;
+  width: 27px;
+  height: 27px;
+}
+
+
