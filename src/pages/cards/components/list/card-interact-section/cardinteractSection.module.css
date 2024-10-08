@@ -1,0 +1,44 @@
+
+.interactSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left:4px;
+  }
+  .readMoreBtn{
+    background-color:#ffffff;
+    color: rgb(70, 62, 62);
+    padding:10px;
+    padding-left: 0px;
+    border: none;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .readMoreBtn:hover{
+    color:#3ECCCC;
+    transition: all 0.5s ease-in-out;
+    padding-left:8px;
+    scale: 1.1;
+  }
+  .voteSection{
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    justify-content:space-between;
+    font-size: 28px;
+
+    margin-right: 25px;
+  }
+  .likeIcon {
+    display: block;
+    width: 27px;
+    height: 27px;
+  }
+  .likeIcon:hover{
+    transition: ease 0.5s;
+    scale: 1.2;
+  }
+  
+  

@@ -4,6 +4,7 @@ import Card from '../card/Card';
 import CardImage from '../card-image';
 import CardContent  from '../card-content';
 import countriesList from '../../../static/countries-data';
+import CardinteractSection from '../card-interact-section';
 
  const CardList = () => {
   const [countries,setCountries]=useState(countriesList);
@@ -13,10 +14,9 @@ import countriesList from '../../../static/countries-data';
       if(country.id === id){
         return {...country, vote:country.vote+1}
       }
-      return country
+      return {...country}
     })
     setCountries(updatedCountries);
-    alert(countries[0].vote)
   }
 
   return (
@@ -25,6 +25,7 @@ import countriesList from '../../../static/countries-data';
                 <Card key={country.id}>
                     <CardImage imgSrc={country.imgSrc} />
                     <CardContent handleCountriesVote={handleCountriesVote} country={country} />
+                    <CardinteractSection country={country} handleCountriesVote={handleCountriesVote} />
                 </Card>
             ))}
         </div>

@@ -1,18 +1,19 @@
 .homeCardsBox{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 630px;
+    display:grid;
+    grid-template-columns: auto auto auto ;
+    grid-gap:55px;
+    width:100%;
+    margin: auto;
 }
 
-@media only screen and (max-width:1110px) {
+@media only screen and (max-width:1380px) {
     .homeCardsBox{
-        display: flex;
-        flex-direction: column;
-        height: auto;
-        justify-content: center;
-        align-items:center;
-        gap: 25px;
+        grid-template-columns: auto auto;
     }
-  }
+}
+
+@media only screen and (max-width:900px) {
+    .homeCardsBox{
+        grid-template-columns: auto;
+    }
+}
