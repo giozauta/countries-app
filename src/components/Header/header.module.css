@@ -45,7 +45,7 @@
   color:black;
 }
 .navLink:hover,.logo:hover {
-  color:#F39C00;
+  color: #34CACA;
   text-decoration: none;
   transition: 0.5s;
   transform: scale(1.1);
