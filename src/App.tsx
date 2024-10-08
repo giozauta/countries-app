@@ -31,7 +31,7 @@ const App: React.FC = () => {
         <Route element={<DefaultLayout />}>
           <Route 
             path='/'
-            element ={<div style={LandingPageCss}><img style={img} src="/images/1.jpg"/>Landing Page</div>}
+            element ={<div style={LandingPageCss}><img style={img} src="/images/1.jpg"/></div>}
           />
           <Route
             path="cards"

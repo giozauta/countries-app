@@ -9,6 +9,7 @@ import CardinteractSection from '../card-interact-section';
  const CardList = () => {
   const [countries,setCountries]=useState(countriesList);
 
+//ფუნქცია რომელსაც ვიყენებთ ლაიქების დასაწერად 
   const handleCountriesVote = (id:string) => {
     const updatedCountries= countries.map(country => {
       if(country.id === id){
@@ -19,7 +20,7 @@ import CardinteractSection from '../card-interact-section';
     setCountries(updatedCountries);
   }
 
-
+//ფუნქცია რომელსაც ფიყენებთ ლაიხების მიხედვით card ების დასალაგებლად 
   const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const sortValue = event.target.value;
     const sortedCountries = [...countries];
