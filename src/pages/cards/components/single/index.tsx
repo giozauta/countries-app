@@ -3,7 +3,7 @@ import styles from './singleCard.module.css';
 
 const SingleCard:React.FC<{data:{name:string,imgSrc:string,article:string}}>= ({data}) => {
   return (
-    <div className={styles.card}>
+    <div className={styles.singleCard}>
       <div className={styles.imageContainer}>
         <img src={data.imgSrc} alt={data.name} className={styles.image} />
       </div>

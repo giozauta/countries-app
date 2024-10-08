@@ -1,1 +1,1 @@
-export {default} from './CardinteracTSection';
+export {default} from './CardinteractSection';

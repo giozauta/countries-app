@@ -1,4 +1,4 @@
-.card {
+.singleCard {
   display: flex;
   flex-direction: row;
   background-color: #fff;
@@ -15,7 +15,7 @@
   transform: translate(-50%, -50%);
 }
 
-.card:hover {
+.singleCard:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
