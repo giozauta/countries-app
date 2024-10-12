@@ -3,7 +3,6 @@
     z-index: 2;
     background-color: #ffffff;
     color:black ;
-    max-width:1920px;
     display:flex;
     justify-content: space-between;
     align-items: center;
@@ -11,6 +10,8 @@
     position: sticky;
     top: 0px;
     height: 100px;
+    margin: auto;
+    width: 100%;
   }
   .headerBox{
     width: 95%;

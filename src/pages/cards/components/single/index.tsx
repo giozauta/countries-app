@@ -5,7 +5,7 @@ const SingleCard:React.FC<{data:{name:string,imgSrc:string,article:string}}>= ({
   return (
     <div className={styles.singleCard}>
       <div className={styles.imageContainer}>
-        <img src={data.imgSrc} alt={data.name} className={styles.image} />
+        <img src={data.imgSrc} alt={data.name} className={styles.singleCardImage} />
       </div>
       <div className={styles.textContainer}>
         <h2 className={styles.title}>{data.name}</h2>

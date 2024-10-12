@@ -1,11 +1,12 @@
 import React from 'react'
 import SingleCard from '../../components/single';
 import { useParams } from 'react-router-dom';
-import countriesList from '../../static/countries-data';
+import cardsInitialState from "../../components/list/card-list/reducer/state";
+
 
 const SingleCardView: React.FC = () => {
   const {id} = useParams();
-  const cardInfo = countriesList.find((countrie) => countrie.id == id);
+  const cardInfo = cardsInitialState.find((countrie) => countrie.id == id);
   const cardInfoNotFound = !cardInfo;
   
   if(cardInfoNotFound){

@@ -10,3 +10,32 @@
     overflow: hidden;
     background-color:#FFFFFF;
   }
+  .deleteCard{
+    margin: auto;
+    width: 400px;
+    height: 600px;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    padding: 4px;
+    box-shadow: 0 0px 8px rgb(173, 173, 173);
+    overflow: hidden;
+    background-color:#FFFFFF;
+    opacity:0.5;
+  }
+  .restoreButton{
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    background-color: white;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgb(190, 185, 185);
+    margin: auto;
+    padding: 10px;
+    width: 95%;
+    font-size: larger;
+  }
+  .restoreButton:hover{
+    background-color: #34CACA;
+    color: white;
+  }

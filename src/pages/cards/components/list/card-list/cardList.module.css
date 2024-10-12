@@ -3,7 +3,13 @@
     flex-direction: column;
     gap: 60px;
 }
-.sortButton{
+
+.cardButtonSection{
+    display: flex;
+    gap:10px;
+    padding-left:50px;
+}
+.sortButton,.addCardButton{
     display: flex;
     align-items: center;
     justify-content:center;
@@ -12,10 +18,15 @@
     border: none;
     color: black;
     text-decoration: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 120px;
-    padding: 10px;
-    margin-left: 20px;
+    box-shadow: 0 0 5px rgb(190, 185, 185);
+    width: 80px;
+    padding:10px;
+    outline: none;
+}
+.addCardButton:hover,.sortButton:hover{
+    transition: all 0.2s ease-in-out;
+    background-color: #34CACA;
+    color: white;
 }
 
 .CardsBox{
@@ -26,14 +37,36 @@
     margin: auto;
 }
 
+
 @media only screen and (max-width:1380px) {
-    .homeCardsBox{
+    .CardsBox{
         grid-template-columns: auto auto;
     }
+    .cardButtonSection{
+        padding: 25px;
+        gap: 15px;
+
+        width: 100%;
+        flex-direction: column; 
+    }
+    .cardButtonSection div form,.cardButtonSection div{
+        display: flex;
+        justify-content:flex-start;
+        align-items: flex-start;
+        flex-direction:column;
+
+    }
+    .sortButton,.addCardButton{
+        margin-left: 0px;
+        
+    }
+
+
 }
 
 @media only screen and (max-width:900px) {
-    .homeCardsBox{
+    .CardsBox{
         grid-template-columns: auto;
     }
+
 }

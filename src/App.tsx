@@ -12,7 +12,7 @@ const ContactViews = lazy(() => import('@/pages/contact/views'));
 //ეს css ესე დროებით სანამ Landing Page ზე გადავწყვიტავ საბოლოოდ რა გამომაქვს 
 const LandingPageCss:React.CSSProperties={
   width:"100%",
-  height:"1080px",
+  height:"1040px",
   backgroundRepeat:'no-repeat',
   backgroundSize:'cover',
   position:"relative",
@@ -31,7 +31,7 @@ const App: React.FC = () => {
         <Route element={<DefaultLayout />}>
           <Route 
             path='/'
-            element ={<div style={LandingPageCss}><img style={img} src="/images/1.jpg"/></div>}
+            element ={<div style={LandingPageCss}><img style={img} src="/images/earth1.jpg"/></div>}
           />
           <Route
             path="cards"

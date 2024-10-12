@@ -1,0 +1,42 @@
+.cardAddFormBox{
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    border-radius: 5px;
+    gap: 10px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #EEEEE9;
+    border: none;
+}
+.cardAddFormBox form {
+    height: 100%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.cardAddFormBox form input{  
+    box-shadow: 0 0 5px rgb(190, 185, 185);
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    outline: none;
+}
+.subbmitCard{
+    width: 100px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    background-color: white;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgb(190, 185, 185);
+}
+.subbmitCard:hover{
+    transition: all 0.2s ease-in-out;
+    background-color: #34CACA;
+    color: white;
+}
