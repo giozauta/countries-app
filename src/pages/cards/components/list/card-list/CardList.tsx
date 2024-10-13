@@ -46,6 +46,7 @@ const CardList:React.FC = () => {
     const cardFormData = new FormData(event.currentTarget);
     for(const [key,value] of cardFormData){
       cardObject[key] = value;
+      
     }
     dispatch({
       type:"create",
@@ -53,6 +54,7 @@ const CardList:React.FC = () => {
         cardObject,
       }
     })
+    event.currentTarget.reset()
   };
   //ფუნქციის დახმარებით აღვადგენთ გამქრალ ქარდს 
   const handleCardRestore=(id:string)=>{

@@ -9,7 +9,6 @@ type cardsReducerInitialState = {
   deleteStatus:boolean;
 }
 
-
 export const cardsReducer = (
   countriesList: cardsReducerInitialState[],
   action:any
