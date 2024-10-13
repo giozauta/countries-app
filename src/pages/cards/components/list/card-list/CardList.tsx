@@ -12,7 +12,6 @@ import {cardsReducer} from './reducer/reducer';
 const CardList:React.FC = () => {
   //ამ სთეითის დახმარებით გამოვაჩენთ ქარდის დასამატებელ პანელს 
   const [formSection,setFormSection]=useState(false);
-
   const [countriesList,dispatch] = useReducer(
     cardsReducer,
     cardsInitialState

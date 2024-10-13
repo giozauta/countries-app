@@ -16,13 +16,13 @@ export const cardsReducer = (
 ) => {
 
   if(action.type ==="upvote"){
-    const updatedCountries = countriesList.map(country => {
+    const updatedCountriesList = countriesList.map(country => {
       if(country.id === action.payload.id){
         return {...country, vote:country.vote+1}
       }
       return {...country};
     });
-    return updatedCountries;
+    return updatedCountriesList;
   }
 
   if(action.type ==="sort"){
@@ -38,13 +38,13 @@ export const cardsReducer = (
 
   if (action.type === "create") {
     const updatedCountriesList = [
-        ...countriesList,
         {
           ...action.payload.cardObject,
           imgSrc:"/images/random.jpg",
           vote: 0,
           id: (Number(countriesList.at(-1)?.id) + 1).toString(),
-        }
+        },
+        ...countriesList
     ];
     return updatedCountriesList;
   }
