@@ -41,11 +41,10 @@ const CardList:React.FC = () => {
   const handleCreateCard = (event:FormEvent<HTMLFormElement>)=>{
     event.preventDefault();
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const cardObject :any ={};
+    const cardObject :any = {};
     const cardFormData = new FormData(event.currentTarget);
     for(const [key,value] of cardFormData){
       cardObject[key] = value;
-      
     }
     dispatch({
       type:"create",

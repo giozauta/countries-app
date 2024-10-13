@@ -34,6 +34,7 @@
     padding: 10px;
     width: 95%;
     font-size: larger;
+    transition: all 0.5s ease;
   }
   .restoreButton:hover{
     background-color: #34CACA;
