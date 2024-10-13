@@ -17,10 +17,9 @@ export const cardsReducer = (
 
   if(action.type ==="upvote"){
     const updatedCountriesList = countriesList.map(country => {
-      if(country.id === action.payload.id){
-        return {...country, vote:country.vote+1}
-      }
-      return {...country};
+      return country.id === action.payload.id
+      ? {...country, vote:country.vote+1}
+      : {...country};
     });
     return updatedCountriesList;
   }
@@ -28,12 +27,9 @@ export const cardsReducer = (
   if(action.type ==="sort"){
     const sortType = action.payload.sortType;
     const sortedCountries = [...countriesList];
-    if (sortType === "asc") {
-        sortedCountries.sort((a, b) => a.vote - b.vote); 
-    } else if (sortType === "desc") {
-        sortedCountries.sort((a, b) => b.vote - a.vote); 
-    }
-    return sortedCountries;
+    return sortType==="asc"
+    ?sortedCountries.sort((a, b) => a.vote - b.vote)
+    :sortedCountries.sort((a, b) => b.vote - a.vote);
   }
 
   if (action.type === "create") {
@@ -50,20 +46,18 @@ export const cardsReducer = (
   }
 
   if (action.type === "restore") {
-    return countriesList.map((country) => {
-      if (country.id === action.payload.id) {
-        return { ...country, deleteStatus: false }; // Create a new object with updated deleteStatus
-      }
-      return {...country};
+    return [...countriesList].map((country) => {
+      return country.id === action.payload.id
+        ? { ...country, deleteStatus: false }
+        : { ...country };
     });
   }
 
   if(action.type==="delete"){
-    return countriesList.map((country) => {
-      if(country.id===action.payload.id){
-        return {...country,deleteStatus:true}
-      }
-      return {...country}
+    return [...countriesList].map((country) => {
+      return country.id === action.payload.id
+        ?{...country,deleteStatus:true}
+        :{...country}
     })
   }
 
