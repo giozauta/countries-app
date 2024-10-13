@@ -86,7 +86,7 @@ const CardList:React.FC = () => {
             {countriesList.sort((a, b) => a.deleteStatus - b.deleteStatus).map(country => (
                 <Card  handleCardRestore={handleCardRestore} id={country.id} deleteStatus={country.deleteStatus} key={country.id}>
                     <CardImage imgSrc={country.imgSrc} />
-                    <CardContent handleCountriesVote={handleCountriesVote} country={country} />
+                    <CardContent country={country} />
                     <CardinteractSection handleDeleteCard={handleDeleteCard} country={country} handleCountriesVote={handleCountriesVote} />
                 </Card>
             ))}
@@ -95,4 +95,4 @@ const CardList:React.FC = () => {
   )
 }
 
-export default CardList ; 
+export default CardList;
