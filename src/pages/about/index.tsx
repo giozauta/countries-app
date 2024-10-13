@@ -12,9 +12,9 @@ const AboutViews:React.FC = ()=> {
         />
       </div>
         <div className={styles.aboutViewsBoxContent}>
-            <h2>Project Name :</h2> Countries App
-            <h2>Author :</h2> Giorgi Zautashvili
-            <h2>description :</h2> This is TBC project, i need to create A countries app that allows you to search for countries and get more information about them.
+            <h2>Project Name</h2> Countries App
+            <h2>Author</h2> Giorgi Zautashvili
+            <h2>description</h2> This is TBC project, i need to create A countries app that allows you to search for countries and get more information about them.
         </div>
     </div>
   )
