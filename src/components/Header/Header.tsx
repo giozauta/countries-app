@@ -17,7 +17,7 @@ const Header: React.FC = () => {
           <NavLink className={styles.logo} to="/"><h1>Countries App</h1></NavLink>
         </div>
         <div className={styles.navButtons}>
-          <NavLink className={handleActiveNav}to="cards">
+          <NavLink className={handleActiveNav}to="/cards">
             <p>Cards</p>
           </NavLink>
           <NavLink className={handleActiveNav} to="/about">

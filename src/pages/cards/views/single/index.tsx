@@ -7,8 +7,6 @@ const SingleCardView: React.FC = () => {
   const {id} = useParams();
   const cardInfo = cardsInitialState.find((countrie) => countrie.id == id);
   const cardInfoNotFound = !cardInfo;
-  
-console.log(cardInfo);
 
   if(cardInfoNotFound){
     return <div>Card Not Found</div>;

@@ -6,7 +6,7 @@ import NotFoundPage from '@/pages/404';
 import SingleCardView from '@/pages/cards/views/single';
 
 const CardsListview = lazy(() => import('~/src/pages/cards/views/list'));
-const AboutViews = lazy(() => import('@/pages/about/views'));
+const AboutViews = lazy(() => import('@/pages/about'));
 const ContactViews = lazy(() => import('@/pages/contact/views'));
 
 //ეს css ესე დროებით სანამ Landing Page ზე გადავწყვიტავ საბოლოოდ რა გამომაქვს 
@@ -30,7 +30,7 @@ const App: React.FC = () => {
       <Routes>
         <Route element={<DefaultLayout />}>
           <Route 
-            path='/'
+            index //არ გვაქვს როუტი რადგან home კომპონენტია 
             element ={<div style={LandingPageCss}><img style={img} src="/images/earth1.jpg"/></div>}
           />
           <Route
