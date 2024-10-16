@@ -34,14 +34,18 @@ export const cardsReducer = (
 
   if (action.type === "create") {
     const updatedCountriesList = [
+      ...countriesList,
         {
           ...action.payload.cardObject,
           imgSrc:"/images/random.jpg",
           vote: 0,
           id: (Number(countriesList.at(-1)?.id) + 1).toString(),
-        },
-        ...countriesList
+          deleteStatus: false
+        }
+        
+        
     ];
+    console.log(updatedCountriesList);
     return updatedCountriesList;
   }
 

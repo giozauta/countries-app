@@ -33,8 +33,10 @@
 }
 
 .contactForm textarea{
-    resize:none;
 	overflow: hidden;
+	resize:vertical;
+	min-height: 40px;
+	max-height: 150px;
 }
 .contactForm button{
 	box-shadow: inset 0px 1px 0px 0px #45D6D6;

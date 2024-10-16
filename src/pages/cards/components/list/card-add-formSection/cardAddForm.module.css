@@ -1,4 +1,5 @@
 .cardAddFormBox{
+    height:50px;
     display: flex;
     flex-direction: column;
     border-radius: 5px;
@@ -10,23 +11,26 @@
     align-items: center;
     background-color: #EEEEE9;
     border: none;
+    
 }
-.cardAddFormBox form {
+.cardAddForm{
     height: 100%;
     border-radius: 5px;
     display: flex;
     flex-direction: row;
     gap: 10px;
 }
-.cardAddFormBox form input{  
+.cardAddForm input{  
     box-shadow: 0 0 5px rgb(190, 185, 185);
     width: 300px;
     border-radius: 5px;
     border: 1px solid #ccc;
     padding: 5px;
     outline: none;
+    height: 50px;
+    min-height:30px;
 }
-.subbmitCard{
+.subbmitCardButton{
     width: 100px;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -35,8 +39,15 @@
     cursor: pointer;
     box-shadow: 0 0 5px rgb(190, 185, 185);
 }
-.subbmitCard:hover{
+.subbmitCardButton:hover{
     transition: all 0.2s ease-in-out;
     background-color: #34CACA;
     color: white;
+}
+.inputBox{
+    display:flex;
+    flex-direction: column;
+}
+.errBox{
+    max-height:20px;
 }

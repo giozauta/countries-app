@@ -1,4 +1,4 @@
-import {FormEvent, useReducer, useState } from 'react';
+import { useReducer, useState } from 'react';
 import styles from './cardList.module.css';
 import Card from '../card/Card';
 import CardImage from '../card-image';
@@ -38,21 +38,16 @@ const CardList:React.FC = () => {
   };
 
     //ფუნქციის დახმარებით ვამატებთ ახალ cards ებს
-  const handleCreateCard = (event:FormEvent<HTMLFormElement>)=>{
-    event.preventDefault();
+  const handleCreateCard = (newCardData:{countryName: string;capitalCity: string;population: string;})=>{
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const cardObject :any = {};
-    const cardFormData = new FormData(event.currentTarget);
-    for(const [key,value] of cardFormData){
-      cardObject[key] = value;
-    }
+    const cardObject ={...newCardData};
     dispatch({
       type:"create",
       payload:{
         cardObject,
       }
     })
-    event.currentTarget.reset()
+    
   };
   //ფუნქციის დახმარებით აღვადგენთ გამქრალ ქარდს 
   const handleCardRestore=(id:string)=>{
