@@ -8,7 +8,7 @@ type CardProps={
 }
 
 const Card: React.FC<PropsWithChildren<CardProps>> = ({children,deleteStatus,handleCardRestore,id}) => {
-  console.log(children)
+
   if(deleteStatus){
     return (
       <div className={styles.deleteCard}>

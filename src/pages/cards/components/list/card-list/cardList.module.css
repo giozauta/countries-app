@@ -2,13 +2,16 @@
     display: flex;
     flex-direction: column;
     gap: 60px;
+    
 }
 
 .cardButtonSection{
     display: flex;
     gap:10px;
     padding-left:50px;
+    height:50px;
 }
+
 .sortButton,.addCardButton{
     display: flex;
     align-items: center;
@@ -22,6 +25,7 @@
     width: 80px;
     padding:10px;
     outline: none;
+ 
 }
 .addCardButton:hover,.sortButton:hover{
     transition: all 0.5s ease;
@@ -43,24 +47,24 @@
         grid-template-columns: auto auto;
     }
     .cardButtonSection{
-        padding: 25px;
-        gap: 15px;
-
         width: 100%;
-        flex-direction: column; 
+        flex-direction: column;
+        height: auto;
     }
-    .cardButtonSection div form,.cardButtonSection div{
+    /*ეს ელემენტები შვილობილ კომპონენტში გვაქვს სახელად(Card AddForm)*/
+   .cardButtonSection>div,.cardButtonSection>div>form{
         display: flex;
         justify-content:flex-start;
         align-items: flex-start;
         flex-direction:column;
-
+        height: auto;
+    }
+    .cardButtonSection>div>form>div{
+        height:50px;
     }
     .sortButton,.addCardButton{
-        margin-left: 0px;
-        
+        margin-left: 0px;  
     }
-
 
 }
 
@@ -68,5 +72,4 @@
     .CardsBox{
         grid-template-columns: auto;
     }
-
 }
