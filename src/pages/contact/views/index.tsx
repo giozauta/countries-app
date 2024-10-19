@@ -1,4 +1,4 @@
-import ContactContent from '../components/contact-Content';
+import ContactContent from '../components/contact-content';
 
 export const ContactViews:React.FC= () => {
   return (

@@ -1,12 +1,12 @@
 import React, { FormEvent, useState } from 'react';
 import styles from './CardAddForm.module.css';
+import { useParams } from 'react-router-dom';
 
 type CardCreateFormProps = {
   onCardCreate: (newCardData: { countryName: string; capitalCity: string; population: string; }) => void;
 }
 
 const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate }) => {
-
   const [inputState, setInputState] = useState({
     countryName: "",
     capitalCity: "",
@@ -17,6 +17,8 @@ const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate }) => {
     capitalCityErr: "",
     populationErr: ""
   });
+  const {lang} = useParams();
+  const currentLang = lang||'en';
 
   //ფუნქცია გვჭირდება ფორმის ვალიდაციისთვის რომ არ მოხდეს არასწორი subbmit
   const validateState=(state:{countryNameErr:string,capitalCityErr:string,populationErr:string})=>{
@@ -104,18 +106,18 @@ const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate }) => {
     <div id="cardAddFormBox" className={styles.cardAddFormBox}>
       <form className={styles.cardAddForm} onSubmit={handleSubmit}>
         <div className={styles.inputBox}>
-          <input onChange={handleChange} value={inputState.countryName} type='text' name="countryName" placeholder='Country Name'  />
+          <input onChange={handleChange} value={inputState.countryName} type='text' name="countryName" placeholder={currentLang==="en"?"Country Name":"ქვეყანის სახელი"} />
           <span className={styles.errBox}>{inputStateErr.countryNameErr}</span>
         </div>
         <div className={styles.inputBox}>
-          <input onChange={handleChange} value={inputState.capitalCity} type='text' name="capitalCity" placeholder='Capital City'  />
+          <input onChange={handleChange} value={inputState.capitalCity} type='text' name="capitalCity" placeholder={currentLang==="en"?"Capital City":"დედაქალაქი"}  />
           <span className={styles.errBox}>{inputStateErr.capitalCityErr}</span>
         </div>
         <div className={styles.inputBox}>
-          <input onChange={handleChange} value={inputState.population} type='number' name="population" placeholder='Population'  />
+          <input onChange={handleChange} value={inputState.population} type='number' name="population" placeholder={currentLang==="en"?"Population":"მოსახლეობა"}  />
           <span  className={styles.errBox}>{inputStateErr.populationErr}</span>
         </div>
-        <button type="submit" className={styles.subbmitCardButton}>Submit</button>
+        <button type="submit" className={styles.subbmitCardButton}>{currentLang==="en"?"Create":"შექმნა"}</button>
       </form>
     </div>
   );

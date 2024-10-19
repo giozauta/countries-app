@@ -1,38 +1,21 @@
 import './App.css';
-import {Routes, Route } from 'react-router-dom';
+import {Routes, Route,Navigate} from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import DefaultLayout from '@/layouts/default';
 import NotFoundPage from '@/pages/404';
 import SingleCardView from '@/pages/cards/views/single';
 
+
 const CardsListview = lazy(() => import('~/src/pages/cards/views/list'));
 const AboutViews = lazy(() => import('@/pages/about'));
 const ContactViews = lazy(() => import('@/pages/contact/views'));
 
-//ეს css ესე დროებით სანამ Landing Page ზე გადავწყვიტავ საბოლოოდ რა გამომაქვს 
-const LandingPageCss:React.CSSProperties={
-  width:"100%",
-  height:"1040px",
-  backgroundRepeat:'no-repeat',
-  backgroundSize:'cover',
-  position:"relative",
-}
-const img:React.CSSProperties= {
-  width:"100%",
-  height:"1180px",
-  position:"absolute",
-  top:0,
-  zIndex:-1,
-  overflow:"hidden",
-}
 const App: React.FC = () => {
+
+
   return (
       <Routes>
-        <Route element={<DefaultLayout />}>
-          <Route 
-            index //არ გვაქვს როუტი რადგან home კომპონენტია 
-            element ={<div style={LandingPageCss}><img style={img} src="/images/earth1.jpg"/></div>}
-          />
+        <Route path="/:lang"  element={<DefaultLayout/>}>
           <Route
             path="cards"
             element={
@@ -42,11 +25,12 @@ const App: React.FC = () => {
             }
           />
           <Route 
-            path='/cards/:id'
+            path='cards/:id'
             element={
               <SingleCardView/>
-            }
+            }            
           />
+      
           <Route
             path="about"
             element={
@@ -64,9 +48,32 @@ const App: React.FC = () => {
             }
           />
         </Route>
+
+        <Route path="/" element={<Navigate to="/en/cards" />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
   );
 };
 
 export default App;
+
+
+
+/*ეს css ესე დროებით სანამ Landing Page ზე გადავწყვიტავ საბოლოოდ რა გამომაქვს 
+const LandingPageCss:React.CSSProperties={
+  width:"100%",
+  height:"1040px",
+  backgroundRepeat:'no-repeat',
+  backgroundSize:'cover',
+  position:"relative",
+}
+const img:React.CSSProperties= {
+  width:"100%",
+  height:"1180px",
+  position:"absolute",
+  top:0,
+  zIndex:-1,
+  overflow:"hidden",
+}
+ <Route path='/'element ={<div style={LandingPageCss}><img style={img} src="/images/earth1.jpg"/></div>}/>
+*/

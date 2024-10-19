@@ -1,5 +1,7 @@
-import { FormEvent, useState } from 'react';
-import styles from './ContactContent.module.css';
+import { FormEvent, useState} from 'react';
+import {useParams} from 'react-router-dom';
+import styles from './contactContent.module.css';
+import {data} from './contact-content-data';
 
 const ContactContent:React.FC =()=> {
   const [error,setError]=useState("");
@@ -9,6 +11,9 @@ const ContactContent:React.FC =()=> {
     email:"",
     message:""
   });
+  const {lang} = useParams();
+  const currentLang = lang||'en';
+  const contentData = data;
   
 
   const handleChange = (event:FormEvent<HTMLInputElement|HTMLTextAreaElement>) => {
@@ -49,19 +54,18 @@ const ContactContent:React.FC =()=> {
       email:"",
       message:""
     })
-    console.log(contactState);
     alert("მონაცემები წარმატებით აიტვირთა");
   };
   
   return (
     <div className={styles.contactBox}>
-      <h2>Contact Us</h2>
+      <h2>{contentData[currentLang].title}</h2>
       <form className={styles.contactForm} onSubmit={(handleSubmit)}>
-        <input onChange={handleChange} value={contactState.fullName} type="text" name="fullName" placeholder="Full Name"/>
-        <input onChange={handleChange} value={contactState.lastName} type="text" name="lastName" placeholder="Last Name" />
-        <input onChange={handleChange} value={contactState.email} type="text" name="email" placeholder="Email" />
-        <textarea onChange={handleChange} value={contactState.message} name="message" placeholder="Message"></textarea>
-        <button type="submit">Submit</button>
+        <input onChange={handleChange} value={contactState.fullName} type="text" name="fullName" placeholder={contentData[currentLang].fullName}/>
+        <input onChange={handleChange} value={contactState.lastName} type="text" name="lastName" placeholder={contentData[currentLang].lastName}/>
+        <input onChange={handleChange} value={contactState.email} type="text" name="email" placeholder={contentData[currentLang].email} />
+        <textarea onChange={handleChange} value={contactState.message} name="message" placeholder={contentData[currentLang].message}></textarea>
+        <button type="submit">{contentData[currentLang].send}</button>
       </form>
       <div>
         <h3>{error}</h3>

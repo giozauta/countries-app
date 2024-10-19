@@ -1,3 +1,4 @@
+import { useParams } from 'react-router-dom';
 import styles from './content.module.css';
 
 type ContentProps = {
@@ -5,13 +6,28 @@ type ContentProps = {
 }
 
  const Content:React.FC<ContentProps> = ({country}) => {
-  return (
-    <div className={styles.cardContent}>
-      <p>Country Name: {country.countryName}</p>
-      <p>Capital City: {country.capitalCity}</p>
-      <p>Population: {country.population} million</p>
-    </div>
-  )
+  const {lang} = useParams();
+  const currentLang = lang||'en';
+
+  if(currentLang==="en"){
+    return (
+      <div className={styles.cardContent}>
+        <p>Country Name: {country.countryName}</p>
+        <p>Capital City: {country.capitalCity}</p>
+        <p>Population: {country.population} million</p>
+      </div>
+    )
+  }
+  if(currentLang==="ka"){
+    return (
+      <div className={styles.cardContent}>
+        <p>ქვეყანა: {country.countryName}</p>
+        <p>დედაქალაქი: {country.capitalCity}</p>
+        <p>მოსახლეობა: {country.population} მილიონი</p>
+      </div>
+    )
+  }
+
 }
 
 export default Content;

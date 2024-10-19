@@ -7,32 +7,37 @@ import CardinteractSection from '../card-interact-section';
 import cardsInitialState from "./reducer/state";
 import CardAddForm from '../card-add-formSection';
 import {cardsReducer} from './reducer/reducer';
+import { useParams } from 'react-router-dom';
 
 
 const CardList:React.FC = () => {
   const [formSection,setFormSection]=useState(false);//ფორმის პანელის გამოსაჩენად გვჭირდება 
   const [countriesList,dispatch] = useReducer(
     cardsReducer,
-    cardsInitialState
+    cardsInitialState[0]
   );
 
+  const {lang} = useParams();
+  const currentLang = lang||'en';
 
     //ფუნქცია რომელსაც ვიყენებთ ლაიქების დასაწერად 
-  const handleCountriesVote = (id: string) => {
+  const handleCountriesVote = (id: string,lang:string) => {
     dispatch({
       type: "upvote",
       payload: {
         id,
+        lang,
       },
     });
   };
     
     //ფუნქცია რომელსაც ფიყენებთ ლაიქების მიხედვით card ების დასალაგებლად 
-  const handleSortChange = (sortType: "asc" | "desc") => {
+  const handleSortChange = (sortType: "asc" | "desc",lang:string) => {
     dispatch({
       type:"sort",
       payload:{
         sortType,
+        lang,
       }
     })
   };
@@ -50,20 +55,22 @@ const CardList:React.FC = () => {
     
   };
   //ფუნქციის დახმარებით აღვადგენთ გამქრალ ქარდს 
-  const handleCardRestore=(id:string)=>{
+  const handleCardRestore=(id:string,lang:string)=>{
     dispatch({
       type:"restore",
       payload:{
         id,
+        lang,
       }
     })
   }
   //ფუნქციის დახმარებით წავშლით ქარდს
-  const handleDeleteCard=(id:string)=>{
+  const handleDeleteCard=(id:string,lang:string)=>{
     dispatch({
       type:"delete",
       payload:{
         id,
+        lang,
       }
     })
   }
@@ -71,14 +78,14 @@ const CardList:React.FC = () => {
   return (
     <section className={styles.CardListSection}>
         <div className={styles.cardButtonSection}>
-            <button onClick={()=>handleSortChange("asc")} className={styles.sortButton}>Asc</button>
-            <button onClick={()=>handleSortChange("desc")} className={styles.sortButton}>Desc</button>
-            <button className={styles.addCardButton} onClick={()=>setFormSection((prevState)=>{return !prevState})}>Add Card</button>
+            <button onClick={()=>handleSortChange("asc",currentLang)} className={styles.sortButton}>{currentLang==="en"?"Asc":"ზრდადი"}</button>
+            <button onClick={()=>handleSortChange("desc",currentLang)} className={styles.sortButton}>{currentLang === "en" ? "Desc" : "კლებადი"}</button>
+            <button className={styles.addCardButton} onClick={()=>setFormSection((prevState)=>{return !prevState})}>{currentLang === "en" ? "Add Card" : "დამატება"}</button>
             {formSection? <CardAddForm onCardCreate={handleCreateCard}/>:null}
         </div>
         <div className={styles.CardsBox}>
-            {countriesList.sort((a, b) => a.deleteStatus - b.deleteStatus).map(country => (
-                <Card  handleCardRestore={handleCardRestore} id={country.id} deleteStatus={country.deleteStatus} key={country.id}>
+            {countriesList.sort((a, b) => a.deleteStatus - b.deleteStatus).map((country,index) => (
+                <Card  handleCardRestore={handleCardRestore} id={country.id} deleteStatus={country.deleteStatus} key={index}>
                     <CardImage imgSrc={country.imgSrc} />
                     <CardContent country={country} />
                     <CardinteractSection handleDeleteCard={handleDeleteCard} country={country} handleCountriesVote={handleCountriesVote} />
@@ -87,6 +94,7 @@ const CardList:React.FC = () => {
         </div>
     </section>
   )
+
 }
 
 export default CardList;

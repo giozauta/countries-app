@@ -14,24 +14,29 @@ export const cardsReducer = (
   countriesList: cardsReducerInitialState[],
   action:any
 ) => {
-
+//
   if(action.type ==="upvote"){
-    const updatedCountriesList = countriesList.map(country => {
-      return country.id === action.payload.id
-      ? {...country, vote:country.vote+1}
-      : {...country};
-    });
-    return updatedCountriesList;
-  }
+      const updatedCountriesList = countriesList.map(country => {
+        return country.id === action.payload.id
+        ? {...country, vote:country.vote+1}
+        : {...country};
+      });
+      return updatedCountriesList;
 
+  }
+//
   if(action.type ==="sort"){
     const sortType = action.payload.sortType;
-    const sortedCountries = [...countriesList];
-    return sortType==="asc"
-    ?sortedCountries.sort((a, b) => a.vote - b.vote)
-    :sortedCountries.sort((a, b) => b.vote - a.vote);
-  }
 
+    const sortedCountries = [...countriesList];
+    console.log(sortedCountries)
+      return sortType==="asc"
+      ?sortedCountries.sort((a, b) => a.vote - b.vote)
+      :sortedCountries.sort((a, b) => b.vote - a.vote);
+    
+
+  }
+//
   if (action.type === "create") {
     const updatedCountriesList = [
       ...countriesList,
@@ -41,14 +46,11 @@ export const cardsReducer = (
           vote: 0,
           id: (Number(countriesList.at(-1)?.id) + 1).toString(),
           deleteStatus: false
-        }
-        
-        
+        }       
     ];
-    console.log(updatedCountriesList);
     return updatedCountriesList;
   }
-
+//
   if (action.type === "restore") {
     return [...countriesList].map((country) => {
       return country.id === action.payload.id
@@ -56,7 +58,7 @@ export const cardsReducer = (
         : { ...country };
     });
   }
-
+//
   if(action.type==="delete"){
     return [...countriesList].map((country) => {
       return country.id === action.payload.id
@@ -65,6 +67,6 @@ export const cardsReducer = (
     })
   }
 
-return countriesList
+return countriesList;
 
 }
