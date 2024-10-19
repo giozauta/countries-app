@@ -3,6 +3,7 @@ import { NavLink, NavLinkRenderProps, useParams } from 'react-router-dom';
 import {data} from './header-content-data';
 
 
+
 const Header: React.FC = () => {
   const { lang } = useParams();
   const contentData = data;
