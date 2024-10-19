@@ -70,6 +70,6 @@ export const cardsReducer = (
 
 
 
-return countriesList[1];
+return countriesList;
 
 }
