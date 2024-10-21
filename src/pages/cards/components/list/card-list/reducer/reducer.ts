@@ -1,3 +1,4 @@
+
 type cardsReducerInitialState = {
   imageSrc:string;
   countryName:string;
@@ -14,6 +15,8 @@ export const cardsReducer = (
   countriesList: cardsReducerInitialState[],
   action:any
 ) => {
+  
+
 //
   if(action.type ==="upvote"){ 
       const updatedCountriesList = countriesList.map(country => {
@@ -67,8 +70,6 @@ export const cardsReducer = (
         :{...country}
     })
   }
-
-
 
 return countriesList;
 

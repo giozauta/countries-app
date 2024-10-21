@@ -12,14 +12,15 @@ import { useParams } from 'react-router-dom';
 
 const CardList:React.FC = () => {
   const [formSection,setFormSection]=useState(false);//ფორმის პანელის გამოსაჩენად გვჭირდება 
-  const [countriesList,dispatch] = useReducer(
+  const [countries,dispatch] = useReducer(
     cardsReducer,
     cardsInitialState[0]
   );
 
+ 
   const {lang} = useParams();
   const currentLang = lang||'en';
-
+  
     //ფუნქცია რომელსაც ვიყენებთ ლაიქების დასაწერად 
   const handleCountriesVote = (id: string,lang:string) => {
     dispatch({
@@ -84,7 +85,7 @@ const CardList:React.FC = () => {
             {formSection? <CardAddForm onCardCreate={handleCreateCard}/>:null}
         </div>
         <div className={styles.CardsBox}>
-            {countriesList.sort((a, b) => a.deleteStatus - b.deleteStatus).map((country) => (
+            {countries.sort((a, b) => a.deleteStatus - b.deleteStatus).map((country) => (
                 <Card  handleCardRestore={handleCardRestore} id={country.id} deleteStatus={country.deleteStatus} key={country.id}>
                     <CardImage imgSrc={country.imgSrc} />
                     <CardContent country={country} />

@@ -1,5 +1,5 @@
 import styles from './header.module.css';
-import { NavLink, NavLinkRenderProps, useParams } from 'react-router-dom';
+import { NavLink, NavLinkRenderProps, useLocation, useParams } from 'react-router-dom';
 import {data} from './header-content-data';
 
 
@@ -8,6 +8,8 @@ const Header: React.FC = () => {
   const { lang } = useParams();
   const contentData = data;
   const currentLang = lang||'en';
+  const location = useLocation();
+  const currentPage = location.pathname.slice(3);
 
 
   const handleActiveNav = (props: NavLinkRenderProps) => {
@@ -35,8 +37,8 @@ const Header: React.FC = () => {
           </NavLink>
           {/* Language switch links */}
           <div className={styles.LanguageLinksBox}>
-            <NavLink className={styles.langLinks} to="/ka/cards">{contentData[currentLang].ka}</NavLink>
-            <NavLink className={styles.langLinks} to="/en/cards">{contentData[currentLang].en}</NavLink>
+            <NavLink className={styles.langLinks} to={"/ka"+ currentPage}>{contentData[currentLang].ka}</NavLink>
+            <NavLink className={styles.langLinks} to={"/en"+ currentPage}>{contentData[currentLang].en}</NavLink>
           </div>
         </nav>
       </div>
