@@ -1,4 +1,5 @@
-import { useReducer, useState } from 'react';
+// @ts-nocheck
+import { useReducer, useState} from 'react';
 import styles from './cardList.module.css';
 import Card from '../card/Card';
 import CardImage from '../card-image';
@@ -10,24 +11,25 @@ import {cardsReducer} from './reducer/reducer';
 import { useParams } from 'react-router-dom';
 
 
+
 const CardList:React.FC = () => {
+
   const [formSection,setFormSection]=useState(false);//ფორმის პანელის გამოსაჩენად გვჭირდება 
   const [countries,dispatch] = useReducer(
     cardsReducer,
-    cardsInitialState[0]
+    cardsInitialState
   );
 
- 
   const {lang} = useParams();
   const currentLang = lang||'en';
-  
+
+
     //ფუნქცია რომელსაც ვიყენებთ ლაიქების დასაწერად 
-  const handleCountriesVote = (id: string,lang:string) => {
+  const handleCountriesVote = (id: string) => {
     dispatch({
       type: "upvote",
       payload: {
         id,
-        lang,
       },
     });
   };
@@ -44,13 +46,14 @@ const CardList:React.FC = () => {
   };
 
     //ფუნქციის დახმარებით ვამატებთ ახალ cards ებს
-  const handleCreateCard = (newCardData:{countryName: string;capitalCity: string;population: string;})=>{
+  const handleCreateCard = (newCardData:{countryName: string;capitalCity: string;population: number;})=>{
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const cardObject ={...newCardData};
     dispatch({
       type:"create",
       payload:{
         cardObject,
+        currentLang,
       }
     })
     
@@ -85,8 +88,8 @@ const CardList:React.FC = () => {
             {formSection? <CardAddForm onCardCreate={handleCreateCard}/>:null}
         </div>
         <div className={styles.CardsBox}>
-            {countries.sort((a, b) => a.deleteStatus - b.deleteStatus).map((country) => (
-                <Card  handleCardRestore={handleCardRestore} id={country.id} deleteStatus={country.deleteStatus} key={country.id}>
+            {countries.sort((a, b) => a.deleteStatus - b.deleteStatus).map((country,index) => (
+                <Card  handleCardRestore={handleCardRestore} id={country.id} deleteStatus={country.deleteStatus} key={index}>
                     <CardImage imgSrc={country.imgSrc} />
                     <CardContent country={country} />
                     <CardinteractSection handleDeleteCard={handleDeleteCard} country={country} handleCountriesVote={handleCountriesVote} />

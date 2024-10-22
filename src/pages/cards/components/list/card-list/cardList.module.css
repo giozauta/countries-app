@@ -10,6 +10,7 @@
     gap:10px;
     padding-left:50px;
     height:50px;
+
 }
 
 .sortButton,.addCardButton{
@@ -41,7 +42,6 @@
     margin: auto;
 }
 
-
 @media only screen and (max-width:1380px) {
     .CardsBox{
         grid-template-columns: auto auto;
@@ -51,25 +51,5 @@
         flex-direction: column;
         height: auto;
     }
-    /*ეს ელემენტები შვილობილ კომპონენტში გვაქვს სახელად(Card AddForm)*/
-   .cardButtonSection>div,.cardButtonSection>div>form{
-        display: flex;
-        justify-content:flex-start;
-        align-items: flex-start;
-        flex-direction:column;
-        height: auto;
-    }
-    .cardButtonSection>div>form>div{
-        height:50px;
-    }
-    .sortButton,.addCardButton{
-        margin-left: 0px;  
-    }
 
-}
-
-@media only screen and (max-width:900px) {
-    .CardsBox{
-        grid-template-columns: auto;
-    }
 }

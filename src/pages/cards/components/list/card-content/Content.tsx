@@ -12,8 +12,8 @@ type ContentProps = {
   if(currentLang==="en"){
     return (
       <div className={styles.cardContent}>
-        <p>Country Name: {country.countryName}</p>
-        <p>Capital City: {country.capitalCity}</p>
+        <p>Country Name: {country.countryName[currentLang]}</p>
+        <p>Capital City: {country.capitalCity[currentLang]}</p>
         <p>Population: {country.population} million</p>
       </div>
     )
@@ -21,8 +21,8 @@ type ContentProps = {
   if(currentLang==="ka"){
     return (
       <div className={styles.cardContent}>
-        <p>ქვეყანა: {country.countryName}</p>
-        <p>დედაქალაქი: {country.capitalCity}</p>
+        <p>ქვეყანა: {country.countryName[currentLang]}</p>
+        <p>დედაქალაქი: {country.capitalCity[currentLang]}</p>
         <p>მოსახლეობა: {country.population} მილიონი</p>
       </div>
     )

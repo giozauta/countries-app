@@ -5,7 +5,7 @@ import cardsInitialState from "../../components/list/card-list/reducer/state";
 
 const SingleCardView: React.FC = () => {
   const {id} = useParams();
-  const cardInfo = cardsInitialState[0].find((countrie) => countrie.id == id);
+  const cardInfo = cardsInitialState.find((countrie) => countrie.id == id);
   const cardInfoNotFound = !cardInfo;
 
 

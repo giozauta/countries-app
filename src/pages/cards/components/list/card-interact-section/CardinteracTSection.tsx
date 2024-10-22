@@ -4,7 +4,7 @@ import styles from './cardInteractSection.module.css';
 
 type CardinteractSectionProps = {
   country:{name:string,capitalCity:string,population:number,id:string,vote:number,deleteStatus:boolean},
-  handleCountriesVote:(id:string,lang:string) => void,
+  handleCountriesVote:(id:string) => void,
   handleDeleteCard:(id:string,lang:string) => void
 }
 
@@ -22,7 +22,7 @@ const CardinteractSection:React.FC<CardinteractSectionProps> = ({country,handleC
       </div>
       <div className={styles.cardButtonSectionTwo}>
         <div className={styles.voteSection}>
-            <img onClick={()=>handleCountriesVote(country.id,currentLang)} className={styles.likeIcon} src="/icons/like.png"/>
+            <img onClick={()=>handleCountriesVote(country.id)} className={styles.likeIcon} src="/icons/like.png"/>
             <p>{country.vote}</p> 
         </div>
           <p onClick={()=>handleDeleteCard(country.id,currentLang)} className={styles.cardDeleteButton}>X</p>
