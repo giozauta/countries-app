@@ -54,8 +54,8 @@ export const cardsReducer = (
             ka:action.payload.cardObject.capitalCityKa
           },
           article:{
-            en:action.payload.cardObject.articleEn,
-            ka:action.payload.cardObject.articleKa
+            en:"articleEn",
+            ka:"articleKa"
           },
           population:action.payload.cardObject.population,
           imgSrc:action.payload.cardObject.imgSrc,

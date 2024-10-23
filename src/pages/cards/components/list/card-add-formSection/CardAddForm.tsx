@@ -13,18 +13,14 @@ const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate }) => {
     capitalCityEn: "",
     capitalCityKa: "",
     population:"",
-    imgSrc: "",
-    articleEn:"",
-    articleKa:""
+    imgSrc: ""
   });
   const [inputStateErr, setInputStateErr] = useState({
     countryNameErrEn: "",
     countryNameErrKa: "",
     capitalCityErrEn: "",
     capitalCityErrKa: "",
-    populationErr: "",
-    articleErrEn:"",
-    articleErrKa:""
+    populationErr: ""
   });
   const {lang} = useParams();
   const currentLang = lang||'en';
@@ -150,32 +146,7 @@ const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate }) => {
         }); 
       }
     }
-    if (name === "articleEn") {
-      if(!checkIfAllEnglishLetters(value,english)){
-        setInputStateErr({
-          ...inputStateErr,
-          articleErrEn: "It must contain only english letters"
-        });
-      }else {
-        setInputStateErr({
-          ...inputStateErr,
-          articleErrEn: ""
-        }); 
-      }
-  }
-  if (name === "articleKa") {
-      if(!checkIfAllEnglishLetters(value,georgian)){
-        setInputStateErr({
-          ...inputStateErr,
-          articleErrKa: "It must contain only georgian letters"
-        });
-      }else {
-        setInputStateErr({
-          ...inputStateErr,
-          articleErrKa: ""
-        }); 
-      }
-  }
+    
   };
   
 
@@ -244,14 +215,6 @@ const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate }) => {
         </div>
         <div className={styles.inputBox}>
           <input onChange={handleChange}  type="file" name="imgSrc"   accept=".jpg,.png"/>
-        </div>
-        <div className={styles.inputBox}>
-          <textarea onChange={handleChange} className={styles.articleTextarea} value={inputState.articleEn} name="articleEn" placeholder={currentLang==="en"?"Article in English":"ტექსტი ინგლისურად"}/>
-          <span  className={styles.errBox}>{inputStateErr.articleErrEn}</span>
-        </div>
-        <div className={styles.inputBox}>
-          <textarea onChange={handleChange} className={styles.articleTextarea} value={inputState.articleKa} name="articleKa" placeholder={currentLang==="en"?"Article in Georgian":"ტექსტი ქართულად"}/>
-          <span  className={styles.errBox}>{inputStateErr.articleErrKa}</span>
         </div>
         <button type="submit" className={styles.subbmitCardButton}>{currentLang==="en"?"Create":"შექმნა"}</button>
       </form>
