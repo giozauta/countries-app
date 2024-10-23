@@ -18,17 +18,42 @@ const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate }) => {
     articleKa:""
   });
   const [inputStateErr, setInputStateErr] = useState({
-    countryNameErr: "",
-    capitalCityErr: "",
-    populationErr: ""
+    countryNameErrEn: "",
+    countryNameErrKa: "",
+    capitalCityErrEn: "",
+    capitalCityErrKa: "",
+    populationErr: "",
+    articleErrEn:"",
+    articleErrKa:""
   });
   const {lang} = useParams();
   const currentLang = lang||'en';
 
+//გვჭირდება იმისთვის რომ შევამოწმოთ სწორ ენაზე შეავსო თუარა იუზერმა ინფუთი 
+  const georgian = ["ა", "ბ", "გ", "დ", "ე", "ვ", "ზ", "თ", "ი", "კ", "ლ", "მ", "ნ", "ო", "პ", "ჟ", "რ", "ს", "ტ", "უ", "ფ", "ქ", "ღ", "ყ", "შ", "ჩ", "ც", "ძ", "წ", "ჭ", "ხ", "ჰ"] 
+  const english = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",  "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
+    "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+//ამ ფუნქციის დახმარებით ვამოწმებთ სწორ ენაზე შეავსო თუარა იუზერმა ინფუთი 
+  function checkIfAllEnglishLetters(word,alphabet) {
+    return word.split("").every(char => alphabet.includes(char));
+  }
+  
+
  
-//ფუნქცია გვჭირდება ფორმის ვალიდაციისთვის რომ არ მოხდეს არასწორი subbmit
-  const validateState=(state:{countryNameErr:string,capitalCityErr:string,populationErr:string})=>{
-    if(state.countryNameErr!==""||state.capitalCityErr!==""||state.populationErr!==""){
+//ფუნქცია გვჭირდება ფორმის ვალიდაციისთვის რომ არ მოხდეს არასწორი subbmit ანუ თუ ერორ მესიჯები ცარიელია მოხდება subbmit 
+  const validateState=(state:{
+    countryNameErrEn: string;
+    countryNameErrKa: string;
+    capitalCityErrEn: string;
+    capitalCityErrKa: string;
+    populationErr: string
+  })=>{
+    if(state.countryNameErrEn!==""
+      ||state.countryNameErrKa!==""
+      ||state.capitalCityErrEn!==""
+      ||state.capitalCityErrKa!==""
+      ||state.populationErr!==""
+    ){
       return false;
     }
     return true;
@@ -56,51 +81,103 @@ const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate }) => {
       [name]: value
     });
   } 
-//ერორები გამოაქვს თუ არასწორია ინფორმაცია 
-    if (name === "countryName") {
-      if (value.length < 3&&value.length!==0) {
+//ერორები გამოაქვს თუ არასწორია ინფორმაცია
+  // 
+  if (name === "countryNameEn") {
+      if(!checkIfAllEnglishLetters(value,english)){
         setInputStateErr({
           ...inputStateErr,
-          countryNameErr: "It must be at least 3 characters"
+          countryNameErrEn: "It must contain only english letters"
         });
-        
-      } else {
+      }else {
         setInputStateErr({
           ...inputStateErr,
-          countryNameErr: ""
+          countryNameErrEn: ""
         }); 
       }
-    }
-    if (name === "capitalCity") {
-      if (value.length < 3&&value.length!==0) {
+  }
+  if (name === "countryNameKa") {
+      if(!checkIfAllEnglishLetters(value,georgian)){
         setInputStateErr({
           ...inputStateErr,
-          capitalCityErr: "It must be at least 3 characters"
+          countryNameErrKa: "It must contain only georgian letters"
         });
-        
-      } else {
+      }else {
         setInputStateErr({
           ...inputStateErr,
-          capitalCityErr: ""
+          countryNameErrKa: ""
         }); 
       }
+  }
+  //  
+  if (name === "capitalCityEn") {
+      if(!checkIfAllEnglishLetters(value,english)){
+        setInputStateErr({
+          ...inputStateErr,
+          capitalCityErrEn: "It must contain only english letters"
+        });
+      }else {
+        setInputStateErr({
+          ...inputStateErr,
+          capitalCityErrEn: ""
+        }); 
+      }
+  }
+  if (name === "capitalCityKa") {
+    if(!checkIfAllEnglishLetters(value,georgian)){
+      setInputStateErr({
+        ...inputStateErr,
+        capitalCityErrKa: "It must contain only georgian letters"
+      });
+    }else {
+      setInputStateErr({
+        ...inputStateErr,
+        capitalCityErrKa: ""
+      }); 
     }
-    if (name === "population") {
-      if (value.length>6) {
+}
+  //
+  if(name === "population") {
+    if (value.length>6) {
         setInputStateErr({
           ...inputStateErr,
           populationErr: "It must be less than 6 characters"
         });
-       
-      } else {
+      }else {
         setInputStateErr({
           ...inputStateErr,
           populationErr: ""
         }); 
       }
     }
-    
+    if (name === "articleEn") {
+      if(!checkIfAllEnglishLetters(value,english)){
+        setInputStateErr({
+          ...inputStateErr,
+          articleErrEn: "It must contain only english letters"
+        });
+      }else {
+        setInputStateErr({
+          ...inputStateErr,
+          articleErrEn: ""
+        }); 
+      }
+  }
+  if (name === "articleKa") {
+      if(!checkIfAllEnglishLetters(value,georgian)){
+        setInputStateErr({
+          ...inputStateErr,
+          articleErrKa: "It must contain only georgian letters"
+        });
+      }else {
+        setInputStateErr({
+          ...inputStateErr,
+          articleErrKa: ""
+        }); 
+      }
+  }
   };
+  
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -124,8 +201,10 @@ const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate }) => {
           articleKa:""
         });
         setInputStateErr({
-          countryNameErr: "",
-          capitalCityErr: "",
+          countryNameErrEn: "",
+          countryNameErrKa: "",
+          capitalCityErrEn: "",
+          capitalCityErrKa: "",
           populationErr: ""
         })
         
@@ -145,19 +224,19 @@ const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate }) => {
       <form className={styles.cardAddForm} onSubmit={handleSubmit}>
         <div className={styles.inputBox}>
           <input onChange={handleChange} value={inputState.countryNameEn} type='text' name="countryNameEn" placeholder={currentLang==="en"?"Country Name in English":"ქვეყანის სახელი ინგლისურად"} />
-          <span className={styles.errBox}>{inputStateErr.countryNameErr}</span>
+          <span className={styles.errBox}>{inputStateErr.countryNameErrEn}</span>
         </div>
         <div className={styles.inputBox}>
           <input onChange={handleChange} value={inputState.countryNameKa} type='text' name="countryNameKa" placeholder={currentLang==="en"?"Country Name in Georgian":"ქვეყანის სახელი ქართულად"} />
-          <span className={styles.errBox}>{inputStateErr.countryNameErr}</span>
+          <span className={styles.errBox}>{inputStateErr.countryNameErrKa}</span>
         </div>
         <div className={styles.inputBox}>
           <input onChange={handleChange} value={inputState.capitalCityEn} type='text' name="capitalCityEn" placeholder={currentLang==="en"?"Capital City in English":"დედაქალაქი ინგლისურად"}  />
-          <span className={styles.errBox}>{inputStateErr.capitalCityErr}</span>
+          <span className={styles.errBox}>{inputStateErr.capitalCityErrEn}</span>
         </div>
         <div className={styles.inputBox}>
           <input onChange={handleChange} value={inputState.capitalCityKa} type='text' name="capitalCityKa" placeholder={currentLang==="en"?"Capital City in Georgian":"დედაქალაქი ქართულად"}  />
-          <span className={styles.errBox}>{inputStateErr.capitalCityErr}</span>
+          <span className={styles.errBox}>{inputStateErr.capitalCityErrKa}</span>
         </div>
         <div className={styles.inputBox}>
           <input onChange={handleChange} value={inputState.population} type='number' name="population" placeholder={currentLang==="en"?"Population":"მოსახლეობა"}  />
@@ -168,11 +247,12 @@ const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate }) => {
         </div>
         <div className={styles.inputBox}>
           <textarea onChange={handleChange} className={styles.articleTextarea} value={inputState.articleEn} name="articleEn" placeholder={currentLang==="en"?"Article in English":"ტექსტი ინგლისურად"}/>
+          <span  className={styles.errBox}>{inputStateErr.articleErrEn}</span>
         </div>
         <div className={styles.inputBox}>
           <textarea onChange={handleChange} className={styles.articleTextarea} value={inputState.articleKa} name="articleKa" placeholder={currentLang==="en"?"Article in Georgian":"ტექსტი ქართულად"}/>
+          <span  className={styles.errBox}>{inputStateErr.articleErrKa}</span>
         </div>
-        
         <button type="submit" className={styles.subbmitCardButton}>{currentLang==="en"?"Create":"შექმნა"}</button>
       </form>
     </div>
