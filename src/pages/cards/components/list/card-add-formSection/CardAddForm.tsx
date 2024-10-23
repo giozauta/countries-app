@@ -8,11 +8,14 @@ type CardCreateFormProps = {
 
 const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate }) => {
   const [inputState, setInputState] = useState({
-    countryName: "",
-    capitalCity: "",
+    countryNameEn:"",
+    countryNameKa:"",
+    capitalCityEn: "",
+    capitalCityKa: "",
     population:"",
     imgSrc: "",
-    article:""
+    articleEn:"",
+    articleKa:""
   });
   const [inputStateErr, setInputStateErr] = useState({
     countryNameErr: "",
@@ -102,7 +105,7 @@ const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate }) => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 //თუ ველები არ იქნება შევსებული გამოვა ალერთი და დაბრუნდება ფუნქცია რაც საშუალებას აღარ მოგვცემს რომ ქარდი დავამატოთ 
-    if(inputState.countryName===""||inputState.capitalCity===""||inputState.population===""||inputState.imgSrc===""||inputState.article===""){
+    if(inputState.countryNameEn===""||inputState.capitalCityEn===""||inputState.population===""||inputState.imgSrc===""||inputState.articleEn===""){
       alert("გთხოვთ შეავსოთ ყველა ველი");
       return;
     }
@@ -111,11 +114,14 @@ const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate }) => {
         onCardCreate(inputState);
 
         setInputState({
-          countryName: "",
-          capitalCity: "",
-          population: "",
+          countryNameEn:"",
+          countryNameKa:"",
+          capitalCityEn: "",
+          capitalCityKa: "",
+          population:"",
           imgSrc: "",
-          article:""
+          articleEn:"",
+          articleKa:""
         });
         setInputStateErr({
           countryNameErr: "",
@@ -123,7 +129,13 @@ const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate }) => {
           populationErr: ""
         })
         
-        alert("ახალი ქარდი წარმატებით დაემატა")
+        if(currentLang==="en"){
+          alert("New card added successfully")
+        }
+        if(currentLang==="ka"){
+          alert("ახალი ქარდი წარმატებით დაემატა")
+        }
+        
     }
   };
 
@@ -132,11 +144,19 @@ const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate }) => {
     <div id="cardAddFormBox" className={styles.cardAddFormBox}>
       <form className={styles.cardAddForm} onSubmit={handleSubmit}>
         <div className={styles.inputBox}>
-          <input onChange={handleChange} value={inputState.countryName} type='text' name="countryName" placeholder={currentLang==="en"?"Country Name":"ქვეყანის სახელი"} />
+          <input onChange={handleChange} value={inputState.countryNameEn} type='text' name="countryNameEn" placeholder={currentLang==="en"?"Country Name in English":"ქვეყანის სახელი ინგლისურად"} />
           <span className={styles.errBox}>{inputStateErr.countryNameErr}</span>
         </div>
         <div className={styles.inputBox}>
-          <input onChange={handleChange} value={inputState.capitalCity} type='text' name="capitalCity" placeholder={currentLang==="en"?"Capital City":"დედაქალაქი"}  />
+          <input onChange={handleChange} value={inputState.countryNameKa} type='text' name="countryNameKa" placeholder={currentLang==="en"?"Country Name in Georgian":"ქვეყანის სახელი ქართულად"} />
+          <span className={styles.errBox}>{inputStateErr.countryNameErr}</span>
+        </div>
+        <div className={styles.inputBox}>
+          <input onChange={handleChange} value={inputState.capitalCityEn} type='text' name="capitalCityEn" placeholder={currentLang==="en"?"Capital City in English":"დედაქალაქი ინგლისურად"}  />
+          <span className={styles.errBox}>{inputStateErr.capitalCityErr}</span>
+        </div>
+        <div className={styles.inputBox}>
+          <input onChange={handleChange} value={inputState.capitalCityKa} type='text' name="capitalCityKa" placeholder={currentLang==="en"?"Capital City in Georgian":"დედაქალაქი ქართულად"}  />
           <span className={styles.errBox}>{inputStateErr.capitalCityErr}</span>
         </div>
         <div className={styles.inputBox}>
@@ -147,7 +167,10 @@ const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate }) => {
           <input onChange={handleChange}  type="file" name="imgSrc"   accept=".jpg,.png"/>
         </div>
         <div className={styles.inputBox}>
-          <textarea onChange={handleChange} className={styles.articleTextarea} value={inputState.article} name="article" placeholder={currentLang==="en"?"Article":"ტექსტი"}/>
+          <textarea onChange={handleChange} className={styles.articleTextarea} value={inputState.articleEn} name="articleEn" placeholder={currentLang==="en"?"Article in English":"ტექსტი ინგლისურად"}/>
+        </div>
+        <div className={styles.inputBox}>
+          <textarea onChange={handleChange} className={styles.articleTextarea} value={inputState.articleKa} name="articleKa" placeholder={currentLang==="en"?"Article in Georgian":"ტექსტი ქართულად"}/>
         </div>
         
         <button type="submit" className={styles.subbmitCardButton}>{currentLang==="en"?"Create":"შექმნა"}</button>

@@ -40,57 +40,27 @@ export const cardsReducer = (
   }
 //
   if (action.type === "create") {
-  
-//ეს გვჭირდება იმისთვის რომ, თუ ქართულ ენაზე ჩაწერს საიტზე ქართულად user ი ka: ში ჩავარდება ტექსტი 
-      let currentLangCountryName;
-      let currentLangCapitalCity;
-      let currentLangArticle;
 
-      if(action.payload.currentLang==="ka"){
-          currentLangCountryName ={
-            en:"",
-            ka:action.payload.cardObject.countryName
-          }
-          currentLangCapitalCity={
-            en:"",
-            ka:action.payload.cardObject.capitalCity
-          }
-          currentLangArticle={
-            en:"",
-            ka:action.payload.cardObject.article
-          }
-      }
-      if(action.payload.currentLang==="en"){
-          currentLangCountryName ={
-            en:action.payload.cardObject.countryName,
-            ka:""
-          }
-          currentLangCapitalCity={
-            en:action.payload.cardObject.capitalCity,
-            ka:""
-          }
-          currentLangArticle={
-            en:action.payload.cardObject.article,
-            ka:""
-          }
-      }
 //ამის დახმარებით ვანახლებთ ახალ countriesList ებს და ვაბრუნებთ 
     const updatedCountriesList = [
         ...countriesList,
         {
           countryName:{
-            ...currentLangCountryName
+            en:action.payload.cardObject.countryNameEn,
+            ka:action.payload.cardObject.countryNameKa
           },
           capitalCity:{
-            ...currentLangCapitalCity
+            en:action.payload.cardObject.capitalCityEn,
+            ka:action.payload.cardObject.capitalCityKa
           },
           article:{
-            ...currentLangArticle
+            en:action.payload.cardObject.articleEn,
+            ka:action.payload.cardObject.articleKa
           },
           population:action.payload.cardObject.population,
           imgSrc:action.payload.cardObject.imgSrc,
           vote: 0,
-          id: (Number(countriesList.at(-1)?.id) + 1).toString(),
+          id:(countriesList.length+1).toString(),
           deleteStatus: false
         }       
     ];

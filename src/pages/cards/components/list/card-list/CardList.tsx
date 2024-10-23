@@ -88,8 +88,8 @@ const CardList:React.FC = () => {
             {formSection? <CardAddForm onCardCreate={handleCreateCard}/>:null}
         </div>
         <div className={styles.CardsBox}>
-            {countries.sort((a, b) => a.deleteStatus - b.deleteStatus).map((country,index) => (
-                <Card  handleCardRestore={handleCardRestore} id={country.id} deleteStatus={country.deleteStatus} key={index}>
+            {countries.sort((a, b) => a.deleteStatus - b.deleteStatus).map((country) => (
+                <Card  handleCardRestore={handleCardRestore} id={country.id} deleteStatus={country.deleteStatus} key={country.id}>
                     <CardImage imgSrc={country.imgSrc} />
                     <CardContent country={country} />
                     <CardinteractSection handleDeleteCard={handleDeleteCard} country={country} handleCountriesVote={handleCountriesVote} />

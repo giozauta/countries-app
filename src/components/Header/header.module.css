@@ -12,6 +12,7 @@
     height: 100px;
     margin: auto;
     width: 100%;
+    z-index: 1001;
   }
   .headerBox{
     width: 95%;
