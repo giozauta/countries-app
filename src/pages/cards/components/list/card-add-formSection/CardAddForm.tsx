@@ -153,9 +153,14 @@ const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate }) => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 //თუ ველები არ იქნება შევსებული გამოვა ალერთი და დაბრუნდება ფუნქცია რაც საშუალებას აღარ მოგვცემს რომ ქარდი დავამატოთ 
-    if(inputState.countryNameEn===""||inputState.capitalCityEn===""||inputState.population===""||inputState.imgSrc===""||inputState.articleEn===""){
-      alert("გთხოვთ შეავსოთ ყველა ველი");
-      return;
+    if(inputState.countryNameEn===""||inputState.capitalCityEn===""||inputState.population===""||inputState.imgSrc===""){
+      if(currentLang==="en"){
+        alert("All fields are required");
+        return
+      }else{
+        alert("გთხოვთ შეავსოთ ყველა ველი");
+        return
+      }
     }
 //თუ ყველა ერორი ცარიელია დაგვიბრუნდება true და შევძლებთ საბმითს 
     if(validateState(inputStateErr)){
@@ -167,9 +172,7 @@ const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate }) => {
           capitalCityEn: "",
           capitalCityKa: "",
           population:"",
-          imgSrc: "",
-          articleEn:"",
-          articleKa:""
+          imgSrc: ""
         });
         setInputStateErr({
           countryNameErrEn: "",
