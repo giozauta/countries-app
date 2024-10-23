@@ -1,7 +1,8 @@
-.CardListSection{
+.cardListSection{
     display: flex;
     flex-direction: column;
     gap: 60px;
+    
 }
 
 .cardButtonSection{
@@ -49,6 +50,25 @@
         width: 100%;
         flex-direction: column;
         height: auto;
+    }
+
+}
+
+@media (max-width: 800px){
+    .cardListSection{
+        display: flex;
+        flex-direction:column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .CardsBox{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .CardsBox>div{
+        margin-left: auto;
     }
 
 }

@@ -80,7 +80,7 @@ const CardList:React.FC = () => {
   }
 
   return (
-    <section className={styles.CardListSection}>
+    <section className={styles.cardListSection}>
         <div className={styles.cardButtonSection}>
             <button onClick={()=>handleSortChange("asc",currentLang)} className={styles.sortButton}>{currentLang==="en"?"Asc":"ზრდადი"}</button>
             <button onClick={()=>handleSortChange("desc",currentLang)} className={styles.sortButton}>{currentLang === "en" ? "Desc" : "კლებადი"}</button>
