@@ -7,14 +7,14 @@ const Footer: React.FC = () => {
         <a href="https://www.facebook.com/zautagio" target="_blank">
           <img
             className={styles.icon}
-            src="../../../public/icons/facebook.png"
+            src="/public/icons/facebook.png"
             alt="facebook"
           />
         </a>
         <a href="https://github.com/giozauta" target="_blank">
           <img
             className={styles.icon}
-            src="../../../public/icons/github.png"
+            src="/public/icons/github.png"
             alt="github"
           />
         </a>
@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
         >
           <img
             className={styles.icon}
-            src="../../../public/icons/linkedin.png"
+            src="/public/icons/linkedin.png"
             alt="linkedin"
           />
         </a>
