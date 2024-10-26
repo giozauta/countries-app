@@ -1,0 +1,72 @@
+.cardListSection {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.cardButtonSection {
+  display: flex;
+  gap: 10px;
+  padding-left: 50px;
+  height: auto;
+}
+
+.sortButton,
+.addCardButton {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 5px;
+  border: none;
+  color: black;
+  text-decoration: none;
+  box-shadow: 0 0 5px rgb(190, 185, 185);
+  width: 80px;
+  padding: 10px;
+  outline: none;
+}
+.addCardButton:hover,
+.sortButton:hover {
+  transition: all 0.5s ease;
+  background-color: #34caca;
+  color: white;
+}
+
+.CardsBox {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 55px;
+  width: 100%;
+  margin: auto;
+}
+
+@media only screen and (max-width: 1380px) {
+  .CardsBox {
+    grid-template-columns: auto auto;
+  }
+  .cardButtonSection {
+    width: 100%;
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+@media (max-width: 800px) {
+  .cardListSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .CardsBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .CardsBox > div {
+    margin-left: auto;
+  }
+}

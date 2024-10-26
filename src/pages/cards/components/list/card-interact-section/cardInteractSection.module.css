@@ -1,0 +1,68 @@
+.cardButtonSectionActive {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 4px;
+}
+.cardButtonSectionDisabled {
+  display: none;
+}
+.cardButtonSectionTwo {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-right: 15px;
+}
+.readMoreBtn {
+  background-color: #ffffff;
+  color: rgb(70, 62, 62);
+  padding: 10px;
+  padding-left: 0px;
+  border: none;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.readMoreBtn:hover {
+  color: #3ecccc;
+  transition: all 0.5s ease-in-out;
+  padding-left: 8px;
+  scale: 1.1;
+}
+.voteSection {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  justify-content: space-between;
+  font-size: 28px;
+}
+.likeIcon {
+  display: block;
+  width: 27px;
+  height: 27px;
+  cursor: pointer;
+}
+.likeIcon:hover {
+  transition: ease 0.5s;
+  scale: 1.2;
+}
+
+.cardDeleteButton {
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  font-size: 27px;
+  width: 30px;
+  background-color: white;
+  border: none;
+}
+.cardDeleteButton:hover {
+  background-color: #34caca;
+  color: white;
+  transition: ease 0.5s;
+  transform: scale(1.1);
+  cursor: pointer;
+}

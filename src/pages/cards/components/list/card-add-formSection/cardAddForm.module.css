@@ -1,0 +1,76 @@
+.cardAddFormBox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+  gap: 10px;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: rgba(255, 255, 255, 0.973);
+  box-shadow: 0 0 5px rgb(190, 185, 185);
+  height: auto;
+  width: 500px;
+  padding: 50px;
+  z-index: 100;
+}
+.cardAddForm {
+  height: 100%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cardAddForm input {
+  box-shadow: 0 0 3px rgb(190, 185, 185);
+  width: 300px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  outline: none;
+  height: 50px;
+  min-height: 30px;
+}
+
+.articleTextarea {
+  overflow: hidden;
+  resize: vertical;
+  min-height: 50px;
+  max-height: 150px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 3px rgb(190, 185, 185);
+  overflow-y: scroll;
+}
+textarea::-webkit-scrollbar {
+  display: none;
+}
+textarea:focus::-webkit-scrollbar {
+  display: block;
+}
+textarea:focus {
+  border: none;
+  outline: none;
+  overflow-y: auto;
+}
+.subbmitCardButton {
+  width: 100px;
+  height: 50px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  background-color: white;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgb(190, 185, 185);
+}
+.subbmitCardButton:hover {
+  transition: all 0.2s ease-in-out;
+  background-color: #34caca;
+  color: white;
+}
+.inputBox {
+  display: flex;
+  flex-direction: column;
+}
+.errBox {
+  max-height: 20px;
+}

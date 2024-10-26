@@ -1,0 +1,12 @@
+.aboutViewsBox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 73vh;
+  padding-left: 250px;
+}
+.aboutViewsBoxContent {
+  padding: 25px;
+  max-width: 500px;
+  line-height: 30px;
+}
