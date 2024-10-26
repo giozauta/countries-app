@@ -37,6 +37,9 @@
 .navLink {
   text-decoration: none;
 }
+.navLink:active {
+  color:black;
+}
 .navLinkActive {
   text-decoration: none;
   color: #34caca;
