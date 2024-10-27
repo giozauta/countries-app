@@ -12,11 +12,7 @@ const Footer: React.FC = () => {
           />
         </a>
         <a href="https://github.com/giozauta" target="_blank">
-          <img
-            className={styles.icon}
-            src="/icons/github.png"
-            alt="github"
-          />
+          <img className={styles.icon} src="/icons/github.png" alt="github" />
         </a>
         <a
           href="https://www.linkedin.com/in/giorgi-zautashvili-9779a7215/"

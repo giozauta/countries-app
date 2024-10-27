@@ -5,9 +5,8 @@
   display: flex;
   overflow: hidden;
   flex-direction: column;
-  padding: 4px;
+  border-radius:5px;
   box-shadow: 0 0px 8px rgb(173, 173, 173);
-  overflow: hidden;
   background-color: #ffffff;
 }
 .deleteCard {
@@ -19,14 +18,12 @@
   flex-direction: column;
   padding: 4px;
   box-shadow: 0 0px 8px rgb(173, 173, 173);
-  overflow: hidden;
   background-color: #ffffff;
   opacity: 0.5;
 }
 .restoreButton {
   border-radius: 5px;
   border: 1px solid #ccc;
-  padding: 5px;
   background-color: white;
   cursor: pointer;
   box-shadow: 0 0 5px rgb(190, 185, 185);
