@@ -5,7 +5,7 @@
   display: flex;
   overflow: hidden;
   flex-direction: column;
-  border-radius:5px;
+  border-radius: 5px;
   box-shadow: 0 0px 8px rgb(173, 173, 173);
   background-color: #ffffff;
 }
@@ -16,7 +16,6 @@
   display: flex;
   overflow: hidden;
   flex-direction: column;
-  padding: 4px;
   box-shadow: 0 0px 8px rgb(173, 173, 173);
   background-color: #ffffff;
   opacity: 0.5;
