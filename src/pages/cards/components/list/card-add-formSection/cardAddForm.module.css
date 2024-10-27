@@ -75,17 +75,16 @@ textarea:focus {
   max-height: 20px;
 }
 
-
 @media screen and (max-width: 420px) {
-  .cardAddFormBox{
-    padding:5px;
+  .cardAddFormBox {
+    padding: 5px;
     position: relative;
     width: 100%;
     overflow: hidden;
     gap: 0px;
     margin: auto;
   }
-  .cardAddForm{
+  .cardAddForm {
     margin: auto;
     border-radius: 10px;
     overflow: hidden;

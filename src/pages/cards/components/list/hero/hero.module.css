@@ -44,17 +44,16 @@
 }
 
 @media screen and (max-width: 420px) {
-  .hero{
+  .hero {
     width: 99%;
     overflow: hidden;
     display: flex;
     justify-content: center;
     position: relative;
-
   }
-  .heroContent{
-    left:20px;
-    font-size:20px;
+  .heroContent {
+    left: 20px;
+    font-size: 20px;
     position: absolute;
   }
 }

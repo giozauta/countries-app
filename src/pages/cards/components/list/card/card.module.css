@@ -1,6 +1,6 @@
 .card {
   margin: auto;
-  width:400px;
+  width: 400px;
   height: 600px;
   display: flex;
   overflow: hidden;
@@ -38,7 +38,7 @@
 }
 
 @media screen and (max-width: 420px) {
-  .card{
+  .card {
     width: 100%;
   }
 }

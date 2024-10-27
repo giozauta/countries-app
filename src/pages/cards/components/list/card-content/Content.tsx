@@ -20,7 +20,6 @@ const Content: React.FC<{ country: CountryType }> = ({ country }) => {
   const { lang } = useParams();
   const currentLang: string = lang ?? "en";
 
-
   if (currentLang === "en") {
     return (
       <div className={styles.cardContent}>

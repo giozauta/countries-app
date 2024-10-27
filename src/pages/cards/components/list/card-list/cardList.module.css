@@ -1,4 +1,4 @@
-.cardListSection { 
+.cardListSection {
   display: flex;
   flex-direction: column;
   gap: 60px;
@@ -7,7 +7,7 @@
   margin: auto;
 }
 
-.cardButtonSection { 
+.cardButtonSection {
   display: flex;
   gap: 10px;
   padding-left: 50px;
@@ -16,7 +16,7 @@
 }
 
 .sortButton,
-.addCardButton {  
+.addCardButton {
   height: 50px;
   display: flex;
   align-items: center;
@@ -41,7 +41,7 @@
 .CardsBox {
   display: grid;
   grid-template-columns: auto auto auto;
-  grid-gap:55px;
+  grid-gap: 55px;
   width: 100%;
   margin: auto;
   overflow: hidden;
@@ -76,13 +76,13 @@
   }
 }
 
-
 @media screen and (max-width: 420px) {
-  .cardListSection,.CardsBox,.cardButtonSection{
+  .cardListSection,
+  .CardsBox,
+  .cardButtonSection {
     width: 99%;
     margin: auto;
     padding: 0px;
     overflow: hidden;
   }
-
 }
