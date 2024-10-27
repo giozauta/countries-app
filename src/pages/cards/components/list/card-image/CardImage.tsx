@@ -6,14 +6,18 @@ const CardImage: React.FC<{ imgSrc: string }> = ({ imgSrc }) => {
 
   const handleShowContent = () => {
     setIsContentVisible((prev) => !prev); // Toggle visibility
-  }
-  
+  };
+
   return (
-    <div 
-      className={styles.cardImageBox}
-    >
-      <img  alt="card" className={isContentVisible?styles.cardImage:styles.cardImageOver} src={imgSrc} />
-      <div onClick={handleShowContent} className={styles.clickMe}>Click Me</div>
+    <div className={styles.cardImageBox}>
+      <img
+        alt="card"
+        className={isContentVisible ? styles.cardImage : styles.cardImageOver}
+        src={imgSrc}
+      />
+      <div onClick={handleShowContent} className={styles.clickMe}>
+        Click Me
+      </div>
     </div>
   );
 };
