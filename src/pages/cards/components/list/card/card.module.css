@@ -1,6 +1,6 @@
 .card {
   margin: auto;
-  width: 400px;
+  width:400px;
   height: 600px;
   display: flex;
   overflow: hidden;
@@ -8,7 +8,6 @@
   border-radius: 5px;
   box-shadow: 0 0px 8px rgb(173, 173, 173);
   background-color: #ffffff;
-
 }
 .deleteCard {
   margin: auto;
@@ -36,4 +35,10 @@
 .restoreButton:hover {
   background-color: #34caca;
   color: white;
+}
+
+@media screen and (max-width: 420px) {
+  .card{
+    width: 100%;
+  }
 }

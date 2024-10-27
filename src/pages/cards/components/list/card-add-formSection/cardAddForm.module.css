@@ -74,3 +74,23 @@ textarea:focus {
 .errBox {
   max-height: 20px;
 }
+
+
+@media screen and (max-width: 420px) {
+  .cardAddFormBox{
+    padding:5px;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    gap: 0px;
+    margin: auto;
+  }
+  .cardAddForm{
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .cardAddForm input {
+    width: 100%;
+  }
+}

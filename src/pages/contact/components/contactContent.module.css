@@ -5,6 +5,7 @@
   margin: auto;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
   margin-top: 150px;
+
 }
 .contactBox h2 {
   background: #4d4d4d;
@@ -32,6 +33,7 @@
     Helvetica,
     sans-serif;
   height: 45px;
+  border-radius: 5px;
 }
 
 .contactForm textarea {
@@ -55,4 +57,13 @@
 }
 .contactForm button:hover {
   background-color: #34caca;
+}
+
+
+@media screen and (max-width:520px) {
+  .contactBox { 
+    width: 99%;
+    overflow: hidden;
+   }
+
 }

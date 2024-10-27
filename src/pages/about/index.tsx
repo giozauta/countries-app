@@ -39,7 +39,7 @@ const AboutViews: React.FC = () => {
 
   return (
     <div className={styles.aboutViewsBox}>
-      <div>
+      <div className={styles.aboutViewsBoxImage}>
         <img
           src="/icons/developer.png"
           alt="Developer icon"

@@ -42,3 +42,19 @@
   text-shadow: black 0.1em 0.1em 0.2em;
   z-index: 1;
 }
+
+@media screen and (max-width: 420px) {
+  .hero{
+    width: 99%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+  }
+  .heroContent{
+    left:20px;
+    font-size:20px;
+    position: absolute;
+  }
+}

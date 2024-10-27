@@ -20,7 +20,6 @@ const Content: React.FC<{ country: CountryType }> = ({ country }) => {
   const { lang } = useParams();
   const currentLang: string = lang ?? "en";
 
-  console.log(typeof currentLang);
 
   if (currentLang === "en") {
     return (

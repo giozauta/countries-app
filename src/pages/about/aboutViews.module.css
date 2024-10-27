@@ -4,9 +4,29 @@
   align-items: center;
   min-height: 73vh;
   padding-left: 250px;
+  width: 100%;
+  overflow: hidden;
+  
 }
 .aboutViewsBoxContent {
   padding: 25px;
   max-width: 500px;
   line-height: 30px;
+}
+
+
+@media screen and (max-width: 1120px) {
+  .aboutViewsBox {
+    flex-direction: column;
+    padding: 0px;
+    margin: 0px;
+    
+  }
+  .aboutViewsBoxImage {
+    width:99%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
 }
