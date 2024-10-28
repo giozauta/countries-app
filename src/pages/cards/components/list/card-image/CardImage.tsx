@@ -1,10 +1,10 @@
 import styles from "./cardImage.module.css";
-import { useState} from "react";
-import {useParams} from "react-router-dom";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
 const CardImage: React.FC<{ imgSrc: string }> = ({ imgSrc }) => {
   const [isContentVisible, setIsContentVisible] = useState(false);
 
-  const {lang} = useParams();
+  const { lang } = useParams();
   const currentLang = lang ?? "en";
 
   const handleShowContent = () => {
@@ -19,7 +19,7 @@ const CardImage: React.FC<{ imgSrc: string }> = ({ imgSrc }) => {
         src={imgSrc}
       />
       <div onClick={handleShowContent} className={styles.clickMe}>
-        {currentLang==="en"?"Click Me":"დამკლიკე"}
+        {currentLang === "en" ? "Click Me" : "დამკლიკე"}
       </div>
     </div>
   );
