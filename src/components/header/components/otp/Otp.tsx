@@ -3,7 +3,7 @@ import styles from "./otp.module.css";
 
 const Otp: React.FC = () => {
   const [otpInputLength, setOtpInputLength] = useState<number>(1);
-  const [otpInput, setOtpInput] = useState([{ value:"" }]);
+  const [otpInput, setOtpInput] = useState([{ value: "" }]);
   const otpInputRef = useRef<{ [key: number]: HTMLInputElement | null }>({});
 
   //this code sets otpInputLength
@@ -30,32 +30,53 @@ const Otp: React.FC = () => {
   ) => {
     const newValue = [...event.target.value];
 
-    setOtpInput((prevState)=>{
+    setOtpInput((prevState) => {
       const newState = [...prevState];
       newState[index].value = newValue[newValue.length - 1];
-      return newState
-    })
+      return newState;
+    });
 
     if (newValue[newValue.length - 1]) {
-    
-      if (otpInputRef.current[index + 1]===undefined||otpInputRef.current[index + 1]===null) {
+      if (
+        otpInputRef.current[index + 1] === undefined ||
+        otpInputRef.current[index + 1] === null
+      ) {
         otpInputRef.current[index]?.blur();
       }
       otpInputRef.current[index + 1]?.focus();
     }
   };
-  // keydown backspace 
-  const handleKeyDown = (event:React.KeyboardEvent<HTMLInputElement>,index:number) =>{
-      if(event.key === "Backspace"){
-        event.preventDefault();
-          setOtpInput((prevState)=>{
-            const newState = [...prevState];
-            newState[index].value = "";
-            return newState
-          })
-          otpInputRef.current[index - 1]?.focus();
-      }
-  }
+  // keydown backspace
+  const handleKeyDown = (
+    event: React.KeyboardEvent<HTMLInputElement>,
+    index: number,
+  ) => {
+    if (event.key === "Backspace") {
+      event.preventDefault();
+      setOtpInput((prevState) => {
+        const newState = [...prevState];
+        newState[index].value = "";
+        return newState;
+      });
+      otpInputRef.current[index - 1]?.focus();
+    }
+  };
+  //paste handle
+  const handlePaste = (event: React.ClipboardEvent<HTMLInputElement>, index: number) => {
+    event.preventDefault(); 
+  
+    const pastedData = event.clipboardData.getData('text'); // Get pasted text
+  
+    setOtpInput((prevOtpInput) =>
+      prevOtpInput.map((item, i) => ({
+        ...item,
+        value: pastedData[i] || "" 
+      }))
+    );
+    const nextInputIndex = Math.min(index + pastedData.length, otpInput.length - 1);
+    otpInputRef.current[nextInputIndex]?.focus();
+  };
+  
 
   return (
     <div className={styles.otpComponent}>
@@ -74,8 +95,11 @@ const Otp: React.FC = () => {
             onChange={(event) => {
               handleOtpChange(event, index);
             }}
-            onKeyDown={(event)=>{
-              handleKeyDown(event, index)
+            onKeyDown={(event) => {
+              handleKeyDown(event, index);
+            }}
+            onPaste={(event) => {
+              handlePaste(event, index);
             }}
             ref={(inputElementReference) => {
               otpInputRef.current[index] = inputElementReference;
