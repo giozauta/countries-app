@@ -3,14 +3,14 @@
 .otpBox input[type="number"]::-webkit-inner-spin-button,
 .otpLengthBox input[type="number"]::-webkit-outer-spin-button,
 .otpLengthBox input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /* For Firefox */
 .otpBox input[type="number"],
 .otpLengthBox input[type="number"] {
-    -moz-appearance: textfield;
+  -moz-appearance: textfield;
 }
 
 .otpComponent {
@@ -64,7 +64,9 @@
   text-align: center;
   border: 1px solid #ddd;
   border-radius: 4px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .otpBox input[type="number"]:focus {

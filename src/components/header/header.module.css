@@ -25,11 +25,9 @@
 .logo {
   text-decoration: none;
   color: black;
-
 }
-.otpHeaderBox{
+.otpHeaderBox {
   display: flex;
-
 }
 .headerNavButtons {
   display: flex;
@@ -89,12 +87,11 @@
     grid-template-columns: 1fr 1fr;
     width: 320px;
   }
-  .otpHeaderBox{
+  .otpHeaderBox {
     width: 100%;
-    border-bottom: 1px solid #63D6D6;
-    border-top: 1px solid #63D6D6;
+    border-bottom: 1px solid #63d6d6;
+    border-top: 1px solid #63d6d6;
     padding-top: 15px;
     padding-bottom: 15px;
   }
-
 }

@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import styles from "./otp.module.css";
 
 const Otp: React.FC = () => {
-  const [otpInputLength, setOtpInputLength] = useState<number>();
+  const [otpInputLength, setOtpInputLength] = useState<number>(1);
   const [otpInput, setOtpInput] = useState([{ value: "" }]);
   const otpInputRef = useRef<{ [key: number]: HTMLInputElement | null }>({});
 
@@ -13,7 +13,7 @@ const Otp: React.FC = () => {
     const length = parseInt(event.target.value);
     //this code sets otpInput
     if (length === 0 || length > 4) {
-      alert("You cant put less than 4 or more than 0 numbers");
+      alert("Number cant be less than 0 and more than 4");
     } else {
       const inputs = [];
       setOtpInputLength(length);
@@ -43,7 +43,21 @@ const Otp: React.FC = () => {
       otpInputRef.current[index + 1]?.focus();
     }
   };
+  //this code uses backspace
+  const handleBackspace = (event:React.KeyboardEvent<HTMLInputElement>,index:number)=>{
+    const keyCode = event.key;
+    if(keyCode === "Backspace"){
+      setOtpInput(
+        otpInput.map((item, i) => {
+          item.value = i === index ? "" : item.value;
+          return item;
+        }), 
+      );
+      otpInputRef.current[index-1]?.focus()
+      console.log(index)
+    }
 
+  }
   return (
     <div className={styles.otpComponent}>
       <div className={styles.otpLengthBox}>
@@ -60,6 +74,9 @@ const Otp: React.FC = () => {
           <input
             onChange={(event) => {
               handleOtpChange(event, index);
+            }}
+            onKeyDown={(event)=>{
+              handleBackspace(event,index);
             }}
             ref={(inputElementReference) => {
               otpInputRef.current[index] = inputElementReference;
