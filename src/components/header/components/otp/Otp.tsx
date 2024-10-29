@@ -3,7 +3,7 @@ import styles from "./otp.module.css";
 
 const Otp: React.FC = () => {
   const [otpInputLength, setOtpInputLength] = useState<number>(1);
-  const [otpInput, setOtpInput] = useState([{ value: "" }]);
+  const [otpInput, setOtpInput] = useState([{ value:"" }]);
   const otpInputRef = useRef<{ [key: number]: HTMLInputElement | null }>({});
 
   //this code sets otpInputLength
@@ -28,36 +28,35 @@ const Otp: React.FC = () => {
     event: React.ChangeEvent<HTMLInputElement>,
     index: number,
   ) => {
-    const newValue = event.target.value;
-    setOtpInput(
-      otpInput.map((item, i) => {
-        item.value = i === index ? newValue : item.value;
-        return item;
-      }),
-    );
+    const newValue = [...event.target.value];
 
-    if (newValue) {
-      if (otpInputRef.current[index + 1] == undefined) {
+    setOtpInput((prevState)=>{
+      const newState = [...prevState];
+      newState[index].value = newValue[newValue.length - 1];
+      return newState
+    })
+
+    if (newValue[newValue.length - 1]) {
+    
+      if (otpInputRef.current[index + 1]===undefined||otpInputRef.current[index + 1]===null) {
         otpInputRef.current[index]?.blur();
       }
       otpInputRef.current[index + 1]?.focus();
     }
   };
-  //this code uses backspace
-  const handleBackspace = (event:React.KeyboardEvent<HTMLInputElement>,index:number)=>{
-    const keyCode = event.key;
-    if(keyCode === "Backspace"){
-      setOtpInput(
-        otpInput.map((item, i) => {
-          item.value = i === index ? "" : item.value;
-          return item;
-        }), 
-      );
-      otpInputRef.current[index-1]?.focus()
-      console.log(index)
-    }
-
+  // keydown backspace 
+  const handleKeyDown = (event:React.KeyboardEvent<HTMLInputElement>,index:number) =>{
+      if(event.key === "Backspace"){
+        event.preventDefault();
+          setOtpInput((prevState)=>{
+            const newState = [...prevState];
+            newState[index].value = "";
+            return newState
+          })
+          otpInputRef.current[index - 1]?.focus();
+      }
   }
+
   return (
     <div className={styles.otpComponent}>
       <div className={styles.otpLengthBox}>
@@ -76,7 +75,7 @@ const Otp: React.FC = () => {
               handleOtpChange(event, index);
             }}
             onKeyDown={(event)=>{
-              handleBackspace(event,index);
+              handleKeyDown(event, index)
             }}
             ref={(inputElementReference) => {
               otpInputRef.current[index] = inputElementReference;

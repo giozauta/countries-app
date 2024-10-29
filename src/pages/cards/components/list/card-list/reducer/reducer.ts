@@ -79,7 +79,7 @@ export const cardsReducer = (
         deleteStatus: false,
       },
     ];
-    console.log(updatedCountriesList);
+ 
     return updatedCountriesList;
   }
   //
