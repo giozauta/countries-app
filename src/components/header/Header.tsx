@@ -6,7 +6,7 @@ import {
   useParams,
 } from "react-router-dom";
 import { data } from "./header-content-data";
-
+import Otp from "./components/otp/Otp";
 type currentDataType = {
   [key: string]: {
     appName: string;
@@ -33,12 +33,15 @@ const Header: React.FC = () => {
   return (
     <header className={styles.header}>
       <div className={styles.headerBox}>
-        <div>
+        <div className={styles.headerlogoBox}>
           <NavLink className={styles.logo} to="/">
             <h1>{contentData[currentLang].appName}</h1>
           </NavLink>
         </div>
-        <nav className={styles.navButtons}>
+        <div className={styles.otpHeaderBox}>
+          <Otp />
+        </div>
+        <nav className={styles.headerNavButtons}>
           <NavLink className={handleActiveNav} to={`cards`}>
             <p>{contentData[currentLang].cards}</p>
           </NavLink>

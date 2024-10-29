@@ -1,0 +1,74 @@
+/* For Chrome, Safari, Edge, and Opera */
+.otpBox input[type="number"]::-webkit-outer-spin-button,
+.otpBox input[type="number"]::-webkit-inner-spin-button,
+.otpLengthBox input[type="number"]::-webkit-outer-spin-button,
+.otpLengthBox input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* For Firefox */
+.otpBox input[type="number"],
+.otpLengthBox input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.otpComponent {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Styling for the OTP Length section */
+.otpLengthBox {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.otpLengthBox p {
+  margin: 0;
+}
+
+.otpLengthBox input[name="otpInputLength"] {
+  width: 60px;
+  padding: 0.3rem;
+  font-size: 0.9rem;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: border-color 0.2s ease;
+}
+
+.otpLengthBox input[name="otpInputLength"]:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Styling for the OTP Box with compact input fields */
+.otpBox {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+}
+
+.otpBox input[type="number"] {
+  width: 1.8rem;
+  height: 1.8rem;
+  font-size: 1.1rem;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.otpBox input[type="number"]:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 3px rgba(0, 123, 255, 0.4);
+}
