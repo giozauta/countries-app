@@ -1,1 +1,1 @@
-export {default} from "./Otp";
+export { default } from "./Otp";

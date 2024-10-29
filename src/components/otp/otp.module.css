@@ -1,9 +1,18 @@
+.otpComponent {
+  border: 1px solid black;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+}
+
 .otpBox{
-    border:1px solid black;
-    height: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 20px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: auto;
+  gap: 10px;
 }

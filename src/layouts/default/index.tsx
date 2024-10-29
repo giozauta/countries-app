@@ -11,9 +11,8 @@ const DefaultLayout: React.FC = () => {
       <PageContainer>
         <Outlet />
       </PageContainer>
-      <Otp/>
+      <Otp />
       <Footer />
-
     </>
   );
 };
