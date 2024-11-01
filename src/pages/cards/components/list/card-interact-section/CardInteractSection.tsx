@@ -27,6 +27,7 @@ const CardInteractSection: React.FC<CardInteractSectionProps> = ({
   country,
   handleCountriesVote,
   handleDeleteCard,
+  
 }) => {
   const { lang } = useParams();
   const currentLang = lang ?? "en";

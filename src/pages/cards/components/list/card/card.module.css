@@ -8,6 +8,8 @@
   border-radius: 5px;
   box-shadow: 0 0px 8px rgb(173, 173, 173);
   background-color: #ffffff;
+  position: relative;
+  
 }
 .deleteCard {
   margin: auto;

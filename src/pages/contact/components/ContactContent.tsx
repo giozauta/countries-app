@@ -83,40 +83,42 @@ const ContactContent: React.FC = () => {
   };
 
   return (
-    <div className={styles.contactBox}>
-      <h2>{contentData[currentLang].title}</h2>
-      <form className={styles.contactForm} onSubmit={handleSubmit}>
-        <input
-          onChange={handleChange}
-          value={contactState.fullName}
-          type="text"
-          name="fullName"
-          placeholder={contentData[currentLang].fullName}
-        />
-        <input
-          onChange={handleChange}
-          value={contactState.lastName}
-          type="text"
-          name="lastName"
-          placeholder={contentData[currentLang].lastName}
-        />
-        <input
-          onChange={handleChange}
-          value={contactState.email}
-          type="text"
-          name="email"
-          placeholder={contentData[currentLang].email}
-        />
-        <textarea
-          onChange={handleChange}
-          value={contactState.message}
-          name="message"
-          placeholder={contentData[currentLang].message}
-        ></textarea>
-        <button type="submit">{contentData[currentLang].send}</button>
-      </form>
-      <div>
-        <h3>{error}</h3>
+    <div className={styles.contactContainer}>
+      <div className={styles.contactBox}>
+        <h2>{contentData[currentLang].title}</h2>
+        <form className={styles.contactForm} onSubmit={handleSubmit}>
+          <input
+            onChange={handleChange}
+            value={contactState.fullName}
+            type="text"
+            name="fullName"
+            placeholder={contentData[currentLang].fullName}
+          />
+          <input
+            onChange={handleChange}
+            value={contactState.lastName}
+            type="text"
+            name="lastName"
+            placeholder={contentData[currentLang].lastName}
+          />
+          <input
+            onChange={handleChange}
+            value={contactState.email}
+            type="text"
+            name="email"
+            placeholder={contentData[currentLang].email}
+          />
+          <textarea
+            onChange={handleChange}
+            value={contactState.message}
+            name="message"
+            placeholder={contentData[currentLang].message}
+          ></textarea>
+          <button type="submit">{contentData[currentLang].send}</button>
+        </form>
+        <div>
+          <h3>{error}</h3>
+        </div>
       </div>
     </div>
   );

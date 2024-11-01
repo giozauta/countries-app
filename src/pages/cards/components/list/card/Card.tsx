@@ -5,14 +5,11 @@ import { useParams } from "react-router-dom";
 type CardProps = {
   deleteStatus: boolean;
   id: string;
-  handleCardRestore: (id: string, lang: string) => void;
 };
 
 const Card: React.FC<PropsWithChildren<CardProps>> = ({
   children,
   deleteStatus,
-  handleCardRestore,
-  id,
 }) => {
   const { lang } = useParams();
   const currentLang = lang ?? "en";
@@ -22,7 +19,7 @@ const Card: React.FC<PropsWithChildren<CardProps>> = ({
       <div className={styles.deleteCard}>
         {children}
         <button
-          onClick={() => handleCardRestore(id, currentLang)}
+          
           className={styles.restoreButton}
         >
           {currentLang === "en" ? "Restore" : "აღადგინე"}

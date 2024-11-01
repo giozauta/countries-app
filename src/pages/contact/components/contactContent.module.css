@@ -1,3 +1,9 @@
+.contactContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 78vh;
+}
 .contactBox {
   width: 500px;
   padding: 30px;

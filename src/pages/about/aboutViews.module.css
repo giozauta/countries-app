@@ -1,8 +1,8 @@
-.aboutViewsBox {
+.aboutViewsBox {border: 2px solid black;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  min-height: 73vh;
+  min-height: 78vh;
   padding-left: 250px;
   width: 100%;
   overflow: hidden;
