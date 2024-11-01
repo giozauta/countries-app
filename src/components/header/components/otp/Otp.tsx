@@ -62,21 +62,26 @@ const Otp: React.FC = () => {
     }
   };
   //paste handle
-  const handlePaste = (event: React.ClipboardEvent<HTMLInputElement>, index: number) => {
-    event.preventDefault(); 
-  
-    const pastedData = event.clipboardData.getData('text'); // Get pasted text
-  
+  const handlePaste = (
+    event: React.ClipboardEvent<HTMLInputElement>,
+    index: number,
+  ) => {
+    event.preventDefault();
+
+    const pastedData = event.clipboardData.getData("text"); // Get pasted text
+
     setOtpInput((prevOtpInput) =>
       prevOtpInput.map((item, i) => ({
         ...item,
-        value: pastedData[i] || "" 
-      }))
+        value: pastedData[i] || "",
+      })),
     );
-    const nextInputIndex = Math.min(index + pastedData.length, otpInput.length - 1);
+    const nextInputIndex = Math.min(
+      index + pastedData.length,
+      otpInput.length - 1,
+    );
     otpInputRef.current[nextInputIndex]?.focus();
   };
-  
 
   return (
     <div className={styles.otpComponent}>
