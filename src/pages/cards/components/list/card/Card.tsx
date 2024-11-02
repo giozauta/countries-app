@@ -18,10 +18,7 @@ const Card: React.FC<PropsWithChildren<CardProps>> = ({
     return (
       <div className={styles.deleteCard}>
         {children}
-        <button
-          
-          className={styles.restoreButton}
-        >
+        <button className={styles.restoreButton}>
           {currentLang === "en" ? "Restore" : "აღადგინე"}
         </button>
       </div>

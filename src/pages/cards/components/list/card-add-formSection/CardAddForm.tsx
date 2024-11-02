@@ -1,7 +1,6 @@
 import React, { FormEvent, useState } from "react";
 import styles from "./cardAddForm.module.css";
-import { useParams} from "react-router-dom";
-
+import { useParams } from "react-router-dom";
 
 type CardCreateFormProps = {
   onCardCreate: (newCardData: {
@@ -12,7 +11,7 @@ type CardCreateFormProps = {
     population: number;
     imgSrc: string;
   }) => void;
-};        
+};
 
 const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate }) => {
   const [inputState, setInputState] = useState({
@@ -32,7 +31,6 @@ const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate }) => {
   });
   const { lang } = useParams();
   const currentLang = lang ?? "en";
-  
 
   //გვჭირდება იმისთვის რომ შევამოწმოთ სწორ ენაზე შეავსო თუარა იუზერმა ინფუთი
   const georgian: string[] = [
@@ -291,7 +289,7 @@ const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate }) => {
 
   return (
     <div id="cardAddFormBox" className={styles.cardAddFormBox}>
-      <form  className={styles.cardAddForm} onSubmit={handleSubmit}>
+      <form className={styles.cardAddForm} onSubmit={handleSubmit}>
         <div className={styles.inputBox}>
           <input
             onChange={handleChange}
@@ -380,6 +378,6 @@ const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate }) => {
       </form>
     </div>
   );
-}
+};
 
 export default CardAddForm;

@@ -1,8 +1,9 @@
-import React, { FormEvent, useState } from 'react';
-import styles from './cardEditForm.module.css';
+import React, { FormEvent, useState, useEffect } from "react";
+import styles from "./cardEditForm.module.css";
 
-/*type CardEditFormProps = {
-  onSubmit: (updatedData: {
+type CardEditFormProps = {
+  onEditSubmit: (updatedData: {
+    id:string;
     countryNameEn: string;
     countryNameKa: string;
     capitalCityEn: string;
@@ -10,63 +11,71 @@ import styles from './cardEditForm.module.css';
     population: number;
     imgSrc: string;
   }) => void;
-};*/
+  id: string;
+};
 
-const CardEditForm: React.FC= () => {
+const CardEditForm: React.FC<CardEditFormProps> = ({onEditSubmit,id}) => {
   const [inputState, setInputState] = useState({
-    countryNameEn: '',
-    countryNameKa: '',
-    capitalCityEn: '',
-    capitalCityKa: '',
+    id:id,
+    countryNameEn: "",
+    countryNameKa: "",
+    capitalCityEn: "",
+    capitalCityKa: "",
     population: 0,
-    imgSrc: '', // Ensure imgSrc is included here
+    imgSrc: "", 
   });
 
   const [errors, setErrors] = useState({
-    countryNameEn: '',
-    countryNameKa: '',
-    capitalCityEn: '',
-    capitalCityKa: '',
-    population: '',
+    countryNameEn: "",
+    countryNameKa: "",
+    capitalCityEn: "",
+    capitalCityKa: "",
+    population: "",
   });
+
 
   const georgianLetters = /^[ა-ჰ\s]*$/;
   const englishLetters = /^[A-Za-z\s]*$/;
 
+  useEffect(() => {
+    setInputState((prev) => ({ ...prev, id }));
+  }, []);
+  
+
   const handleChange = (event: FormEvent<HTMLInputElement>) => {
     const { name, value, files } = event.currentTarget;
-    let errorMessage = '';
+    let errorMessage = "";
 
-    if (name === 'countryNameEn' || name === 'capitalCityEn') {
+    if (name === "countryNameEn" || name === "capitalCityEn") {
       if (!englishLetters.test(value)) {
-        errorMessage = 'Must contain only English letters';
+        errorMessage = "Must contain only English letters";
       }
-    } else if (name === 'countryNameKa' || name === 'capitalCityKa') {
+    } else if (name === "countryNameKa" || name === "capitalCityKa") {
       if (!georgianLetters.test(value)) {
-        errorMessage = 'Must contain only Georgian letters';
+        errorMessage = "Must contain only Georgian letters";
       }
-    } else if (name === 'population') {
+    } else if (name === "population") {
       if (isNaN(Number(value)) || Number(value) < 0) {
-        errorMessage = 'Population must be a positive number';
+        errorMessage = "Population must be a positive number";
       }
-    } else if (name === 'imgSrc' && files && files[0]) {
+    } else if (name === "imgSrc" && files && files[0]) {
       const file = files[0];
       const reader = new FileReader();
 
       reader.onloadend = () => {
         setInputState((prev) => ({
           ...prev,
-          imgSrc: reader.result as string, // Store Base64 string in imgSrc
+          imgSrc: reader.result as string,
         }));
       };
 
-      reader.readAsDataURL(file); // Convert image to Base64
-      return; // Prevent further processing in this case
+      reader.readAsDataURL(file); 
+      return; 
     }
 
     setInputState((prev) => ({
       ...prev,
-      [name]: name === 'population' ? Number(value) : value,
+      [name]: name === "population" ? Number(value) : value,
     }));
 
     setErrors((prev) => ({
@@ -75,13 +84,10 @@ const CardEditForm: React.FC= () => {
     }));
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (Object.values(errors).some((error) => error !== '')) {
-      alert('Please fix the errors before submitting.');
-    }
-   // onSubmit(inputState);
-  };
+  const handleSubmit=(event:FormEvent)=>{
+      event.preventDefault();
+      onEditSubmit(inputState);
+  }
 
   return (
     <div className={styles.formContainer}>
@@ -129,7 +135,7 @@ const CardEditForm: React.FC= () => {
         <input
           className={styles.input}
           onChange={handleChange}
-          value={inputState.population || ''} // Ensure to provide a fallback value
+          value={inputState.population || 0} // Ensure to provide a fallback value
           type="number"
           name="population"
           placeholder="Population"
@@ -144,8 +150,7 @@ const CardEditForm: React.FC= () => {
           accept=".jpg,.png"
         />
 
-
-        <button type="submit" className={styles.submitButton}>
+        <button  type="submit" className={styles.submitButton}>
           Update Card
         </button>
       </form>

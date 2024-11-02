@@ -1,23 +1,21 @@
 .showEditButton {
-  background-color:#34CACA;
+  background-color: #34caca;
   color: white;
   border: none;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  transition:all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   width: 90%;
   margin: auto;
   padding: 1px;
   margin-bottom: 20px;
   overflow: hidden;
-
 }
 
 .showEditButton:hover {
   background-color: #3be6e6;
-
 }
 
 .showEditButton:active {

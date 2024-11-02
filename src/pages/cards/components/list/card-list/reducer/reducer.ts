@@ -55,7 +55,5 @@ export const cardsReducer = (
       : sortedCountries.sort((a, b) => b.vote - a.vote);
   }
 
-
-
   return countriesList;
 };

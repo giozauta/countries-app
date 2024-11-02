@@ -3,7 +3,6 @@ import Header from "~/src/components/header";
 import Footer from "~/src/components/footer";
 import PageContainer from "@/components/page-container";
 
-
 const DefaultLayout: React.FC = () => {
   return (
     <>

@@ -2,14 +2,14 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  border-radius: 10px; 
-  gap: 20px; 
+  border-radius: 10px;
+  gap: 20px;
   justify-content: center;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.973);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 500px;
-  padding: 40px; 
+  padding: 40px;
   z-index: 100;
 }
 
@@ -23,17 +23,17 @@
 
 .cardAddForm input {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 100%; 
+  width: 100%;
   border-radius: 5px;
   border: 1px solid #ccc;
-  padding: 10px; 
+  padding: 10px;
   outline: none;
   height: 50px;
-  transition: border-color 0.3s; 
+  transition: border-color 0.3s;
 }
 
 .cardAddForm input:focus {
-  border-color: #34caca; 
+  border-color: #34caca;
 }
 
 .articleTextarea {
@@ -44,7 +44,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 10px; 
+  padding: 10px;
 }
 
 textarea::-webkit-scrollbar {
@@ -57,25 +57,27 @@ textarea:focus::-webkit-scrollbar {
 
 textarea:focus {
   outline: none;
-  border: 1px solid #34caca; 
+  border: 1px solid #34caca;
 }
 
 .subbmitCardButton {
-  width: 100%; 
+  width: 100%;
   height: 50px;
-  border-radius: 5px; 
-  border: none; 
+  border-radius: 5px;
+  border: none;
   padding: 10px;
-  background-color: #34caca; 
-  color: white; 
+  background-color: #34caca;
+  color: white;
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s, transform 0.2s;
+  transition:
+    background-color 0.3s,
+    transform 0.2s;
 }
 
 .subbmitCardButton:hover {
-  background-color: #28b2b2; 
-  transform: translateY(-1px); 
+  background-color: #28b2b2;
+  transform: translateY(-1px);
 }
 
 .inputBox {
@@ -86,13 +88,13 @@ textarea:focus {
 .errBox {
   max-height: 20px;
   color: red;
-  font-size: 0.9em; 
+  font-size: 0.9em;
 }
 
 @media screen and (max-width: 420px) {
   .cardAddFormBox {
-    padding: 20px; 
-    width: 90%; 
+    padding: 20px;
+    width: 90%;
   }
 
   .cardAddForm {
