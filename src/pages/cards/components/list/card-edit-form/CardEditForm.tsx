@@ -1,9 +1,10 @@
 import React, { FormEvent, useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import styles from "./cardEditForm.module.css";
 
 type CardEditFormProps = {
   onEditSubmit: (updatedData: {
-    id:string;
+    id: string;
     countryNameEn: string;
     countryNameKa: string;
     capitalCityEn: string;
@@ -14,15 +15,15 @@ type CardEditFormProps = {
   id: string;
 };
 
-const CardEditForm: React.FC<CardEditFormProps> = ({onEditSubmit,id}) => {
+const CardEditForm: React.FC<CardEditFormProps> = ({ onEditSubmit, id }) => {
   const [inputState, setInputState] = useState({
-    id:id,
+    id: id,
     countryNameEn: "",
     countryNameKa: "",
     capitalCityEn: "",
     capitalCityKa: "",
     population: 0,
-    imgSrc: "", 
+    imgSrc: "",
   });
 
   const [errors, setErrors] = useState({
@@ -33,14 +34,14 @@ const CardEditForm: React.FC<CardEditFormProps> = ({onEditSubmit,id}) => {
     population: "",
   });
 
-
   const georgianLetters = /^[ა-ჰ\s]*$/;
   const englishLetters = /^[A-Za-z\s]*$/;
+  const {lang} = useParams();
+  const currentLang = lang ?? "en";
 
   useEffect(() => {
     setInputState((prev) => ({ ...prev, id }));
-  }, []);
-  
+  }, [id]);
 
   const handleChange = (event: FormEvent<HTMLInputElement>) => {
     const { name, value, files } = event.currentTarget;
@@ -48,15 +49,31 @@ const CardEditForm: React.FC<CardEditFormProps> = ({onEditSubmit,id}) => {
 
     if (name === "countryNameEn" || name === "capitalCityEn") {
       if (!englishLetters.test(value)) {
-        errorMessage = "Must contain only English letters";
+        if(currentLang === "en"){
+          errorMessage = "Must contain only English letters"
+        }
+        if(currentLang === "ka"){
+          errorMessage = "გთხოვთ შეავსოთ ინგლისური ასოებით"
+        }
+        
       }
     } else if (name === "countryNameKa" || name === "capitalCityKa") {
       if (!georgianLetters.test(value)) {
-        errorMessage = "Must contain only Georgian letters";
+        if(currentLang === "en"){
+          errorMessage = "Must contain only English letters"
+        }
+        if(currentLang === "ka"){
+          errorMessage = "გთხოვთ შეავსოთ ინგლისური ასოებით"
+        }
       }
     } else if (name === "population") {
       if (isNaN(Number(value)) || Number(value) < 0) {
-        errorMessage = "Population must be a positive number";
+        if(currentLang === "en"){
+          errorMessage = "Population must be a positive number"
+        }
+        if(currentLang === "ka"){
+          errorMessage = "მოსახლეობა უნდა იყოს დადებითი რიცხვი"
+        }
       }
     } else if (name === "imgSrc" && files && files[0]) {
       const file = files[0];
@@ -69,8 +86,8 @@ const CardEditForm: React.FC<CardEditFormProps> = ({onEditSubmit,id}) => {
         }));
       };
 
-      reader.readAsDataURL(file); 
-      return; 
+      reader.readAsDataURL(file);
+      return;
     }
 
     setInputState((prev) => ({
@@ -84,10 +101,10 @@ const CardEditForm: React.FC<CardEditFormProps> = ({onEditSubmit,id}) => {
     }));
   };
 
-  const handleSubmit=(event:FormEvent)=>{
-      event.preventDefault();
-      onEditSubmit(inputState);
-  }
+  const handleSubmit = (event: FormEvent) => {
+    event.preventDefault();
+    onEditSubmit(inputState);
+  };
 
   return (
     <div className={styles.formContainer}>
@@ -150,7 +167,7 @@ const CardEditForm: React.FC<CardEditFormProps> = ({onEditSubmit,id}) => {
           accept=".jpg,.png"
         />
 
-        <button  type="submit" className={styles.submitButton}>
+        <button type="submit" className={styles.submitButton}>
           Update Card
         </button>
       </form>

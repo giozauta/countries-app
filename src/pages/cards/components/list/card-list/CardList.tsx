@@ -47,10 +47,9 @@ type EditCardData = {
   capitalCityKa: string;
   population: number;
   imgSrc: string;
-}
+};
 const CardList: React.FC = () => {
   const [countries, setCountries] = useState<Country[]>([]);
-  const [deleteTrigger, setDeleteTrigger] = useState(false); // როდესაც მონაცემები წაიშლება ან დაემატება მოხდება ცვლილება სთეითის და კომპონენტი დარენდერდება
   const [formSection, setFormSection] = useState(false); //card-ის დასამატებელი ფორმის პანელის გამოსაჩენად გვჭირდება
   const [showEditForm, setShowEditForm] = useState<string | null>(null); // card - ის დასაედიტებელი ფორმის გამოსაჩენად გვჭირდება
 
@@ -67,7 +66,7 @@ const CardList: React.FC = () => {
         console.error("Error", error);
       })
       .finally(() => {});
-  }, [deleteTrigger]);
+  }, [countries]);
 
   const sortCountries = [...countries].sort(
     (a, b) => Number(a.deleteStatus) - Number(b.deleteStatus),
@@ -92,13 +91,18 @@ const CardList: React.FC = () => {
       // ეს კოდი უბრალოდ იმისთვის რომ წინასწარ ჩაწერილი მონაცემები რომ არ წამიშალოს და ვიზუალი არ დაამახინჯოს
       axios
         .delete(`http://localhost:3000/countries/${id}`)
-        .then(() => {
-          setDeleteTrigger(!deleteTrigger);
-        })
         .catch((error) => {
           console.error("Error", error);
         });
     }
+    if(Number(id) <= 6){
+      if(currentLang=="en"){
+        alert("Cant Delete default card")
+      }else{
+        alert("Default ბარათის წაშლა დროებით არ შეიძლება")
+      }
+    }
+
   };
 
   const handleCreateCard = (newCardData: NewCardData) => {
@@ -119,14 +123,42 @@ const CardList: React.FC = () => {
       deleteStatus: false,
     };
 
-    axios.post("http://localhost:3000/countries", data).then(() => {
-      setDeleteTrigger(!deleteTrigger);
-    });
+    axios.post("http://localhost:3000/countries", data);
   };
 
   const handleEditCard = (updatedData: EditCardData) => {
-    console.log(updatedData)
+    const idToNumber = Number(updatedData.id);
+    const oldData = countries[idToNumber-1];
 
+    const data = {
+      id: updatedData.id,
+      countryName: {
+        en: updatedData.countryNameEn !== "" ? updatedData.countryNameEn :oldData.countryName.en,
+        ka: updatedData.countryNameKa !== "" ? updatedData.countryNameKa :oldData.countryName.ka,
+      },
+      capitalCity: {
+        en: updatedData.capitalCityEn !== "" ? updatedData.capitalCityEn :oldData.capitalCity.en,
+        ka: updatedData.capitalCityKa !== "" ? updatedData.capitalCityKa : oldData.capitalCity.ka,
+      },
+      population: updatedData.population !== 0 ? updatedData.population :4,
+      imgSrc: updatedData.imgSrc !== "" ? updatedData.imgSrc :oldData.imgSrc,
+      article: "new article",
+      vote: 0,
+      deleteStatus: false,
+    };
+
+    if(Number(updatedData.id) > 6){
+      axios.put(`http://localhost:3000/countries/${updatedData.id}`, data);
+      setShowEditForm((prev) => (prev === updatedData.id ? null : updatedData.id));//იმისთვის რომ ფორმის საბმითზე ფორმა გაგვიქროს 
+    }
+    if(Number(updatedData.id) <= 6){
+      if(currentLang=="en"){
+        alert("Cant change default card")
+      }else{
+        alert("Default ბარათის შეცვლა დროებით არ შეიძლება")
+      }
+    }
+    
   };
 
   return (
@@ -156,7 +188,7 @@ const CardList: React.FC = () => {
         </button>
         {formSection ? <CardAddForm onCardCreate={handleCreateCard} /> : null}
       </div>
-      <div className={styles.CardsBox}>
+      <div className={styles.cardsBox}>
         {sortCountries.map((country) => (
           <Card
             id={country.id}
@@ -170,7 +202,9 @@ const CardList: React.FC = () => {
               country={country}
               handleCountriesVote={handleCountriesVote}
             />
-            {showEditForm === country.id && <CardEditForm id={country.id} onEditSubmit={handleEditCard} />}
+            {showEditForm === country.id && (
+              <CardEditForm id={country.id} onEditSubmit={handleEditCard} />
+            )}
             <ShowEditButton
               id={country.id}
               onSHowEditButtonClick={handleShowEditForm}
