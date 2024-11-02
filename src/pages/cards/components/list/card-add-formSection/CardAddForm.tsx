@@ -176,7 +176,7 @@ const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate }) => {
       if (!checkIfAllEnglishLetters(value, english)) {
         setInputStateErr({
           ...inputStateErr,
-          countryNameErrEn: "It must contain only english letters",
+          countryNameErrEn:currentLang==="en"?"It must contain only english letters":"გთხოვთ შეავსოთ ინგლისური ასოებით",
         });
       } else {
         setInputStateErr({
@@ -189,7 +189,7 @@ const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate }) => {
       if (!checkIfAllEnglishLetters(value, georgian)) {
         setInputStateErr({
           ...inputStateErr,
-          countryNameErrKa: "It must contain only georgian letters",
+          countryNameErrKa:currentLang=="en"?"It must contain only georgian letters":"გთხოვთ შეავსოთ ქართული ასოებით",
         });
       } else {
         setInputStateErr({
@@ -203,7 +203,7 @@ const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate }) => {
       if (!checkIfAllEnglishLetters(value, english)) {
         setInputStateErr({
           ...inputStateErr,
-          capitalCityErrEn: "It must contain only english letters",
+          capitalCityErrEn: currentLang=="en"?"It must contain only English letters":"გთხოვთ შეავსოთ ინგლისური ასოებით",
         });
       } else {
         setInputStateErr({
@@ -216,7 +216,7 @@ const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate }) => {
       if (!checkIfAllEnglishLetters(value, georgian)) {
         setInputStateErr({
           ...inputStateErr,
-          capitalCityErrKa: "It must contain only georgian letters",
+          capitalCityErrKa:currentLang=="en"?"It must contain only georgian letters":"გთხოვთ შეავსოთ ქართული ასოებით",
         });
       } else {
         setInputStateErr({

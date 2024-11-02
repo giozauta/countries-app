@@ -1,19 +1,43 @@
 import SingleCard from "../../components/single";
 import { useParams } from "react-router-dom";
-import cardsInitialState from "../../components/list/card-list/reducer/state";
+import { useEffect,useState} from "react";
+import axios from "axios";
+
 
 const SingleCardView: React.FC = () => {
   const { id } = useParams();
-  const cardInfo = cardsInitialState.find((countrie) => countrie.id == id);
-  const cardInfoNotFound = !cardInfo;
+  const [singleCard, setSingleCard] = useState({
+    id: "",
+    imgSrc: "",
+    countryName: {
+      en: "",
+      ka: "",
+    },
+    article: {
+      en: "",
+      ka: "",
+    },
+    capitalCity: {
+      en: "",
+      ka: "",
+    },
+    population: 0,
+    vote: 0,
+    deleteStatus: false,
+  });
 
-  if (cardInfoNotFound) {
-    return <div>Card Not Found</div>;
-  }
+
+  useEffect(() => {
+      axios.get(`http://localhost:3000/countries/${id}`)
+      .then((res) => {
+        setSingleCard(res.data);
+      })
+      
+  },[id]);
 
   return (
     <div>
-      <SingleCard cardData={cardInfo} />
+      <SingleCard cardData={singleCard} />
     </div>
   );
 };

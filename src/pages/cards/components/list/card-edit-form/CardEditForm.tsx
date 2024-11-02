@@ -36,7 +36,7 @@ const CardEditForm: React.FC<CardEditFormProps> = ({ onEditSubmit, id }) => {
 
   const georgianLetters = /^[ა-ჰ\s]*$/;
   const englishLetters = /^[A-Za-z\s]*$/;
-  const {lang} = useParams();
+  const { lang } = useParams();
   const currentLang = lang ?? "en";
 
   useEffect(() => {
@@ -49,30 +49,29 @@ const CardEditForm: React.FC<CardEditFormProps> = ({ onEditSubmit, id }) => {
 
     if (name === "countryNameEn" || name === "capitalCityEn") {
       if (!englishLetters.test(value)) {
-        if(currentLang === "en"){
-          errorMessage = "Must contain only English letters"
+        if (currentLang === "en") {
+          errorMessage = "Must contain only English letters";
         }
-        if(currentLang === "ka"){
-          errorMessage = "გთხოვთ შეავსოთ ინგლისური ასოებით"
+        if (currentLang === "ka") {
+          errorMessage = "გთხოვთ შეავსოთ ინგლისური ასოებით";
         }
-        
       }
     } else if (name === "countryNameKa" || name === "capitalCityKa") {
       if (!georgianLetters.test(value)) {
-        if(currentLang === "en"){
-          errorMessage = "Must contain only English letters"
+        if (currentLang === "en") {
+          errorMessage = "Must contain only English letters";
         }
-        if(currentLang === "ka"){
-          errorMessage = "გთხოვთ შეავსოთ ინგლისური ასოებით"
+        if (currentLang === "ka") {
+          errorMessage = "გთხოვთ შეავსოთ ინგლისური ასოებით";
         }
       }
     } else if (name === "population") {
       if (isNaN(Number(value)) || Number(value) < 0) {
-        if(currentLang === "en"){
-          errorMessage = "Population must be a positive number"
+        if (currentLang === "en") {
+          errorMessage = "Population must be a positive number";
         }
-        if(currentLang === "ka"){
-          errorMessage = "მოსახლეობა უნდა იყოს დადებითი რიცხვი"
+        if (currentLang === "ka") {
+          errorMessage = "მოსახლეობა უნდა იყოს დადებითი რიცხვი";
         }
       }
     } else if (name === "imgSrc" && files && files[0]) {
@@ -152,7 +151,7 @@ const CardEditForm: React.FC<CardEditFormProps> = ({ onEditSubmit, id }) => {
         <input
           className={styles.input}
           onChange={handleChange}
-          value={inputState.population || 0} // Ensure to provide a fallback value
+          value={inputState.population || 0}
           type="number"
           name="population"
           placeholder="Population"

@@ -89,20 +89,17 @@ const CardList: React.FC = () => {
   const handleDeleteCard = (id: string) => {
     if (Number(id) > 6) {
       // ეს კოდი უბრალოდ იმისთვის რომ წინასწარ ჩაწერილი მონაცემები რომ არ წამიშალოს და ვიზუალი არ დაამახინჯოს
-      axios
-        .delete(`http://localhost:3000/countries/${id}`)
-        .catch((error) => {
-          console.error("Error", error);
-        });
+      axios.delete(`http://localhost:3000/countries/${id}`).catch((error) => {
+        console.error("Error", error);
+      });
     }
-    if(Number(id) <= 6){
-      if(currentLang=="en"){
-        alert("Cant Delete default card")
-      }else{
-        alert("Default ბარათის წაშლა დროებით არ შეიძლება")
+    if (Number(id) <= 6) {
+      if (currentLang == "en") {
+        alert("Cant Delete default card");
+      } else {
+        alert("Default ბარათის წაშლა დროებით არ შეიძლება");
       }
     }
-
   };
 
   const handleCreateCard = (newCardData: NewCardData) => {
@@ -128,37 +125,50 @@ const CardList: React.FC = () => {
 
   const handleEditCard = (updatedData: EditCardData) => {
     const idToNumber = Number(updatedData.id);
-    const oldData = countries[idToNumber-1];
+    const oldData = countries[idToNumber - 1];
 
     const data = {
       id: updatedData.id,
       countryName: {
-        en: updatedData.countryNameEn !== "" ? updatedData.countryNameEn :oldData.countryName.en,
-        ka: updatedData.countryNameKa !== "" ? updatedData.countryNameKa :oldData.countryName.ka,
+        en:
+          updatedData.countryNameEn !== ""
+            ? updatedData.countryNameEn
+            : oldData.countryName.en,
+        ka:
+          updatedData.countryNameKa !== ""
+            ? updatedData.countryNameKa
+            : oldData.countryName.ka,
       },
       capitalCity: {
-        en: updatedData.capitalCityEn !== "" ? updatedData.capitalCityEn :oldData.capitalCity.en,
-        ka: updatedData.capitalCityKa !== "" ? updatedData.capitalCityKa : oldData.capitalCity.ka,
+        en:
+          updatedData.capitalCityEn !== ""
+            ? updatedData.capitalCityEn
+            : oldData.capitalCity.en,
+        ka:
+          updatedData.capitalCityKa !== ""
+            ? updatedData.capitalCityKa
+            : oldData.capitalCity.ka,
       },
-      population: updatedData.population !== 0 ? updatedData.population :4,
-      imgSrc: updatedData.imgSrc !== "" ? updatedData.imgSrc :oldData.imgSrc,
+      population: updatedData.population !== 0 ? updatedData.population : 4,
+      imgSrc: updatedData.imgSrc !== "" ? updatedData.imgSrc : oldData.imgSrc,
       article: "new article",
       vote: 0,
       deleteStatus: false,
     };
 
-    if(Number(updatedData.id) > 6){
+    if (Number(updatedData.id) > 6) {
       axios.put(`http://localhost:3000/countries/${updatedData.id}`, data);
-      setShowEditForm((prev) => (prev === updatedData.id ? null : updatedData.id));//იმისთვის რომ ფორმის საბმითზე ფორმა გაგვიქროს 
+      setShowEditForm((prev) =>
+        prev === updatedData.id ? null : updatedData.id,
+      ); //იმისთვის რომ ფორმის საბმითზე ფორმა გაგვიქროს
     }
-    if(Number(updatedData.id) <= 6){
-      if(currentLang=="en"){
-        alert("Cant change default card")
-      }else{
-        alert("Default ბარათის შეცვლა დროებით არ შეიძლება")
+    if (Number(updatedData.id) <= 6) {
+      if (currentLang == "en") {
+        alert("Cant change default card");
+      } else {
+        alert("Default ბარათის შეცვლა დროებით არ შეიძლება");
       }
     }
-    
   };
 
   return (

@@ -1,6 +1,5 @@
 .cardsBox::-webkit-scrollbar {
   height: 10px; /* Height of the horizontal scrollbar */
-
 }
 
 .cardsBox::-webkit-scrollbar-track {
@@ -10,15 +9,13 @@
 
 .cardsBox::-webkit-scrollbar-thumb {
   cursor: pointer;
-  background: #37CBCB; /* Color of the scrollbar handle */
+  background: #37cbcb; /* Color of the scrollbar handle */
   border-radius: 8px; /* Rounded corners for handle */
 }
 
 .cardsBox::-webkit-scrollbar-thumb:hover {
-  background:#278f8f; /* Darker color on hover */
+  background: #278f8f; /* Darker color on hover */
 }
-
-
 
 .cardListSection {
   display: flex;
@@ -29,7 +26,6 @@
   margin: auto;
   padding-bottom: 100px;
 }
-
 
 .cardButtonSection {
   display: flex;
@@ -63,13 +59,13 @@
 }
 
 .cardsBox {
-  margin:70px auto 70px auto;
-  width:90%; /* Fixed width for the parent container */
+  margin: 70px auto 70px auto;
+  width: 90%; /* Fixed width for the parent container */
   height: auto; /* Fixed height for the parent container */
   overflow-x: scroll; /* Enable horizontal scrolling */
   display: flex; /* Use flexbox layout */
   align-items: center; /* Center items vertically (optional) */
-  padding-bottom:50px;
+  padding-bottom: 50px;
   gap: 36px;
 }
 
