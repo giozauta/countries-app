@@ -115,7 +115,10 @@ const CardList: React.FC = () => {
       population: newCardData.population,
       imgSrc: newCardData.imgSrc,
       id: String(countries.length + 1),
-      article: "new article",
+      article:{
+        en:"Default article",
+        ka:"არტიკლის ტექსტი"
+      },
       vote: 0,
       deleteStatus: false,
     };
@@ -151,7 +154,10 @@ const CardList: React.FC = () => {
       },
       population: updatedData.population !== 0 ? updatedData.population : 4,
       imgSrc: updatedData.imgSrc !== "" ? updatedData.imgSrc : oldData.imgSrc,
-      article: "new article",
+      article:{
+        en:"New Article",
+        ka:"ახალი ტექსტი"
+      },
       vote: 0,
       deleteStatus: false,
     };

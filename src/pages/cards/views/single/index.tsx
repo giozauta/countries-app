@@ -29,10 +29,10 @@ const SingleCardView: React.FC = () => {
     axios.get(`http://localhost:3000/countries/${id}`).then((res) => {
       setSingleCard(res.data);
     });
-  }, [id]);
+  }, []);
 
   return (
-    <div style={{height: "82vh" }}>
+    <div style={{ height: "82vh" }}>
       <SingleCard cardData={singleCard} />
     </div>
   );
