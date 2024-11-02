@@ -1,8 +1,7 @@
 import SingleCard from "../../components/single";
 import { useParams } from "react-router-dom";
-import { useEffect,useState} from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-
 
 const SingleCardView: React.FC = () => {
   const { id } = useParams();
@@ -26,17 +25,14 @@ const SingleCardView: React.FC = () => {
     deleteStatus: false,
   });
 
-
   useEffect(() => {
-      axios.get(`http://localhost:3000/countries/${id}`)
-      .then((res) => {
-        setSingleCard(res.data);
-      })
-      
-  },[id]);
+    axios.get(`http://localhost:3000/countries/${id}`).then((res) => {
+      setSingleCard(res.data);
+    });
+  }, [id]);
 
   return (
-    <div>
+    <div style={{height: "82vh" }}>
       <SingleCard cardData={singleCard} />
     </div>
   );

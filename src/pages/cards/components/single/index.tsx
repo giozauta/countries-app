@@ -8,7 +8,7 @@ type LocalizedString = {
 
 type SingleCardProps = {
   cardData: {
-    id:string;
+    id: string;
     countryName: LocalizedString;
     capitalCity: LocalizedString;
     population: number;
