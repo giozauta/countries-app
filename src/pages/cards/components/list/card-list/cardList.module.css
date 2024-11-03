@@ -70,15 +70,12 @@
   gap: 36px;
 }
 
-
-
 @media (max-width: 980px) {
   .cardListSection {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-
   }
   .cardsBox {
     display: flex;
@@ -89,16 +86,14 @@
     overflow-x: scroll;
     overflow-y: hidden;
     max-width: 850px;
-  
   }
-  .cardButtonSection{
+  .cardButtonSection {
     display: flex;
     flex-direction: column;
-    width:90%;
+    width: 90%;
     margin: auto;
     justify-content: flex-start;
     padding-left: 0px;
-    
   }
 }
 @media screen and (max-width: 360px) {
@@ -109,15 +104,13 @@
     margin: auto;
     overflow: hidden;
     display: flex;
-    
   }
-  .cardsBox{
+  .cardsBox {
     overflow-y: scroll;
     flex-direction: column;
     height: 600px;
   }
-  .cardButtonSection{
-    padding-left:5px;
+  .cardButtonSection {
+    padding-left: 5px;
   }
-
 }

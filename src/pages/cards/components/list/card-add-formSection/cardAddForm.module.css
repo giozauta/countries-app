@@ -93,9 +93,8 @@ textarea:focus {
 }
 
 @media screen and (max-width: 980px) {
-  .cardAddFormBox{
+  .cardAddFormBox {
     width: 100%;
-   
   }
   .cardAddForm {
     border-radius: 10px;

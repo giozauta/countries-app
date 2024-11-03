@@ -27,7 +27,9 @@
 .langLinks {
   text-decoration: none;
   color: black;
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .logo:hover,
@@ -88,11 +90,11 @@
     height: 250px;
   }
   .headerBox {
-    width: 100%; 
+    width: 100%;
   }
-  .headerlogoBox{
+  .headerlogoBox {
     transform: scale(0.8);
-    position:relative;
+    position: relative;
     left: -24px;
   }
 

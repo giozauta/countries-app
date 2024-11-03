@@ -302,9 +302,8 @@ const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate }) => {
   return (
     <div id="cardAddFormBox" className={styles.cardAddFormBox}>
       <form className={styles.cardAddForm} onSubmit={handleSubmit}>
-      <h3>ADD new Card</h3>
+        <h3>ADD new Card</h3>
         <div className={styles.inputBox}>
-          
           <input
             onChange={handleChange}
             value={inputState.countryNameEn}
