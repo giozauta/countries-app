@@ -11,6 +11,7 @@
   max-width: 500px;
   padding: 40px;
   z-index: 100;
+  width: 400px;
 }
 
 .cardAddForm {
@@ -91,10 +92,22 @@ textarea:focus {
   font-size: 0.9em;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 980px) {
+  .cardAddFormBox{
+    width: 100%;
+   
+  }
+  .cardAddForm {
+    border-radius: 10px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 360px) {
   .cardAddFormBox {
     padding: 20px;
-    width: 90%;
+    width: 100%;
+    margin: auto;
   }
 
   .cardAddForm {

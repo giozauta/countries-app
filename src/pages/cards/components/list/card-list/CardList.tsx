@@ -181,12 +181,15 @@ const CardList: React.FC = () => {
     };
 
     if (Number(updatedData.id) > 6) {
-      axios.put(`http://localhost:3000/countries/${updatedData.id}`, data)
+      axios
+        .put(`http://localhost:3000/countries/${updatedData.id}`, data)
         .then(() => {
           setCountries((prev) =>
-            prev.map((country) => (country.id === updatedData.id ? data : country))
+            prev.map((country) =>
+              country.id === updatedData.id ? data : country,
+            ),
           );
-        })
+        });
       setShowEditForm((prev) =>
         prev === updatedData.id ? null : updatedData.id,
       ); //იმისთვის რომ ფორმის საბმითზე ფორმა გაგვიქროს

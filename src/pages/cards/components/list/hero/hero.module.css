@@ -43,17 +43,18 @@
   z-index: 1;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 360px) {
   .hero {
     width: 99%;
     overflow: hidden;
     display: flex;
     justify-content: center;
     position: relative;
+    height: 600px;
   }
   .heroContent {
     left: 20px;
-    font-size: 20px;
+    font-size: 18px;
     position: absolute;
   }
 }
