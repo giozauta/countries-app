@@ -66,7 +66,7 @@ const CardList: React.FC = () => {
         console.error("Error", error);
       })
       .finally(() => {});
-  }, [countries]);
+  }, []);
 
   const sortCountries = [...countries].sort(
     (a, b) => Number(a.deleteStatus) - Number(b.deleteStatus),
@@ -78,20 +78,35 @@ const CardList: React.FC = () => {
   };
 
   const handleSortChange = (sortType: "asc" | "desc") => {
-    //დროებით
-    console.log(sortType);
+    setCountries((prev) =>
+      [...prev].sort((a, b) =>
+        sortType === "asc" ? a.vote - b.vote : b.vote - a.vote
+      )
+    );
   };
+
   const handleCountriesVote = (id: string) => {
-    //დროებით
-    console.log(id);
+    const updatedCountries = countries.map((country) =>
+      country.id === id ? { ...country, vote: country.vote + 1 } : country
+    );
+    setCountries(updatedCountries);
+
+    axios.patch(`http://localhost:3000/countries/${id}`, {
+      vote: updatedCountries.find((country) => country.id === id)?.vote,
+    });
   };
 
   const handleDeleteCard = (id: string) => {
     if (Number(id) > 6) {
       // ეს კოდი უბრალოდ იმისთვის რომ წინასწარ ჩაწერილი მონაცემები რომ არ წამიშალოს და ვიზუალი არ დაამახინჯოს
-      axios.delete(`http://localhost:3000/countries/${id}`).catch((error) => {
+      axios.delete(`http://localhost:3000/countries/${id}`)
+      .then(() => {
+        setCountries(countries.filter((country) => country.id !== id));
+      })
+      .catch((error) => {
         console.error("Error", error);
       });
+
     }
     if (Number(id) <= 6) {
       if (currentLang == "en") {
@@ -103,7 +118,8 @@ const CardList: React.FC = () => {
   };
 
   const handleCreateCard = (newCardData: NewCardData) => {
-    const data = {
+    const newId =String(countries.length + 1);
+    const newCountry = {
       countryName: {
         en: newCardData.countryNameEn,
         ka: newCardData.countryNameKa,
@@ -114,7 +130,7 @@ const CardList: React.FC = () => {
       },
       population: newCardData.population,
       imgSrc: newCardData.imgSrc,
-      id: String(countries.length + 1),
+      id:newId,
       article: {
         en: "Default article",
         ka: "არტიკლის ტექსტი",
@@ -123,7 +139,10 @@ const CardList: React.FC = () => {
       deleteStatus: false,
     };
 
-    axios.post("http://localhost:3000/countries", data);
+    axios.post("http://localhost:3000/countries", newCountry)
+      .then(() => {
+        setCountries((prev) => [...prev, newCountry]);
+      })
   };
 
   const handleEditCard = (updatedData: EditCardData) => {

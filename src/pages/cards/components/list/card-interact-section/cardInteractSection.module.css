@@ -4,6 +4,8 @@
   justify-content: space-between;
   padding-left: 10px;
   height: 10%;
+  max-width: 400px;
+  overflow: hidden;
 }
 .cardButtonSectionDisabled {
   display: none;

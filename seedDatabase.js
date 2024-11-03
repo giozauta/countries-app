@@ -1,19 +1,19 @@
-import axios from 'axios';
-import { promises as fs } from 'fs';
+import axios from "axios";
+import { promises as fs } from "fs";
 
-// Define your country model transformation
+
 const transformCountryData = (country, id) => ({
   countryName: {
     en: country.name.common,
-    ka: country.name.common, // Use Georgian name if available
+    ka: country.name.common, 
   },
   capitalCity: {
     en: country.capital ? country.capital[0] : "N/A",
-    ka: country.capital ? country.capital[0] : "N/A", // Placeholder for Georgian translation
+    ka: country.capital ? country.capital[0] : "N/A", 
   },
   population: country.population,
   imgSrc: country.flags.png,
-  id: id.toString(), // Convert ID to a string
+  id: id.toString(), 
   article: {
     en: "Default Article",
     ka: "არტიკლის ტექსტი",
@@ -34,23 +34,27 @@ const seedDatabase = async () => {
       const existingData = await fs.readFile("database.json", "utf-8");
       dbData = JSON.parse(existingData);
     } catch (error) {
-      if (error.code !== 'ENOENT') throw error; // Ignore if file doesn't exist
+      if (error.code !== "ENOENT") throw error; // Ignore if file doesn't exist
     }
 
     // Generate unique IDs for new countries
     const existingCountries = dbData.countries;
     const startingId = existingCountries.length + 1;
-    
+
     // Update IDs for new countries
     const newCountriesWithIds = newCountries.map((country, index) => {
-      return transformCountryData(country, startingId + index);
+        return transformCountryData(country, startingId + index);
     });
 
     // Merge new countries with existing ones, filtering out duplicates
-    const existingCountryIds = new Set(existingCountries.map(country => country.id));
+    const existingCountryIds = new Set(
+      existingCountries.map((country) => country.id),
+    );
     const mergedCountries = [
       ...existingCountries,
-      ...newCountriesWithIds.filter(country => !existingCountryIds.has(country.id)),
+      ...newCountriesWithIds.filter(
+        (country) => !existingCountryIds.has(country.id),
+      ),
     ];
 
     // Write the merged data back to database.json

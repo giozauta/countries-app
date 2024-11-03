@@ -1,5 +1,6 @@
 .cardsBox::-webkit-scrollbar {
   height: 10px; /* Height of the horizontal scrollbar */
+  width: 4px;
 }
 
 .cardsBox::-webkit-scrollbar-track {
@@ -58,26 +59,24 @@
   color: white;
 }
 
-.cardsBox {
+.cardsBox{
   margin: 70px auto 70px auto;
-  width: 90%; /* Fixed width for the parent container */
-  height: auto; /* Fixed height for the parent container */
-  overflow-x: scroll; /* Enable horizontal scrolling */
-  display: flex; /* Use flexbox layout */
-  align-items: center; /* Center items vertically (optional) */
+  width: 90%; 
+  height: auto; 
+  overflow-x: scroll; 
+  display: flex; 
+  align-items: center; 
   padding-bottom: 50px;
   gap: 36px;
 }
 
 @media only screen and (max-width: 1380px) {
-  .CardsBox {
-    grid-template-columns: auto auto;
-  }
   .cardButtonSection {
     width: 100%;
     flex-direction: column;
     height: auto;
   }
+
 }
 
 @media (max-width: 800px) {
@@ -86,6 +85,16 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+  }
+  .cardsBox{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 620px;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
 }
 @media screen and (max-width: 420px) {
@@ -97,4 +106,5 @@
     padding: 0px;
     overflow: hidden;
   }
+
 }
