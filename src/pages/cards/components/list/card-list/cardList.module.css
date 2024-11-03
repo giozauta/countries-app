@@ -59,13 +59,13 @@
   color: white;
 }
 
-.cardsBox{
+.cardsBox {
   margin: 70px auto 70px auto;
-  width: 90%; 
-  height: auto; 
-  overflow-x: scroll; 
-  display: flex; 
-  align-items: center; 
+  width: 90%;
+  height: auto;
+  overflow-x: scroll;
+  display: flex;
+  align-items: center;
   padding-bottom: 50px;
   gap: 36px;
 }
@@ -76,7 +76,6 @@
     flex-direction: column;
     height: auto;
   }
-
 }
 
 @media (max-width: 800px) {
@@ -86,7 +85,7 @@
     justify-content: flex-start;
     align-items: flex-start;
   }
-  .cardsBox{
+  .cardsBox {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -106,5 +105,4 @@
     padding: 0px;
     overflow: hidden;
   }
-
 }
