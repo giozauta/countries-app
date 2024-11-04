@@ -46,7 +46,7 @@
 @media screen and (max-width:550px) {
   .heroContent{
 
-    left:0px
+    left:0px;
   }
   .hero{
     width: 99%;
