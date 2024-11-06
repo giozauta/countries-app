@@ -21,12 +21,20 @@ type CardInteractSectionProps = {
   handleDeleteCard: (id: string) => void;
   country: CountryType;
   handleCountriesVote: (id: string) => void;
+  isVoteLoading:boolean;
+  isVoteError:boolean;
+  isDeleteLoading:boolean;
+  isDeleteError:boolean 
 };
 
 const CardInteractSection: React.FC<CardInteractSectionProps> = ({
   country,
   handleCountriesVote,
   handleDeleteCard,
+  isVoteLoading,
+  isVoteError,
+  isDeleteLoading,
+  isDeleteError
 }) => {
   const { lang } = useParams();
   const currentLang = lang ?? "en";
@@ -57,9 +65,14 @@ const CardInteractSection: React.FC<CardInteractSectionProps> = ({
           >
             <img alt="like" className={styles.likeIcon} src="/icons/like.png" />
           </button>
-          <p>{country.vote}</p>
+          <p>
+          {isVoteLoading 
+            ? (isVoteError ? 0: country.vote) 
+            : country.vote}
+          </p>
         </div>
         <button
+          disabled={isDeleteLoading || isDeleteError}
           onClick={() => handleDeleteCard(country.id)}
           className={styles.cardDeleteButton}
         >

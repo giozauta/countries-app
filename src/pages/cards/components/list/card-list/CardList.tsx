@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState} from "react";
 import styles from "./cardList.module.css";
 import Card from "../card/Card";
 import CardImage from "../card-image";
@@ -14,8 +14,9 @@ import {
   deleteCountry,
   updateCountryVote,
 } from "@/api/countries/index";
-import { useParams } from "react-router-dom";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useParams} from "react-router-dom";
+import { useMutation, useQuery} from "@tanstack/react-query";
+
 
 type NewCardData = {
   countryNameEn: string;
@@ -38,6 +39,7 @@ type EditCardData = {
 const CardList: React.FC = () => {
   const [formSection, setFormSection] = useState(false); //card-ის დასამატებელი ფორმის პანელის გამოსაჩენად გვჭირდება
   const [showEditForm, setShowEditForm] = useState<string | null>(null); // card - ის დასაედიტებელი ფორმის გამოსაჩენად გვჭირდება
+  const [newId,setNewId] = useState(7);//ახალი ქვეყნის აიდი 
 
   const { lang } = useParams();
   const currentLang = lang ?? "en";
@@ -52,17 +54,17 @@ const CardList: React.FC = () => {
     onSuccess: () => refetch(),
   });
 
-  const { mutate: mutateVote } = useMutation({
+  const { mutate: mutateVote,isPending: isVoteLoading,isError: isVoteError } = useMutation({
     mutationFn: updateCountryVote,
     onSuccess: () => refetch(),
   });
 
-  const { mutate: addCountryMutate } = useMutation({
+  const { mutate: createCountryMutate, isPending: isCreateLoading ,isError: isCreateError} = useMutation({
     mutationFn: addCountry,
     onSuccess: () => refetch(),
   });
 
-  const { mutate: deleteCountryMutate } = useMutation({
+  const { mutate: deleteCountryMutate, isPending: isDeleteLoading,isError: isDeleteError} = useMutation({
     mutationFn: deleteCountry,
     onSuccess: () => refetch(),
   });
@@ -72,11 +74,10 @@ const CardList: React.FC = () => {
     setShowEditForm((prev) => (prev === id ? null : id)); // Toggle the ID
   };
 
-  // const handleSortChange = (sortType: "asc" | "desc") => {
-  //   const sortedCountries = [...data]?.sort((a, b) =>
-  //     sortType === "asc" ? a.vote - b.vote : b.vote - a.vote,
-  //   )
+  // const handleSortChange = (order: "asc" | "desc") => {
+
   // };
+
 
   const handleUpdateCountry = (updatedData: EditCardData) => {
     const idToNumber = Number(updatedData.id);
@@ -157,7 +158,8 @@ const CardList: React.FC = () => {
   };
 
   const handleCreateCard = (newCardData: NewCardData) => {
-    const newId = String(data?.length ? +1 : 1);
+    const newCountryId =newId.toString();
+
     const newCountry = {
       countryName: {
         en: newCardData.countryNameEn,
@@ -169,7 +171,7 @@ const CardList: React.FC = () => {
       },
       population: newCardData.population,
       imgSrc: newCardData.imgSrc,
-      id: newId,
+      id: newCountryId,
       article: {
         en: "Default article",
         ka: "არტიკლის ტექსტი",
@@ -177,7 +179,8 @@ const CardList: React.FC = () => {
       vote: 0,
       deleteStatus: false,
     };
-    addCountryMutate({ payload: newCountry });
+    createCountryMutate({ payload: newCountry })
+    setNewId(pref=>pref+1)
   };
 
   if (!isError) {
@@ -206,7 +209,7 @@ const CardList: React.FC = () => {
           >
             {currentLang === "en" ? "Add Card" : "დამატება"}
           </button>
-          {formSection ? <CardAddForm onCardCreate={handleCreateCard} /> : null}
+          {formSection ? <CardAddForm isCreateError={isCreateError} isCreateLoading={isCreateLoading} onCardCreate={handleCreateCard} /> : null}
         </div>
         <div className={styles.cardsBox}>
           {isLoading ? (
@@ -221,6 +224,10 @@ const CardList: React.FC = () => {
                 <CardImage imgSrc={country.imgSrc} />
                 <CardContent country={country} />
                 <CardInteractSection
+                  isVoteLoading={isVoteLoading}
+                  isVoteError ={isVoteError}
+                  isDeleteLoading={isDeleteLoading}
+                  isDeleteError={isDeleteError}
                   handleDeleteCard={handleDeleteCard}
                   country={country}
                   handleCountriesVote={handleCountriesVote}
