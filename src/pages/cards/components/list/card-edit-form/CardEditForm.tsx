@@ -165,7 +165,9 @@ const CardEditForm: React.FC<CardEditFormProps> = ({ onEditSubmit, id }) => {
           name="imgSrc"
           accept=".jpg,.png"
         />
-         <button  type="submit" className={styles.submitButton}>Update Card</button>
+        <button type="submit" className={styles.submitButton}>
+          Update Card
+        </button>
       </form>
     </div>
   );

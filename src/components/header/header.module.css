@@ -11,8 +11,6 @@
   height: 100px;
   width: 100%;
   z-index: 1001;
-
-
 }
 
 .headerBox {
@@ -28,7 +26,7 @@
 .navLink,
 .langLinks {
   text-decoration: none;
-  color: black; 
+  color: black;
   transition:
     color 0.3s ease,
     transform 0.3s ease;

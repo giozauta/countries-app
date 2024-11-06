@@ -9,7 +9,7 @@ type ShowEditButtonProps = {
 const ShowEditButton: React.FC<ShowEditButtonProps> = ({
   onSHowEditButtonClick,
   id,
-  isMutateLoading
+  isMutateLoading,
 }) => {
   if (isMutateLoading) {
     return (

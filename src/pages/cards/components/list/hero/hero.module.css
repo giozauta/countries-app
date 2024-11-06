@@ -43,11 +43,12 @@
   z-index: 1;
 }
 
-@media screen and (max-width: 550px) {
-  .heroContent {
-    left: 0px;
+@media screen and (max-width:550px) {
+  .heroContent{
+
+    left:0px
   }
-  .hero {
+  .hero{
     border: 2px solid green;
     width: 99%;
   }

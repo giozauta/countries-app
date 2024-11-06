@@ -7,11 +7,15 @@ import CardInteractSection from "../card-interact-section/CardInteractSection";
 import CardAddForm from "../card-add-formSection";
 import CardEditForm from "../card-edit-form/CardEditForm";
 import ShowEditButton from "../show-editForm-button/ShowEditButton";
-import { getCountries,updateCountry,addCountry,deleteCountry ,updateCountryVote} from "@/api/countries/index";
+import {
+  getCountries,
+  updateCountry,
+  addCountry,
+  deleteCountry,
+  updateCountryVote,
+} from "@/api/countries/index";
 import { useParams } from "react-router-dom";
 import { useMutation, useQuery } from "@tanstack/react-query";
-
-
 
 type NewCardData = {
   countryNameEn: string;
@@ -38,32 +42,30 @@ const CardList: React.FC = () => {
   const { lang } = useParams();
   const currentLang = lang ?? "en";
 
-  const { data,isLoading,isError,refetch } = useQuery({
+  const { data, isLoading, isError, refetch } = useQuery({
     queryKey: ["countries"],
-    queryFn: getCountries
+    queryFn: getCountries,
   });
 
-  const { mutate:mutateCountry,isPending:isMutateLoading } = useMutation({
+  const { mutate: mutateCountry, isPending: isMutateLoading } = useMutation({
     mutationFn: updateCountry,
     onSuccess: () => refetch(),
   });
 
-
-  const { mutate : mutateVote } = useMutation({
+  const { mutate: mutateVote } = useMutation({
     mutationFn: updateCountryVote,
     onSuccess: () => refetch(),
   });
 
-  const {mutate:addCountryMutate} = useMutation({
-    mutationFn:addCountry,
-    onSuccess:()=>refetch(),
-  })
+  const { mutate: addCountryMutate } = useMutation({
+    mutationFn: addCountry,
+    onSuccess: () => refetch(),
+  });
 
-  const {mutate:deleteCountryMutate} = useMutation({
-    mutationFn:deleteCountry,
-    onSuccess:()=>refetch(),
-  })
-
+  const { mutate: deleteCountryMutate } = useMutation({
+    mutationFn: deleteCountry,
+    onSuccess: () => refetch(),
+  });
 
   //for opening edit form
   const handleShowEditForm = (id: string) => {
@@ -78,8 +80,8 @@ const CardList: React.FC = () => {
 
   const handleUpdateCountry = (updatedData: EditCardData) => {
     const idToNumber = Number(updatedData.id);
-    const oldData = data?.[idToNumber-1];
-    if(!oldData)return;
+    const oldData = data?.[idToNumber - 1];
+    if (!oldData) return;
     const newData = {
       id: updatedData.id,
       countryName: {
@@ -102,7 +104,10 @@ const CardList: React.FC = () => {
             ? updatedData.capitalCityKa
             : oldData.capitalCity.ka,
       },
-      population: updatedData.population !== 0 ? updatedData.population : oldData.population,
+      population:
+        updatedData.population !== 0
+          ? updatedData.population
+          : oldData.population,
       imgSrc: updatedData.imgSrc !== "" ? updatedData.imgSrc : oldData.imgSrc,
       article: {
         en: "New Article",
@@ -113,7 +118,7 @@ const CardList: React.FC = () => {
     };
 
     if (Number(updatedData.id) > 6) {
-      mutateCountry({id:updatedData.id,payload:newData});
+      mutateCountry({ id: updatedData.id, payload: newData });
       setShowEditForm((prev) =>
         prev === updatedData.id ? null : updatedData.id,
       ); //იმისთვის რომ ფორმის საბმითზე ფორმა გაგვიქროს
@@ -126,7 +131,7 @@ const CardList: React.FC = () => {
       }
     }
   };
-  
+
   const handleCountriesVote = (id: string) => {
     const country = data?.find((country) => country.id === id);
     if (!country) {
@@ -136,10 +141,6 @@ const CardList: React.FC = () => {
     const newVote = country.vote + 1;
     mutateVote({ id: country.id, payload: { vote: newVote } });
   };
-  
-  
-
-
 
   const handleDeleteCard = (id: string) => {
     if (Number(id) > 6) {
@@ -156,7 +157,7 @@ const CardList: React.FC = () => {
   };
 
   const handleCreateCard = (newCardData: NewCardData) => {
-    const newId = String(data?.length? + 1:1);
+    const newId = String(data?.length ? +1 : 1);
     const newCountry = {
       countryName: {
         en: newCardData.countryNameEn,
@@ -176,71 +177,74 @@ const CardList: React.FC = () => {
       vote: 0,
       deleteStatus: false,
     };
-    addCountryMutate({payload:newCountry});
+    addCountryMutate({ payload: newCountry });
   };
 
-
-if(!isError){
-  return (
-    <section className={styles.cardListSection}>
-      <div className={styles.cardButtonSection}>
-        <button
-          // onClick={() => handleSortChange("asc")}
-          className={styles.sortButton}
-        >
-          {currentLang === "en" ? "Asc" : "ზრდადი"}
-        </button>
-        <button
-          // onClick={() => handleSortChange("desc")}
-          className={styles.sortButton}
-        >
-          {currentLang === "en" ? "Desc" : "კლებადი"}
-        </button>
-        <button
-          className={styles.addCardButton}
-          onClick={() =>
-            setFormSection((prevState) => {
-              return !prevState;
-            })
-          }
-        >
-          {currentLang === "en" ? "Add Card" : "დამატება"}
-        </button>
-        {formSection ? <CardAddForm onCardCreate={handleCreateCard} /> : null}
-      </div>
-      <div className={styles.cardsBox}>
-        {isLoading
-        ?<div>Loading...</div>
-        :data?.map((country) => (
-          <Card
-            id={country.id}
-            deleteStatus={country.deleteStatus}
-            key={country.id}
+  if (!isError) {
+    return (
+      <section className={styles.cardListSection}>
+        <div className={styles.cardButtonSection}>
+          <button
+            // onClick={() => handleSortChange("asc")}
+            className={styles.sortButton}
           >
-            <CardImage imgSrc={country.imgSrc} />
-            <CardContent country={country} />
-            <CardInteractSection
-              handleDeleteCard={handleDeleteCard}
-              country={country}
-              handleCountriesVote={handleCountriesVote}
-            />
-            {showEditForm === country.id && (
-              <CardEditForm  id={country.id} onEditSubmit={handleUpdateCountry} />
-            )}
-            <ShowEditButton
-              id={country.id}
-              onSHowEditButtonClick={handleShowEditForm}
-              isMutateLoading={isMutateLoading}
-            />
-          </Card>))        
-        }
-      </div>
-    </section>
-  );
-} else {
-  return <div>Error</div>;
-}
-
+            {currentLang === "en" ? "Asc" : "ზრდადი"}
+          </button>
+          <button
+            // onClick={() => handleSortChange("desc")}
+            className={styles.sortButton}
+          >
+            {currentLang === "en" ? "Desc" : "კლებადი"}
+          </button>
+          <button
+            className={styles.addCardButton}
+            onClick={() =>
+              setFormSection((prevState) => {
+                return !prevState;
+              })
+            }
+          >
+            {currentLang === "en" ? "Add Card" : "დამატება"}
+          </button>
+          {formSection ? <CardAddForm onCardCreate={handleCreateCard} /> : null}
+        </div>
+        <div className={styles.cardsBox}>
+          {isLoading ? (
+            <div>Loading...</div>
+          ) : (
+            data?.map((country) => (
+              <Card
+                id={country.id}
+                deleteStatus={country.deleteStatus}
+                key={country.id}
+              >
+                <CardImage imgSrc={country.imgSrc} />
+                <CardContent country={country} />
+                <CardInteractSection
+                  handleDeleteCard={handleDeleteCard}
+                  country={country}
+                  handleCountriesVote={handleCountriesVote}
+                />
+                {showEditForm === country.id && (
+                  <CardEditForm
+                    id={country.id}
+                    onEditSubmit={handleUpdateCountry}
+                  />
+                )}
+                <ShowEditButton
+                  id={country.id}
+                  onSHowEditButtonClick={handleShowEditForm}
+                  isMutateLoading={isMutateLoading}
+                />
+              </Card>
+            ))
+          )}
+        </div>
+      </section>
+    );
+  } else {
+    return <div>Error</div>;
+  }
 };
 
 export default CardList;

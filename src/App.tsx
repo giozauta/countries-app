@@ -13,35 +13,20 @@ const ContactViews = lazy(() => import("@/pages/contact/views"));
 const App: React.FC = () => {
   return (
     <Suspense fallback={<div>loading...</div>}>
-    <Routes>
-      <Route path=":lang" element={<LangGuard />}>
-        <Route element={<DefaultLayout />}>
-          <Route
-            path="cards"
-            element={
-                <CardsListview />
-            }
-          />
-          <Route path="cards/:id" element={<SingleCardView />} />
+      <Routes>
+        <Route path=":lang" element={<LangGuard />}>
+          <Route element={<DefaultLayout />}>
+            <Route path="cards" element={<CardsListview />} />
+            <Route path="cards/:id" element={<SingleCardView />} />
 
-          <Route
-            path="about"
-            element={
-                <AboutViews />
-            }
-          />
-          <Route
-            path="contact"
-            element={
-                <ContactViews />
-            }
-          />
-          <Route path="" element={<Navigate to="cards" />} />
+            <Route path="about" element={<AboutViews />} />
+            <Route path="contact" element={<ContactViews />} />
+            <Route path="" element={<Navigate to="cards" />} />
+          </Route>
         </Route>
-      </Route>
-      <Route path="/" element={<Navigate to="/en/cards" />} />
-      <Route path="*" element={<NotFoundPage />} />
-    </Routes>
+        <Route path="/" element={<Navigate to="/en/cards" />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
     </Suspense>
   );
 };
