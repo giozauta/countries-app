@@ -12,15 +12,14 @@ const ContactViews = lazy(() => import("@/pages/contact/views"));
 
 const App: React.FC = () => {
   return (
+    <Suspense fallback={<div>loading...</div>}>
     <Routes>
       <Route path=":lang" element={<LangGuard />}>
         <Route element={<DefaultLayout />}>
           <Route
             path="cards"
             element={
-              <Suspense fallback={<div>loading...</div>}>
                 <CardsListview />
-              </Suspense>
             }
           />
           <Route path="cards/:id" element={<SingleCardView />} />
@@ -28,17 +27,13 @@ const App: React.FC = () => {
           <Route
             path="about"
             element={
-              <Suspense fallback={<div>loading...</div>}>
                 <AboutViews />
-              </Suspense>
             }
           />
           <Route
             path="contact"
             element={
-              <Suspense fallback={<div>loading...</div>}>
                 <ContactViews />
-              </Suspense>
             }
           />
           <Route path="" element={<Navigate to="cards" />} />
@@ -47,6 +42,7 @@ const App: React.FC = () => {
       <Route path="/" element={<Navigate to="/en/cards" />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
+    </Suspense>
   );
 };
 
