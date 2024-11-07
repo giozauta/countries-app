@@ -53,6 +53,7 @@ const CardList: React.FC = () => {
     mutate: mutateCountry,
     isPending: isCountryLoading,
     isError: isCountryError,
+    error: countryError,
   } = useMutation({
     mutationFn: updateCountry,
     onSuccess: () => refetch(),
@@ -61,7 +62,7 @@ const CardList: React.FC = () => {
   const {
     mutate: mutateVote,
     isPending: isVoteLoading,
-    isError: isVoteError,
+    isError: isVoteError
   } = useMutation({
     mutationFn: updateCountryVote,
     onSuccess: () => refetch(),
@@ -237,7 +238,8 @@ const CardList: React.FC = () => {
             {isLoading ? (
               <div>Loading...</div>
             ) : (
-              data?.sort((a, b) => a.vote - b.vote)
+              data
+                ?.sort((a, b) => a.vote - b.vote)
                 .map((country) => (
                   <Card
                     id={country.id}
@@ -266,6 +268,7 @@ const CardList: React.FC = () => {
                       onSHowEditButtonClick={handleShowEditForm}
                       isMutateLoading={isCountryLoading}
                       isCountryError={isCountryError}
+                      countryError={countryError?countryError.message:""}
                     />
                   </Card>
                 ))
@@ -341,6 +344,7 @@ const CardList: React.FC = () => {
                       onSHowEditButtonClick={handleShowEditForm}
                       isMutateLoading={isCountryLoading}
                       isCountryError={isCountryError}
+                      countryError={countryError?countryError.message:""}
                     />
                   </Card>
                 ))
@@ -350,7 +354,7 @@ const CardList: React.FC = () => {
       );
     }
   } else {
-    return <div>Error</div>;
+    return <div>{isError}</div>;
   }
 };
 

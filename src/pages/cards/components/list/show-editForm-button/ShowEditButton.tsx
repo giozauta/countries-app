@@ -5,6 +5,7 @@ type ShowEditButtonProps = {
   id: string;
   isMutateLoading: boolean;
   isCountryError: boolean;
+  countryError: string | null 
 };
 
 const ShowEditButton: React.FC<ShowEditButtonProps> = ({
@@ -12,12 +13,16 @@ const ShowEditButton: React.FC<ShowEditButtonProps> = ({
   id,
   isMutateLoading,
   isCountryError,
+  countryError
 }) => {
+  if(isCountryError&&countryError){
+    return<div>{countryError}</div>
+  }
   return (
     <button
       onClick={() => onSHowEditButtonClick(id)}
       className={styles.showEditButton}
-      disabled={isMutateLoading || isCountryError}
+      disabled={isMutateLoading}
     >
       Edit
     </button>

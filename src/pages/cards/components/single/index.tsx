@@ -1,7 +1,7 @@
 import styles from "./singleCard.module.css";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import {getCountries} from "@/api/countries";
+import { getCountries } from "@/api/countries";
 
 const SingleCard: React.FC = () => {
   const { lang } = useParams();
@@ -13,10 +13,10 @@ const SingleCard: React.FC = () => {
     queryFn: getCountries,
   });
 
- const country = data?.find((item) => item.id === id);
- if(!country){
-  return<div>...loading</div>
- }
+  const country = data?.find((item) => item.id === id);
+  if (!country) {
+    return <div>...loading</div>;
+  }
   return (
     <div className={styles.singleCard}>
       <div className={styles.imageContainer}>

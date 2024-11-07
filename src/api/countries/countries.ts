@@ -1,14 +1,14 @@
 import { httpClient } from "..";
 import { CountryType } from "./countries.types";
 
-
 export const getCountries = async (): Promise<CountryType[] | undefined> => {
   try {
     const response = await httpClient.get<CountryType[]>("/countries");
     return response.data;
   } catch (err) {
-    console.log(err);
-    return undefined;
+    throw new Error(
+      err+"Failed to fetch countries. Please check your network connection.",
+    )
   }
 };
 
@@ -18,10 +18,11 @@ export const deleteCountry = async (
 ): Promise<CountryType | undefined> => {
   try {
     const response = await httpClient.delete<CountryType>(`/countries/${id}`);
-
     return response.data;
   } catch (err) {
-    console.log(err);
+    throw new Error(
+      err+"Failed to delete countries. Please check your network connection.",
+    )
   }
 };
 
@@ -40,7 +41,9 @@ export const updateCountry = async ({
     );
     return response.data;
   } catch (err) {
-    console.log(err);
+    throw new Error(
+      err+"Failed to update country. Please check your network connection.",
+    )
   }
 };
 
@@ -59,7 +62,9 @@ export const updateCountryVote = async ({
     );
     return response.data;
   } catch (err) {
-    console.log(err);
+    throw new Error(
+      err+"Failed to update vote. Please check your network connection.",
+    )
   }
 };
 
@@ -73,6 +78,8 @@ export const addCountry = async ({
     const response = await httpClient.post<CountryType>("/countries", payload);
     return response.data;
   } catch (err) {
-    console.error(err);
+    throw new Error(
+      err+"Failed to addCountry. Please check your network connection.",
+    )
   }
 };
