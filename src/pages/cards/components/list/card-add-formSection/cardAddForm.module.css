@@ -68,14 +68,13 @@ textarea:focus {
   border: none;
   padding: 10px;
   background-color: #34caca;
-  color:white;
+  color: white;
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition:
     background-color 0.3s,
     transform 0.2s;
 }
-
 
 .subbmitCardButton:hover {
   background-color: #28b2b2;

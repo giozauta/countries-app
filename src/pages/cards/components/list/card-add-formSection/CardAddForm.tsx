@@ -11,11 +11,15 @@ type CardCreateFormProps = {
     population: number;
     imgSrc: string;
   }) => void;
-  isCreateLoading:boolean;
-  isCreateError:boolean
+  isCreateLoading: boolean;
+  isCreateError: boolean;
 };
 
-const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate,isCreateLoading,isCreateError}) => {
+const CardAddForm: React.FC<CardCreateFormProps> = ({
+  onCardCreate,
+  isCreateLoading,
+  isCreateError,
+}) => {
   const [inputState, setInputState] = useState({
     countryNameEn: "",
     countryNameKa: "",
@@ -301,9 +305,10 @@ const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate,isCreateLoadi
     }
   };
 
-  return (isCreateError
-    ?<div>Error</div>
-    :<div id="cardAddFormBox" className={styles.cardAddFormBox}>
+  return isCreateError ? (
+    <div>Error</div>
+  ) : (
+    <div id="cardAddFormBox" className={styles.cardAddFormBox}>
       <form className={styles.cardAddForm} onSubmit={handleSubmit}>
         <h3>ADD new Card</h3>
         <div className={styles.inputBox}>
@@ -388,7 +393,11 @@ const CardAddForm: React.FC<CardCreateFormProps> = ({ onCardCreate,isCreateLoadi
             accept=".jpg,.png"
           />
         </div>
-        <button type="submit" className={styles.subbmitCardButton} disabled={isCreateLoading}>
+        <button
+          type="submit"
+          className={styles.subbmitCardButton}
+          disabled={isCreateLoading}
+        >
           {currentLang === "en" ? "Create" : "შექმნა"}
         </button>
       </form>
