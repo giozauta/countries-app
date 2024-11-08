@@ -9,7 +9,7 @@ export const getCountries = async ({
   const [sort] = queryKey; //ეს იმისთვის რომ ტიპის  პრობლემა იქმნებოდა როდესაც პირდაპირ ვაწვდიდით პარამეტრს
   try {
     const response = await httpClient.get(`/countries?_order=${sort}`);
-    return response.data;
+    return response.data||[{vote:1},{vote:2}];
   } catch (err) {
     throw new Error(
       err + "Failed to fetch countries. Please check your network connection.",

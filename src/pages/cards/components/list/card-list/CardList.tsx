@@ -105,7 +105,9 @@ const CardList: React.FC = () => {
     navigate({ search: params.toString() });
   };
 
-  const sortedData = data?.sort((a, b) => (sort === "asc" ? a.vote - b.vote : b.vote - a.vote));
+  const sortedData = data?.sort((a, b) =>
+    sort === "asc" ? a.vote - b.vote : b.vote - a.vote,
+  );
 
   const handleUpdateCountry = (updatedData: EditCardData) => {
     const idToNumber = Number(updatedData.id);
