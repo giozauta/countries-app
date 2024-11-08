@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import styles from "./cardList.module.css";
 import Card from "../card/Card";
@@ -50,7 +51,6 @@ const CardList: React.FC = () => {
 
   const { lang } = useParams();
   const currentLang = lang ?? "en";
-
 
   const { data, isLoading, isError, refetch } = useQuery({
     queryKey: ["countries", sort],
@@ -106,8 +106,11 @@ const CardList: React.FC = () => {
     navigate({ search: params.toString() });
   };
 
-  
-  const sortedData = data?.sort((a, b) => (sort === "asc" ? a.vote - b.vote : b.vote - a.vote));
+
+  const sortedData = data?.sort((a, b) =>
+    sort === "asc" ? a.vote - b.vote : b.vote - a.vote,
+  );
+
 
 
   const handleUpdateCountry = (updatedData: EditCardData) => {
@@ -214,8 +217,6 @@ const CardList: React.FC = () => {
     setNewId((pref) => pref + 1);
   };
 
-
-
   if (isLoading && !data) {
     return <div>Loading...</div>;
   }
@@ -226,22 +227,39 @@ const CardList: React.FC = () => {
   return (
     <section className={styles.cardListSection}>
       <div className={styles.cardButtonSection}>
-        <button onClick={() => handleSortChange("asc")} className={styles.sortButton}>
+        <button
+          onClick={() => handleSortChange("asc")}
+          className={styles.sortButton}
+        >
           {currentLang === "en" ? "Asc" : "ზრდადი"}
         </button>
-        <button onClick={() => handleSortChange("desc")} className={styles.sortButton}>
+        <button
+          onClick={() => handleSortChange("desc")}
+          className={styles.sortButton}
+        >
           {currentLang === "en" ? "Desc" : "კლებადი"}
         </button>
-        <button className={styles.addCardButton} onClick={() => setFormSection(!formSection)}>
+        <button
+          className={styles.addCardButton}
+          onClick={() => setFormSection(!formSection)}
+        >
           {currentLang === "en" ? "Add Card" : "დამატება"}
         </button>
         {formSection && (
-          <CardAddForm isCreateError={isCreateError} isCreateLoading={isCreateLoading} onCardCreate={handleCreateCard} />
+          <CardAddForm
+            isCreateError={isCreateError}
+            isCreateLoading={isCreateLoading}
+            onCardCreate={handleCreateCard}
+          />
         )}
       </div>
       <div className={styles.cardsBox}>
         {sortedData?.map((country) => (
-          <Card id={country.id} deleteStatus={country.deleteStatus} key={country.id}>
+          <Card
+            id={country.id}
+            deleteStatus={country.deleteStatus}
+            key={country.id}
+          >
             <CardImage imgSrc={country.imgSrc} />
             <CardContent country={country} />
             <CardInteractSection
@@ -253,7 +271,12 @@ const CardList: React.FC = () => {
               country={country}
               handleCountriesVote={handleCountriesVote}
             />
-            {showEditForm === country.id && <CardEditForm id={country.id} onEditSubmit={handleUpdateCountry} />}
+            {showEditForm === country.id && (
+              <CardEditForm
+                id={country.id}
+                onEditSubmit={handleUpdateCountry}
+              />
+            )}
             <ShowEditButton
               id={country.id}
               onSHowEditButtonClick={handleShowEditForm}
