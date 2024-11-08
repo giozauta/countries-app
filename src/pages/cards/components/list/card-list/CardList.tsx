@@ -245,9 +245,7 @@ const CardList: React.FC = () => {
             ) : null}
           </div>
           <div className={styles.cardsBox}>
-            {isLoading ? (
-              <div>Loading...</div>
-            ) : (
+            {
               data
                 ?.sort((a, b) => a.vote - b.vote)
                 .map((country) => (
@@ -282,7 +280,7 @@ const CardList: React.FC = () => {
                     />
                   </Card>
                 ))
-            )}
+            }
           </div>
         </section>
       );
@@ -321,9 +319,7 @@ const CardList: React.FC = () => {
             ) : null}
           </div>
           <div className={styles.cardsBox}>
-            {isLoading ? (
-              <div>Loading...</div>
-            ) : (
+            {
               data
                 ?.sort((a, b) => b.vote - a.vote)
                 .map((country) => (
@@ -358,11 +354,14 @@ const CardList: React.FC = () => {
                     />
                   </Card>
                 ))
-            )}
+            }
           </div>
         </section>
       );
     }
+  }
+  if(isLoading){
+    return <div>Loading...</div>;
   } else {
     return <div>{isError}</div>;
   }
