@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect} from "react";
 import styles from "./cardList.module.css";
 import Card from "../card/Card";
 import CardImage from "../card-image";
@@ -14,7 +14,7 @@ import {
   deleteCountry,
   updateCountryVote,
 } from "@/api/countries/index";
-import { useParams } from "react-router-dom";
+import { useParams,useLocation, useNavigate } from "react-router-dom";
 import { useMutation, useQuery } from "@tanstack/react-query";
 
 type NewCardData = {
@@ -39,13 +39,20 @@ const CardList: React.FC = () => {
   const [formSection, setFormSection] = useState(false); //card-ის დასამატებელი ფორმის პანელის გამოსაჩენად გვჭირდება
   const [showEditForm, setShowEditForm] = useState<string | null>(null); // card - ის დასაედიტებელი ფორმის გამოსაჩენად გვჭირდება
   const [newId, setNewId] = useState(7); //ახალი ქვეყნის აიდი
-  const [sort, setSort] = useState<"asc" | "desc">("asc");
+    //სორტირებისთვის 
+  const urlParams = new URLSearchParams(window.location.search);
+  const initialSrot = urlParams.get("_order") || "asc";
+  const [sort, setSort] = useState<"asc" | "desc">(initialSrot as "asc" | "desc");
+  const { search } = useLocation();//ვიღებთ url რომ გადავცეთ URLSearchParams-ს 
+  const navigate  = useNavigate();//ვცვლით საძიებო ველში url-ს რენდერის გარეშე 
+
+
 
   const { lang } = useParams();
   const currentLang = lang ?? "en";
 
   const { data, isLoading, isError, refetch } = useQuery({
-    queryKey: ["countries"],
+    queryKey: ["countries",sort],
     queryFn: getCountries,
   });
 
@@ -62,7 +69,7 @@ const CardList: React.FC = () => {
   const {
     mutate: mutateVote,
     isPending: isVoteLoading,
-    isError: isVoteError
+    isError: isVoteError,
   } = useMutation({
     mutationFn: updateCountryVote,
     onSuccess: () => refetch(),
@@ -88,11 +95,14 @@ const CardList: React.FC = () => {
 
   //for opening edit form
   const handleShowEditForm = (id: string) => {
-    setShowEditForm((prev) => (prev === id ? null : id)); // Toggle the ID
+    setShowEditForm((prev) => (prev === id ? null : id)); 
   };
 
   const handleSortChange = (order: "asc" | "desc") => {
     setSort(order);
+    const params = new URLSearchParams(search);
+    params.set("_order", order); 
+    navigate({ search: params.toString() });
   };
 
   const handleUpdateCountry = (updatedData: EditCardData) => {
@@ -268,7 +278,7 @@ const CardList: React.FC = () => {
                       onSHowEditButtonClick={handleShowEditForm}
                       isMutateLoading={isCountryLoading}
                       isCountryError={isCountryError}
-                      countryError={countryError?countryError.message:""}
+                      countryError={countryError ? countryError.message : ""}
                     />
                   </Card>
                 ))
@@ -344,7 +354,7 @@ const CardList: React.FC = () => {
                       onSHowEditButtonClick={handleShowEditForm}
                       isMutateLoading={isCountryLoading}
                       isCountryError={isCountryError}
-                      countryError={countryError?countryError.message:""}
+                      countryError={countryError ? countryError.message : ""}
                     />
                   </Card>
                 ))

@@ -11,6 +11,8 @@ const AboutViews = lazy(() => import("@/pages/about"));
 const ContactViews = lazy(() => import("@/pages/contact/views"));
 
 const App: React.FC = () => {
+
+  
   return (
     <Suspense fallback={<div>loading...</div>}>
       <Routes>
@@ -18,7 +20,6 @@ const App: React.FC = () => {
           <Route element={<DefaultLayout />}>
             <Route path="cards" element={<CardsListview />} />
             <Route path="cards/:id" element={<SingleCardView />} />
-
             <Route path="about" element={<AboutViews />} />
             <Route path="contact" element={<ContactViews />} />
             <Route path="" element={<Navigate to="cards" />} />

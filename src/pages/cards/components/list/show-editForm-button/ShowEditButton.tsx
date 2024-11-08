@@ -5,7 +5,7 @@ type ShowEditButtonProps = {
   id: string;
   isMutateLoading: boolean;
   isCountryError: boolean;
-  countryError: string | null 
+  countryError: string | null;
 };
 
 const ShowEditButton: React.FC<ShowEditButtonProps> = ({
@@ -13,10 +13,10 @@ const ShowEditButton: React.FC<ShowEditButtonProps> = ({
   id,
   isMutateLoading,
   isCountryError,
-  countryError
+  countryError,
 }) => {
-  if(isCountryError&&countryError){
-    return<div>{countryError}</div>
+  if (isCountryError && countryError) {
+    return <div>{countryError}</div>;
   }
   return (
     <button

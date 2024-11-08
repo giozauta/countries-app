@@ -1,14 +1,15 @@
 import { httpClient } from "..";
 import { CountryType } from "./countries.types";
 
-export const getCountries = async (): Promise<CountryType[] | undefined> => {
+export const getCountries = async ({ queryKey }: { queryKey: string[] }): Promise<CountryType[] | undefined> => {
+  const [sort] = queryKey;//ეს იმისთვის რომ ტიპის  პრობლემა იქმნებოდა როდესაც პირდაპირ ვაწვდიდით პარამეტრს  
   try {
-    const response = await httpClient.get<CountryType[]>("/countries");
+    const response = await httpClient.get(`/countries?_order=${sort}`);
     return response.data;
   } catch (err) {
     throw new Error(
-      err+"Failed to fetch countries. Please check your network connection.",
-    )
+      err + "Failed to fetch countries. Please check your network connection.",
+    );
   }
 };
 
@@ -21,8 +22,8 @@ export const deleteCountry = async (
     return response.data;
   } catch (err) {
     throw new Error(
-      err+"Failed to delete countries. Please check your network connection.",
-    )
+      err + "Failed to delete countries. Please check your network connection.",
+    );
   }
 };
 
@@ -42,8 +43,8 @@ export const updateCountry = async ({
     return response.data;
   } catch (err) {
     throw new Error(
-      err+"Failed to update country. Please check your network connection.",
-    )
+      err + "Failed to update country. Please check your network connection.",
+    );
   }
 };
 
@@ -63,8 +64,8 @@ export const updateCountryVote = async ({
     return response.data;
   } catch (err) {
     throw new Error(
-      err+"Failed to update vote. Please check your network connection.",
-    )
+      err + "Failed to update vote. Please check your network connection.",
+    );
   }
 };
 
@@ -79,7 +80,7 @@ export const addCountry = async ({
     return response.data;
   } catch (err) {
     throw new Error(
-      err+"Failed to addCountry. Please check your network connection.",
-    )
+      err + "Failed to addCountry. Please check your network connection.",
+    );
   }
 };
