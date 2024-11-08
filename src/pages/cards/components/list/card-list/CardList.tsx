@@ -211,7 +211,7 @@ const CardList: React.FC = () => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-  if (!isError&&!isLoading) {
+  if (!isError && !isLoading&&data) {
     if (sort === "asc") {
       return (
         <section className={styles.cardListSection}>
@@ -357,8 +357,7 @@ const CardList: React.FC = () => {
         </section>
       );
     }
-  }
-  else {
+  } else {
     return <div>{isError}</div>;
   }
 };
