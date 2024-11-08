@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import styles from "./cardList.module.css";
 import Card from "../card/Card";
@@ -42,7 +41,7 @@ const CardList: React.FC = () => {
   const [newId, setNewId] = useState(7); //ახალი ქვეყნის აიდი
   //სორტირებისთვის
   const urlParams = new URLSearchParams(window.location.search);
-  const initialSrot = urlParams.get("_order") || "asc";
+  const initialSrot = urlParams.get("_order") ?? "asc";
   const [sort, setSort] = useState<"asc" | "desc">(
     initialSrot as "asc" | "desc",
   );
@@ -106,12 +105,9 @@ const CardList: React.FC = () => {
     navigate({ search: params.toString() });
   };
 
-
   const sortedData = data?.sort((a, b) =>
     sort === "asc" ? a.vote - b.vote : b.vote - a.vote,
   );
-
-
 
   const handleUpdateCountry = (updatedData: EditCardData) => {
     const idToNumber = Number(updatedData.id);
