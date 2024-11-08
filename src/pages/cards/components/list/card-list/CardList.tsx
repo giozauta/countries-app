@@ -208,10 +208,10 @@ const CardList: React.FC = () => {
     createCountryMutate({ payload: newCountry });
     setNewId((pref) => pref + 1);
   };
-  if (isLoading) {
+  if (isLoading&&!data) {
     return <div>Loading...</div>;
   }
-  if (!isError && !isLoading&&data) {
+  if (!isError && !isLoading) {
     if (sort === "asc") {
       return (
         <section className={styles.cardListSection}>
