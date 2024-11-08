@@ -6,13 +6,18 @@ export const getCountries = async ({
 }: {
   queryKey: string[];
 }): Promise<CountryType[] | undefined> => {
-  const [sort] = queryKey; //ეს იმისთვის რომ ტიპის  პრობლემა იქმნებოდა როდესაც პირდაპირ ვაწვდიდით პარამეტრს
+  const [sort] = queryKey; // extract sort order from queryKey
   try {
     const response = await httpClient.get(`/countries?_order=${sort}`);
-    return response.data;
+    // Ensure response.data is an array before returning
+    if (Array.isArray(response.data)) {
+      return response.data;
+    } else {
+      throw new Error("The response data is not an array.");
+    }
   } catch (err) {
     throw new Error(
-      err + "Failed to fetch countries. Please check your network connection.",
+      `${err} Failed to fetch countries. Please check your network connection.`,
     );
   }
 };
