@@ -1,8 +1,12 @@
 import { httpClient } from "..";
 import { CountryType } from "./countries.types";
 
-export const getCountries = async ({ queryKey }: { queryKey: string[] }): Promise<CountryType[] | undefined> => {
-  const [sort] = queryKey;//ეს იმისთვის რომ ტიპის  პრობლემა იქმნებოდა როდესაც პირდაპირ ვაწვდიდით პარამეტრს  
+export const getCountries = async ({
+  queryKey,
+}: {
+  queryKey: string[];
+}): Promise<CountryType[] | undefined> => {
+  const [sort] = queryKey; //ეს იმისთვის რომ ტიპის  პრობლემა იქმნებოდა როდესაც პირდაპირ ვაწვდიდით პარამეტრს
   try {
     const response = await httpClient.get(`/countries?_order=${sort}`);
     return response.data;

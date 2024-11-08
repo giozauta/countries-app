@@ -11,8 +11,6 @@ const AboutViews = lazy(() => import("@/pages/about"));
 const ContactViews = lazy(() => import("@/pages/contact/views"));
 
 const App: React.FC = () => {
-
-  
   return (
     <Suspense fallback={<div>loading...</div>}>
       <Routes>
