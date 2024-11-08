@@ -208,8 +208,10 @@ const CardList: React.FC = () => {
     createCountryMutate({ payload: newCountry });
     setNewId((pref) => pref + 1);
   };
-
-  if (!isError) {
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+  if (!isError&&!isLoading) {
     if (sort === "asc") {
       return (
         <section className={styles.cardListSection}>
@@ -245,42 +247,40 @@ const CardList: React.FC = () => {
             ) : null}
           </div>
           <div className={styles.cardsBox}>
-            {
-              data
-                ?.sort((a, b) => a.vote - b.vote)
-                .map((country) => (
-                  <Card
-                    id={country.id}
-                    deleteStatus={country.deleteStatus}
-                    key={country.id}
-                  >
-                    <CardImage imgSrc={country.imgSrc} />
-                    <CardContent country={country} />
-                    <CardInteractSection
-                      isVoteLoading={isVoteLoading}
-                      isVoteError={isVoteError}
-                      isDeleteLoading={isDeleteLoading}
-                      isDeleteError={isDeleteError}
-                      handleDeleteCard={handleDeleteCard}
-                      country={country}
-                      handleCountriesVote={handleCountriesVote}
-                    />
-                    {showEditForm === country.id && (
-                      <CardEditForm
-                        id={country.id}
-                        onEditSubmit={handleUpdateCountry}
-                      />
-                    )}
-                    <ShowEditButton
+            {data
+              ?.sort((a, b) => a.vote - b.vote)
+              .map((country) => (
+                <Card
+                  id={country.id}
+                  deleteStatus={country.deleteStatus}
+                  key={country.id}
+                >
+                  <CardImage imgSrc={country.imgSrc} />
+                  <CardContent country={country} />
+                  <CardInteractSection
+                    isVoteLoading={isVoteLoading}
+                    isVoteError={isVoteError}
+                    isDeleteLoading={isDeleteLoading}
+                    isDeleteError={isDeleteError}
+                    handleDeleteCard={handleDeleteCard}
+                    country={country}
+                    handleCountriesVote={handleCountriesVote}
+                  />
+                  {showEditForm === country.id && (
+                    <CardEditForm
                       id={country.id}
-                      onSHowEditButtonClick={handleShowEditForm}
-                      isMutateLoading={isCountryLoading}
-                      isCountryError={isCountryError}
-                      countryError={countryError ? countryError.message : ""}
+                      onEditSubmit={handleUpdateCountry}
                     />
-                  </Card>
-                ))
-            }
+                  )}
+                  <ShowEditButton
+                    id={country.id}
+                    onSHowEditButtonClick={handleShowEditForm}
+                    isMutateLoading={isCountryLoading}
+                    isCountryError={isCountryError}
+                    countryError={countryError ? countryError.message : ""}
+                  />
+                </Card>
+              ))}
           </div>
         </section>
       );
@@ -319,50 +319,46 @@ const CardList: React.FC = () => {
             ) : null}
           </div>
           <div className={styles.cardsBox}>
-            {
-              data
-                ?.sort((a, b) => b.vote - a.vote)
-                .map((country) => (
-                  <Card
-                    id={country.id}
-                    deleteStatus={country.deleteStatus}
-                    key={country.id}
-                  >
-                    <CardImage imgSrc={country.imgSrc} />
-                    <CardContent country={country} />
-                    <CardInteractSection
-                      isVoteLoading={isVoteLoading}
-                      isVoteError={isVoteError}
-                      isDeleteLoading={isDeleteLoading}
-                      isDeleteError={isDeleteError}
-                      handleDeleteCard={handleDeleteCard}
-                      country={country}
-                      handleCountriesVote={handleCountriesVote}
-                    />
-                    {showEditForm === country.id && (
-                      <CardEditForm
-                        id={country.id}
-                        onEditSubmit={handleUpdateCountry}
-                      />
-                    )}
-                    <ShowEditButton
+            {data
+              ?.sort((a, b) => b.vote - a.vote)
+              .map((country) => (
+                <Card
+                  id={country.id}
+                  deleteStatus={country.deleteStatus}
+                  key={country.id}
+                >
+                  <CardImage imgSrc={country.imgSrc} />
+                  <CardContent country={country} />
+                  <CardInteractSection
+                    isVoteLoading={isVoteLoading}
+                    isVoteError={isVoteError}
+                    isDeleteLoading={isDeleteLoading}
+                    isDeleteError={isDeleteError}
+                    handleDeleteCard={handleDeleteCard}
+                    country={country}
+                    handleCountriesVote={handleCountriesVote}
+                  />
+                  {showEditForm === country.id && (
+                    <CardEditForm
                       id={country.id}
-                      onSHowEditButtonClick={handleShowEditForm}
-                      isMutateLoading={isCountryLoading}
-                      isCountryError={isCountryError}
-                      countryError={countryError ? countryError.message : ""}
+                      onEditSubmit={handleUpdateCountry}
                     />
-                  </Card>
-                ))
-            }
+                  )}
+                  <ShowEditButton
+                    id={country.id}
+                    onSHowEditButtonClick={handleShowEditForm}
+                    isMutateLoading={isCountryLoading}
+                    isCountryError={isCountryError}
+                    countryError={countryError ? countryError.message : ""}
+                  />
+                </Card>
+              ))}
           </div>
         </section>
       );
     }
   }
-  if(isLoading){
-    return <div>Loading...</div>;
-  } else {
+  else {
     return <div>{isError}</div>;
   }
 };
