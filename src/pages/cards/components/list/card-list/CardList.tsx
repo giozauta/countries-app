@@ -174,8 +174,8 @@ const CardList: React.FC = () => {
 
   const handleDeleteCard = (id: string) => {
     if (Number(id) > 6) {
-    // ეს კოდი უბრალოდ იმისთვის რომ წინასწარ ჩაწერილი მონაცემები რომ არ წამიშალოს და ვიზუალი არ დაამახინჯოს
-    deleteCountryMutate(id);
+      // ეს კოდი უბრალოდ იმისთვის რომ წინასწარ ჩაწერილი მონაცემები რომ არ წამიშალოს და ვიზუალი არ დაამახინჯოს
+      deleteCountryMutate(id);
     }
     if (Number(id) <= 6) {
       if (currentLang == "en") {
