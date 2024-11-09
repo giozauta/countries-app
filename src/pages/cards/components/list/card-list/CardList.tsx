@@ -173,17 +173,17 @@ const CardList: React.FC = () => {
   };
 
   const handleDeleteCard = (id: string) => {
-    if (Number(id) > 6) {
+    // if (Number(id) > 6) {
       // ეს კოდი უბრალოდ იმისთვის რომ წინასწარ ჩაწერილი მონაცემები რომ არ წამიშალოს და ვიზუალი არ დაამახინჯოს
       deleteCountryMutate(id);
-    }
-    if (Number(id) <= 6) {
-      if (currentLang == "en") {
-        alert("Cant Delete default card");
-      } else {
-        alert("Default ბარათის წაშლა დროებით არ შეიძლება");
-      }
-    }
+    // }
+    // if (Number(id) <= 6) {
+    //   if (currentLang == "en") {
+    //     alert("Cant Delete default card");
+    //   } else {
+    //     alert("Default ბარათის წაშლა დროებით არ შეიძლება");
+    //   }
+    // }
   };
 
   const handleCreateCard = (newCardData: NewCardData) => {
