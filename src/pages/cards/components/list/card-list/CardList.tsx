@@ -40,13 +40,13 @@ const CardList: React.FC = () => {
   const [showEditForm, setShowEditForm] = useState<string | null>(null); // card - ის დასაედიტებელი ფორმის გამოსაჩენად გვჭირდება
   const [newId, setNewId] = useState(7); //ახალი ქვეყნის აიდი
 
-  const [sort] = useState<"asc" | "desc">("asc");
+  // const [sort] = useState<"asc" | "desc">("asc");
 
   const { lang } = useParams();
   const currentLang = lang ?? "en";
 
   const { data, isLoading, isError, refetch } = useQuery({
-    queryKey: ["countries", sort],
+    queryKey: ["countries"],
     queryFn: getCountries,
   });
 
