@@ -18,7 +18,6 @@ import { useParams, useSearchParams } from "react-router-dom";
 import { useMutation, useQuery } from "@tanstack/react-query";
 // import { useVirtualizer } from "@tanstack/react-virtual";
 
-
 type NewCardData = {
   countryNameEn: string;
   countryNameKa: string;
@@ -46,14 +45,13 @@ const CardList: React.FC = () => {
   //იმისთვის რომ შევინახოთ სორტირება გვერდის დარეფრეშების დროს
   const [searchParams, setSearchParams] = useSearchParams();
   const sortOrder = searchParams.get("sort") || "asc";
-  //ვირტუალიზაციისთვის 
+  //ვირტუალიზაციისთვის
   const parentRef = useRef(null);
 
   const { data, isLoading, isError, refetch } = useQuery({
     queryKey: ["countries", sortOrder],
     queryFn: () => getCountries(sortOrder),
   });
-
 
   // const columnVirtualizer = useVirtualizer({
   //   horizontal: true,
@@ -213,16 +211,12 @@ const CardList: React.FC = () => {
     setNewId((pref) => pref + 1);
   };
 
-
-
   if (isLoading && !data) {
     return <div>Loading...</div>;
   }
   if (isError) {
     return <div>{isError}</div>;
   }
-
-
 
   return (
     <section className={styles.cardListSection}>
@@ -286,11 +280,9 @@ const CardList: React.FC = () => {
             />
           </Card>
         ))}
-
       </div>
     </section>
   );
 };
 
 export default CardList;
-
