@@ -7,19 +7,20 @@ export const getCountries = async ({
   queryKey: string[];
 }): Promise<CountryType[] | undefined> => {
   const [sort] = queryKey;
+  const order = sort || 'asc';  // Default to 'asc' if sort is undefined or empty
+
   try {
-    const response = await httpClient.get(`/countries?_order=${sort}`);
+    const response = await httpClient.get(`/countries?_order=${order}`);
     if (Array.isArray(response.data)) {
       return response.data;
     } else {
-      throw new Error("The response data is not an array.");
+      throw new Error('The response data is not an array.');
     }
   } catch (err) {
-    throw new Error(
-      `${err} Failed to fetch countries. Please check your network connection.`,
-    );
+    throw new Error(`${err} Failed to fetch countries. Please check your network connection.`);
   }
 };
+
 
 // delete country by ID
 export const deleteCountry = async (
