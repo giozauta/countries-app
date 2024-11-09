@@ -6,10 +6,9 @@ export const getCountries = async ({
 }: {
   queryKey: string[];
 }): Promise<CountryType[] | undefined> => {
-  const [sort] = queryKey; // extract sort order from queryKey
+  const [sort] = queryKey; 
   try {
     const response = await httpClient.get(`/countries?_order=${sort}`);
-    // Ensure response.data is an array before returning
     if (Array.isArray(response.data)) {
       return response.data;
     } else {
