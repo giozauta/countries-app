@@ -1,22 +1,28 @@
 import styles from "./singleCard.module.css";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { getCountries } from "@/api/countries";
+import { singleCountry } from "@/api/countries";
 
 const SingleCard: React.FC = () => {
-  const { lang } = useParams();
-  const currentLang = lang === "ka" ? "ka" : "en";
-  const { id } = useParams();
+  const {id,lang} = useParams();
+  const currentLang = lang??"en";
 
-  const { data } = useQuery({
-    queryKey: ["countries"],
-    queryFn: getCountries,
+  const { data,isLoading,error } = useQuery({
+    queryKey: ["countries",id],
+    queryFn: ()=>singleCountry(id),
+    
   });
-
-  const country = data?.find((item) => item.id === id);
+  if(isLoading){
+    return <div>...loading</div>
+  }
+  if(error){
+    return <div>{error.message}</div>
+  }
+  const country = data;
   if (!country) {
     return <div>...loading</div>;
   }
+
   return (
     <div className={styles.singleCard}>
       <div className={styles.imageContainer}>
