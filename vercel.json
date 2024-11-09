@@ -12,7 +12,7 @@
       "use": "@vercel/static-build",
       "config": {
         "distDir": "dist",
-        "buildCommand": "npm run build"
+        "buildCommand": "yarn build"
       }
     }
   ],
@@ -29,5 +29,6 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ]
+  ],
+  "installComand":"yarn install"
 }

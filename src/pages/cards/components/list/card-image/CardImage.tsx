@@ -11,7 +11,7 @@ const CardImage: React.FC<{ imgSrc: string }> = ({ imgSrc }) => {
     setIsContentVisible((prev) => !prev); // Toggle visibility
   };
 
-  console.log(imgSrc);
+
   return (
     <div className={styles.cardImageBox}>
       <img
