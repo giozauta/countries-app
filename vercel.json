@@ -29,6 +29,5 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ],
-  "installComand":"yarn install"
+  ]
 }
