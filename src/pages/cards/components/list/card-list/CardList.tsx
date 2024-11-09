@@ -14,7 +14,7 @@ import {
   deleteCountry,
   updateCountryVote,
 } from "@/api/countries/index";
-import { useParams, useLocation, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useMutation, useQuery } from "@tanstack/react-query";
 
 type NewCardData = {
@@ -40,13 +40,11 @@ const CardList: React.FC = () => {
   const [showEditForm, setShowEditForm] = useState<string | null>(null); // card - ის დასაედიტებელი ფორმის გამოსაჩენად გვჭირდება
   const [newId, setNewId] = useState(7); //ახალი ქვეყნის აიდი
   //სორტირებისთვის
-  const urlParams = new URLSearchParams(window.location.search);
-  const initialSrot = urlParams.get("_order") ?? "asc";
-  const [sort, setSort] = useState<"asc" | "desc">(
-    initialSrot as "asc" | "desc",
-  );
-  const { search } = useLocation(); //ვიღებთ url რომ გადავცეთ URLSearchParams-ს
-  const navigate = useNavigate(); //ვცვლით საძიებო ველში url-ს რენდერის გარეშე
+  // const urlParams = new URLSearchParams(window.location.search);
+  // const initialSrot = urlParams.get("_order") ?? "asc";
+  const [sort] = useState<"asc" | "desc">("asc");
+  // const { search } = useLocation(); ვიღებთ url რომ გადავცეთ URLSearchParams-ს
+  // const navigate = useNavigate(); ვცვლით საძიებო ველში url-ს რენდერის გარეშე
 
   const { lang } = useParams();
   const currentLang = lang ?? "en";
@@ -98,16 +96,16 @@ const CardList: React.FC = () => {
     setShowEditForm((prev) => (prev === id ? null : id));
   };
 
-  const handleSortChange = (order: "asc" | "desc") => {
-    setSort(order);
-    const params = new URLSearchParams(search);
-    params.set("_order", order);
-    navigate({ search: params.toString() });
-  };
+  // const handleSortChange = (order: "asc" | "desc") => {
+  //   setSort(order);
+  //   const params = new URLSearchParams(search);
+  //   params.set("_order", order);
+  //   navigate({ search: params.toString() });
+  // };
 
-  const sortedData = data?.sort((a, b) =>
-    sort === "asc" ? a.vote - b.vote : b.vote - a.vote,
-  );
+  // const sortedData = data?.sort((a, b) =>
+  //   sort === "asc" ? a.vote - b.vote : b.vote - a.vote,
+  // );
 
   const handleUpdateCountry = (updatedData: EditCardData) => {
     const idToNumber = Number(updatedData.id);
@@ -224,13 +222,13 @@ const CardList: React.FC = () => {
     <section className={styles.cardListSection}>
       <div className={styles.cardButtonSection}>
         <button
-          onClick={() => handleSortChange("asc")}
+          // onClick={() => handleSortChange("asc")}
           className={styles.sortButton}
         >
           {currentLang === "en" ? "Asc" : "ზრდადი"}
         </button>
         <button
-          onClick={() => handleSortChange("desc")}
+          // onClick={() => handleSortChange("desc")}
           className={styles.sortButton}
         >
           {currentLang === "en" ? "Desc" : "კლებადი"}
@@ -250,7 +248,7 @@ const CardList: React.FC = () => {
         )}
       </div>
       <div className={styles.cardsBox}>
-        {sortedData?.map((country) => (
+        {data?.map((country) => (
           <Card
             id={country.id}
             deleteStatus={country.deleteStatus}
