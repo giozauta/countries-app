@@ -16,6 +16,7 @@ import {
 } from "@/api/countries/index";
 import { useParams, useSearchParams } from "react-router-dom";
 import { useMutation, useQuery } from "@tanstack/react-query";
+import { useVirtualizer } from "@tanstack/react-virtual";
 // import { useVirtualizer } from "@tanstack/react-virtual";
 
 type NewCardData = {
@@ -44,7 +45,7 @@ const CardList: React.FC = () => {
   const currentLang = lang ?? "en";
   //იმისთვის რომ შევინახოთ სორტირება გვერდის დარეფრეშების დროს
   const [searchParams, setSearchParams] = useSearchParams();
-  const sortOrder = searchParams.get("sort") || "asc";
+  const sortOrder = searchParams.get("sort") ?? "asc";
   //ვირტუალიზაციისთვის
   const parentRef = useRef(null);
 
@@ -53,14 +54,14 @@ const CardList: React.FC = () => {
     queryFn: () => getCountries(sortOrder),
   });
 
-  // const columnVirtualizer = useVirtualizer({
-  //   horizontal: true,
-  //   count: data ? data.length : 0,
-  //   getScrollElement: () => parentRef.current,
-  //   estimateSize: () => 300,
-  //   overscan: 5,
-  // })
-
+  const columnVirtualizer = useVirtualizer({
+    horizontal: true,
+    count: data ? data.length : 0,
+    getScrollElement: () => parentRef.current,
+    estimateSize: () => 400,
+    overscan: 10,
+  });
+  console.log(columnVirtualizer.getVirtualItems());
   const {
     mutate: mutateCountry,
     isPending: isCountryLoading,
@@ -248,39 +249,53 @@ const CardList: React.FC = () => {
         )}
       </div>
       <div ref={parentRef} className={styles.cardsBox}>
-        {data?.map((country) => (
-          <Card
-            id={country.id}
-            deleteStatus={country.deleteStatus}
-            key={country.id}
-          >
-            <CardImage imgSrc={country.imgSrc} />
-            <CardContent country={country} />
-            <CardInteractSection
-              isVoteLoading={isVoteLoading}
-              isVoteError={isVoteError}
-              isDeleteLoading={isDeleteLoading}
-              isDeleteError={isDeleteError}
-              handleDeleteCard={handleDeleteCard}
-              country={country}
-              handleCountriesVote={handleCountriesVote}
-            />
-            {showEditForm === country.id && (
-              <CardEditForm
-                id={country.id}
-                onEditSubmit={handleUpdateCountry}
-              />
-            )}
-            <ShowEditButton
-              id={country.id}
-              onSHowEditButtonClick={handleShowEditForm}
-              isMutateLoading={isCountryLoading}
-              isCountryError={isCountryError}
-              countryError={countryError ? countryError.message : ""}
-            />
-          </Card>
-        ))}
-      </div>
+          {data &&
+            columnVirtualizer.getVirtualItems().map((virtualRow) => {
+              const country = data[virtualRow.index];
+              return (
+                <div
+                  key={country.id}
+                  style={{
+                    left: `${virtualRow.start}px`, // Horizontal positioning with translateX
+                    width: "410px", // Width of each card (adjust as needed)
+                    height: "605px",
+                  }}
+                >
+                  <Card
+                    id={country.id}
+                    deleteStatus={country.deleteStatus}
+                    key={country.id}
+                  >
+                    <CardImage imgSrc={country.imgSrc} />
+                    <CardContent country={country} />
+                    <CardInteractSection
+                      isVoteLoading={isVoteLoading}
+                      isVoteError={isVoteError}
+                      isDeleteLoading={isDeleteLoading}
+                      isDeleteError={isDeleteError}
+                      handleDeleteCard={handleDeleteCard}
+                      country={country}
+                      handleCountriesVote={handleCountriesVote}
+                    />
+                    {showEditForm === country.id && (
+                      <CardEditForm
+                        id={country.id}
+                        onEditSubmit={handleUpdateCountry}
+                      />
+                    )}
+                    <ShowEditButton
+                      id={country.id}
+                      onSHowEditButtonClick={handleShowEditForm}
+                      isMutateLoading={isCountryLoading}
+                      isCountryError={isCountryError}
+                      countryError={countryError ? countryError.message : ""}
+                    />
+                  </Card>
+                </div>
+              )
+            })}
+        </div>
+    
     </section>
   );
 };

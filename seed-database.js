@@ -25,11 +25,11 @@ const seedDatabase = () => {
   axios
     .get("https://restcountries.com/v3.1/all")
     .then((res) => {
-      const countriesToAdd = res.data.slice(0, 10); //გვჭირდება რომ გავფილტროთ თუ რამდენი ქვეყნის ინფორმაციის დამატება გვჭირდება
+      const countriesToAdd = res.data;
 
-      fs.readFile("database.json", "utf8", (err, data) => {
+      fs.readFile("db.json", "utf8", (err, data) => {
         if (err) {
-          console.error("Error reading database.json", err);
+          console.error("Error reading db.json", err);
           return;
         }
 
@@ -44,17 +44,13 @@ const seedDatabase = () => {
 
         database.countries = [...existingCountries, ...transformedData];
 
-        fs.writeFile(
-          "database.json",
-          JSON.stringify(database, null, 2),
-          (err) => {
-            if (err) {
-              console.error("Error writing to database.json", err);
-            } else {
-              console.log("Data successfully added to database.json");
-            }
-          },
-        );
+        fs.writeFile("db.json", JSON.stringify(database, null, 2), (err) => {
+          if (err) {
+            console.error("Error writing to db.json", err);
+          } else {
+            console.log("Data successfully added to db.json");
+          }
+        });
       });
     })
     .catch((error) => {
