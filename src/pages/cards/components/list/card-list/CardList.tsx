@@ -249,53 +249,52 @@ const CardList: React.FC = () => {
         )}
       </div>
       <div ref={parentRef} className={styles.cardsBox}>
-          {data &&
-            columnVirtualizer.getVirtualItems().map((virtualRow) => {
-              const country = data[virtualRow.index];
-              return (
-                <div
+        {data &&
+          columnVirtualizer.getVirtualItems().map((virtualRow) => {
+            const country = data[virtualRow.index];
+            return (
+              <div
+                key={country.id}
+                style={{
+                  left: `${virtualRow.start}px`, // Horizontal positioning with translateX
+                  width: "410px", // Width of each card (adjust as needed)
+                  height: "605px",
+                }}
+              >
+                <Card
+                  id={country.id}
+                  deleteStatus={country.deleteStatus}
                   key={country.id}
-                  style={{
-                    left: `${virtualRow.start}px`, // Horizontal positioning with translateX
-                    width: "410px", // Width of each card (adjust as needed)
-                    height: "605px",
-                  }}
                 >
-                  <Card
-                    id={country.id}
-                    deleteStatus={country.deleteStatus}
-                    key={country.id}
-                  >
-                    <CardImage imgSrc={country.imgSrc} />
-                    <CardContent country={country} />
-                    <CardInteractSection
-                      isVoteLoading={isVoteLoading}
-                      isVoteError={isVoteError}
-                      isDeleteLoading={isDeleteLoading}
-                      isDeleteError={isDeleteError}
-                      handleDeleteCard={handleDeleteCard}
-                      country={country}
-                      handleCountriesVote={handleCountriesVote}
-                    />
-                    {showEditForm === country.id && (
-                      <CardEditForm
-                        id={country.id}
-                        onEditSubmit={handleUpdateCountry}
-                      />
-                    )}
-                    <ShowEditButton
+                  <CardImage imgSrc={country.imgSrc} />
+                  <CardContent country={country} />
+                  <CardInteractSection
+                    isVoteLoading={isVoteLoading}
+                    isVoteError={isVoteError}
+                    isDeleteLoading={isDeleteLoading}
+                    isDeleteError={isDeleteError}
+                    handleDeleteCard={handleDeleteCard}
+                    country={country}
+                    handleCountriesVote={handleCountriesVote}
+                  />
+                  {showEditForm === country.id && (
+                    <CardEditForm
                       id={country.id}
-                      onSHowEditButtonClick={handleShowEditForm}
-                      isMutateLoading={isCountryLoading}
-                      isCountryError={isCountryError}
-                      countryError={countryError ? countryError.message : ""}
+                      onEditSubmit={handleUpdateCountry}
                     />
-                  </Card>
-                </div>
-              )
-            })}
-        </div>
-    
+                  )}
+                  <ShowEditButton
+                    id={country.id}
+                    onSHowEditButtonClick={handleShowEditForm}
+                    isMutateLoading={isCountryLoading}
+                    isCountryError={isCountryError}
+                    countryError={countryError ? countryError.message : ""}
+                  />
+                </Card>
+              </div>
+            );
+          })}
+      </div>
     </section>
   );
 };
