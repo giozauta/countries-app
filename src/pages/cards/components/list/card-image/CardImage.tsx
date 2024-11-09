@@ -17,7 +17,7 @@ const CardImage: React.FC<{ imgSrc: string }> = ({ imgSrc }) => {
       <img
         alt="card"
         className={isContentVisible ? styles.cardImage : styles.cardImageOver}
-        src={imgSrc}
+        src={`/images/${imgSrc}`}
       />
       <div onClick={handleShowContent} className={styles.clickMe}>
         {currentLang === "en" ? "Click Me" : "დამკლიკე"}
