@@ -42,7 +42,6 @@ const CardList: React.FC = () => {
 
   const [sort] = useState<"asc" | "desc">("asc");
 
-
   const { lang } = useParams();
   const currentLang = lang ?? "en";
 
