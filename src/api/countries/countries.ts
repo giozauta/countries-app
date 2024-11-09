@@ -1,7 +1,6 @@
 import { httpClient } from "..";
 import { CountryType } from "./countries.types";
 
-
 export const getCountries = async (): Promise<CountryType[] | undefined> => {
   try {
     const response = await httpClient.get(`/countries`);
