@@ -14,7 +14,7 @@ import {
   deleteCountry,
   updateCountryVote,
 } from "@/api/countries/index";
-import { useParams } from "react-router-dom";
+import {  useParams, useSearchParams } from "react-router-dom";
 import { useMutation, useQuery } from "@tanstack/react-query";
 
 type NewCardData = {
@@ -39,15 +39,15 @@ const CardList: React.FC = () => {
   const [formSection, setFormSection] = useState(false); //card-ის დასამატებელი ფორმის პანელის გამოსაჩენად გვჭირდება
   const [showEditForm, setShowEditForm] = useState<string | null>(null); // card - ის დასაედიტებელი ფორმის გამოსაჩენად გვჭირდება
   const [newId, setNewId] = useState(7); //ახალი ქვეყნის აიდი
-
-  // const [sort] = useState<"asc" | "desc">("asc");
-
   const { lang } = useParams();
   const currentLang = lang ?? "en";
+//იმისთვის რომ შევინახოთ სორტირება გვერდის დარეფრეშების დროს 
+  const [searchParams, setSearchParams] = useSearchParams();
+  const sortOrder = searchParams.get("sort") || "asc";
 
   const { data, isLoading, isError, refetch } = useQuery({
-    queryKey: ["countries"],
-    queryFn: getCountries,
+    queryKey: ["countries",sortOrder],
+    queryFn: () => getCountries(sortOrder)
   });
 
   const {
@@ -92,13 +92,14 @@ const CardList: React.FC = () => {
     setShowEditForm((prev) => (prev === id ? null : id));
   };
 
-  // const handleSortChange = (order: "asc" | "desc") => {
-  //   setSort(order);
-  // };
+  const handleSortChange = (order: "asc" | "desc") => {
+    setSearchParams({ sort: order });
+
+  };
 
   const handleUpdateCountry = (updatedData: EditCardData) => {
-    const idToNumber = Number(updatedData.id);
-    const oldData = data?.[idToNumber - 1];
+    const oldData = data?.find((country) => country.id === updatedData.id);
+
     if (!oldData) return;
     const newData = {
       id: updatedData.id,
@@ -211,13 +212,13 @@ const CardList: React.FC = () => {
     <section className={styles.cardListSection}>
       <div className={styles.cardButtonSection}>
         <button
-          // onClick={() => handleSortChange("asc")}
+          onClick={() => handleSortChange("asc")}
           className={styles.sortButton}
         >
           {currentLang === "en" ? "Asc" : "ზრდადი"}
         </button>
         <button
-          // onClick={() => handleSortChange("desc")}
+          onClick={() => handleSortChange("desc")}
           className={styles.sortButton}
         >
           {currentLang === "en" ? "Desc" : "კლებადი"}

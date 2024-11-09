@@ -1,14 +1,10 @@
 import { httpClient } from "..";
 import { CountryType } from "./countries.types";
 
-export const getCountries = async (): Promise<CountryType[] | undefined> => {
+export const getCountries = async (sort: string): Promise<CountryType[] | undefined> => {
   try {
-    const response = await httpClient.get(`/countries`);
-    if (Array.isArray(response.data)) {
+    const response = await httpClient.get(`/countries?_sort=vote&_order=${sort}`);
       return response.data;
-    } else {
-      throw new Error("The response data is not an array.");
-    }
   } catch (err) {
     throw new Error(
       `${err} Failed to fetch countries. Please check your network connection.`,
@@ -16,7 +12,11 @@ export const getCountries = async (): Promise<CountryType[] | undefined> => {
   }
 };
 
+
 export const singleCountry = async (id: string | undefined) => {
+  if(!id){
+    throw new Error("ID is required");
+  }
   try {
     const response = await httpClient.get(`/countries/${id}`);
     return response.data;
@@ -30,7 +30,7 @@ export const singleCountry = async (id: string | undefined) => {
 // delete country by ID
 export const deleteCountry = async (
   id: string,
-): Promise<CountryType | undefined> => {
+): Promise<CountryType> => {
   try {
     const response = await httpClient.delete<CountryType>(`/countries/${id}`);
     return response.data;
