@@ -12,15 +12,14 @@
     "format": "prettier --write .",
     "prepare": "husky",
     "run-db": "node server.cjs",
-    "run-local-db": "npx json-server db.json",
-    "seed-db": "node seedDatabase.js"
+    "seed-db": "node seed-database.js"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.59.20",
     "@tanstack/react-query-devtools": "^5.59.20",
     "@tanstack/react-virtual": "^3.10.9",
     "axios": "^1.7.7",
-    "json-server": "^1.0.0-beta.3",
+    "json-server": "^0.17.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2"
