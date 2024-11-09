@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import styles from "./cardList.module.css";
 import Card from "../card/Card";
 import CardImage from "../card-image";
@@ -14,8 +14,10 @@ import {
   deleteCountry,
   updateCountryVote,
 } from "@/api/countries/index";
-import {  useParams, useSearchParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { useMutation, useQuery } from "@tanstack/react-query";
+// import { useVirtualizer } from "@tanstack/react-virtual";
+
 
 type NewCardData = {
   countryNameEn: string;
@@ -41,14 +43,25 @@ const CardList: React.FC = () => {
   const [newId, setNewId] = useState(7); //ახალი ქვეყნის აიდი
   const { lang } = useParams();
   const currentLang = lang ?? "en";
-//იმისთვის რომ შევინახოთ სორტირება გვერდის დარეფრეშების დროს 
+  //იმისთვის რომ შევინახოთ სორტირება გვერდის დარეფრეშების დროს
   const [searchParams, setSearchParams] = useSearchParams();
   const sortOrder = searchParams.get("sort") || "asc";
+  //ვირტუალიზაციისთვის 
+  const parentRef = useRef(null);
 
   const { data, isLoading, isError, refetch } = useQuery({
-    queryKey: ["countries",sortOrder],
-    queryFn: () => getCountries(sortOrder)
+    queryKey: ["countries", sortOrder],
+    queryFn: () => getCountries(sortOrder),
   });
+
+
+  // const columnVirtualizer = useVirtualizer({
+  //   horizontal: true,
+  //   count: data ? data.length : 0,
+  //   getScrollElement: () => parentRef.current,
+  //   estimateSize: () => 300,
+  //   overscan: 5,
+  // })
 
   const {
     mutate: mutateCountry,
@@ -94,7 +107,6 @@ const CardList: React.FC = () => {
 
   const handleSortChange = (order: "asc" | "desc") => {
     setSearchParams({ sort: order });
-
   };
 
   const handleUpdateCountry = (updatedData: EditCardData) => {
@@ -201,12 +213,16 @@ const CardList: React.FC = () => {
     setNewId((pref) => pref + 1);
   };
 
+
+
   if (isLoading && !data) {
     return <div>Loading...</div>;
   }
   if (isError) {
     return <div>{isError}</div>;
   }
+
+
 
   return (
     <section className={styles.cardListSection}>
@@ -237,7 +253,7 @@ const CardList: React.FC = () => {
           />
         )}
       </div>
-      <div className={styles.cardsBox}>
+      <div ref={parentRef} className={styles.cardsBox}>
         {data?.map((country) => (
           <Card
             id={country.id}
@@ -270,9 +286,11 @@ const CardList: React.FC = () => {
             />
           </Card>
         ))}
+
       </div>
     </section>
   );
 };
 
 export default CardList;
+
