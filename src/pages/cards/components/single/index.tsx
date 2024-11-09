@@ -22,7 +22,6 @@ const SingleCard: React.FC = () => {
     return <div>...loading</div>;
   }
 
-
   return (
     <div className={styles.singleCard}>
       <div className={styles.imageContainer}>

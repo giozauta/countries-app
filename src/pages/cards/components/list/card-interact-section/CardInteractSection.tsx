@@ -49,8 +49,8 @@ const CardInteractSection: React.FC<CardInteractSectionProps> = ({
     >
       <div className={styles.cardButtonSectionOne}>
         <Link to={`${country.id}`} className={styles.readMoreBtn}>
-          {currentLang === "en" && <h3>Read more</h3>}
-          {currentLang === "ka" && <h3>მეტის ნახვა</h3>}
+          {currentLang === "en" && "Read more"}
+          {currentLang === "ka" && "მეტის ნახვა"}
         </Link>
       </div>
       <div className={styles.cardButtonSectionTwo}>

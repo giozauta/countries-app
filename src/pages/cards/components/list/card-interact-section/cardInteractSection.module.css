@@ -18,7 +18,7 @@
 }
 .readMoreBtn {
   background-color: #ffffff;
-  color: rgb(70, 62, 62);
+  color:black;
   padding: 10px;
   padding-left: 0px;
   border: none;
@@ -26,6 +26,9 @@
   align-items: center;
   text-decoration: none;
   cursor: pointer;
+  font-weight: bold;
+  font-size: larger;
+
 }
 .readMoreBtn:hover {
   color: #3ecccc;
