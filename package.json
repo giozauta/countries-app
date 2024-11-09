@@ -12,6 +12,7 @@
     "format": "prettier --write .",
     "prepare": "husky",
     "run-db": "node server.cjs",
+    "run-local-db": "npx json-server database.json",
     "seed-db": "node seedDatabase.js"
   },
   "dependencies": {

@@ -39,12 +39,9 @@ const CardList: React.FC = () => {
   const [formSection, setFormSection] = useState(false); //card-ის დასამატებელი ფორმის პანელის გამოსაჩენად გვჭირდება
   const [showEditForm, setShowEditForm] = useState<string | null>(null); // card - ის დასაედიტებელი ფორმის გამოსაჩენად გვჭირდება
   const [newId, setNewId] = useState(7); //ახალი ქვეყნის აიდი
-  //სორტირებისთვის
-  // const urlParams = new URLSearchParams(window.location.search);
-  // const initialSrot = urlParams.get("_order") ?? "asc";
+
   const [sort] = useState<"asc" | "desc">("asc");
-  // const { search } = useLocation(); ვიღებთ url რომ გადავცეთ URLSearchParams-ს
-  // const navigate = useNavigate(); ვცვლით საძიებო ველში url-ს რენდერის გარეშე
+
 
   const { lang } = useParams();
   const currentLang = lang ?? "en";
@@ -98,14 +95,7 @@ const CardList: React.FC = () => {
 
   // const handleSortChange = (order: "asc" | "desc") => {
   //   setSort(order);
-  //   const params = new URLSearchParams(search);
-  //   params.set("_order", order);
-  //   navigate({ search: params.toString() });
   // };
-
-  // const sortedData = data?.sort((a, b) =>
-  //   sort === "asc" ? a.vote - b.vote : b.vote - a.vote,
-  // );
 
   const handleUpdateCountry = (updatedData: EditCardData) => {
     const idToNumber = Number(updatedData.id);
