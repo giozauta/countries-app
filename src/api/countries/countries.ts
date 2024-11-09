@@ -16,19 +16,16 @@ export const getCountries = async (): Promise<CountryType[] | undefined> => {
   }
 };
 
-export const singleCountry = async (id: string|undefined)=>{
-  try{
+export const singleCountry = async (id: string | undefined) => {
+  try {
     const response = await httpClient.get(`/countries/${id}`);
-    return response.data
-  }catch(err){
+    return response.data;
+  } catch (err) {
     throw new Error(
-      `${err} Failed to fetch countries. Please check your network connection.`
-    )
+      `${err} Failed to fetch countries. Please check your network connection.`,
+    );
   }
-
-}
-
-
+};
 
 // delete country by ID
 export const deleteCountry = async (

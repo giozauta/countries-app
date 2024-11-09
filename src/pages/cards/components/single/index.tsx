@@ -4,24 +4,24 @@ import { useQuery } from "@tanstack/react-query";
 import { singleCountry } from "@/api/countries";
 
 const SingleCard: React.FC = () => {
-  const {id,lang} = useParams();
-  const currentLang = lang??"en";
+  const { id, lang } = useParams();
+  const currentLang = lang ?? "en";
 
-  const { data,isLoading,error } = useQuery({
-    queryKey: ["countries",id],
-    queryFn: ()=>singleCountry(id),
-    
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["country"],
+    queryFn: () => singleCountry(id),
   });
-  if(isLoading){
-    return <div>...loading</div>
+  if (isLoading) {
+    return <div>...loading</div>;
   }
-  if(error){
-    return <div>{error.message}</div>
+  if (error) {
+    return <div>{error.message}</div>;
   }
   const country = data;
   if (!country) {
     return <div>...loading</div>;
   }
+
 
   return (
     <div className={styles.singleCard}>
