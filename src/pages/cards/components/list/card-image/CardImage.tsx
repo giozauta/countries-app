@@ -1,7 +1,7 @@
 import styles from "./cardImage.module.css";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import {singleCountry} from "@/api/countries";
+import { singleCountry } from "@/api/countries";
 import { useQuery } from "@tanstack/react-query";
 
 const CardImage: React.FC<{ id: string }> = ({ id }) => {
@@ -10,11 +10,10 @@ const CardImage: React.FC<{ id: string }> = ({ id }) => {
   const { lang } = useParams();
   const currentLang = lang ?? "en";
 
-
-  const {data}=useQuery({
-    queryKey:["country",id],
-    queryFn:() => singleCountry(id),
-  })
+  const { data } = useQuery({
+    queryKey: ["country", id],
+    queryFn: () => singleCountry(id),
+  });
 
   const handleShowContent = () => {
     setIsContentVisible((prev) => !prev); // Toggle visibility

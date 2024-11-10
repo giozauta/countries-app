@@ -17,7 +17,6 @@ import {
 import { useParams, useSearchParams } from "react-router-dom";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useVirtualizer } from "@tanstack/react-virtual";
-// import { useVirtualizer } from "@tanstack/react-virtual";
 
 type NewCardData = {
   countryNameEn: string;
@@ -37,16 +36,15 @@ type EditCardData = {
   population: number;
   imgSrc: string;
 };
+
 const CardList: React.FC = () => {
-  const [formSection, setFormSection] = useState(false); //card-ის დასამატებელი ფორმის პანელის გამოსაჩენად გვჭირდება
-  const [showEditForm, setShowEditForm] = useState<string | null>(null); // card - ის დასაედიტებელი ფორმის გამოსაჩენად გვჭირდება
-  const [newId, setNewId] = useState(7); //ახალი ქვეყნის აიდი
+  const [formSection, setFormSection] = useState(false);
+  const [showEditForm, setShowEditForm] = useState<string | null>(null);
+  const [newId, setNewId] = useState(7);
   const { lang } = useParams();
   const currentLang = lang ?? "en";
-  //იმისთვის რომ შევინახოთ სორტირება გვერდის დარეფრეშების დროს
   const [searchParams, setSearchParams] = useSearchParams();
   const sortOrder = searchParams.get("sort") ?? "asc";
-  //ვირტუალიზაციისთვის
   const parentRef = useRef(null);
 
   const { data, isLoading, isError, refetch } = useQuery({
@@ -56,12 +54,15 @@ const CardList: React.FC = () => {
 
   const columnVirtualizer = useVirtualizer({
     horizontal: true,
-    count: data ? data.length : 0,
+    count: data?.length || 0,
     getScrollElement: () => parentRef.current,
-    estimateSize: () => 400,
-    overscan: 10,
+    estimateSize: () => 410, // Estimated width of each card
+    overscan: 5,
   });
-  console.log(columnVirtualizer.getVirtualItems());
+
+  console.log("Rendered virtual items:", columnVirtualizer.getVirtualItems());
+  console.log(data);
+
   const {
     mutate: mutateCountry,
     isPending: isCountryLoading,
@@ -99,7 +100,6 @@ const CardList: React.FC = () => {
     onSuccess: () => refetch(),
   });
 
-  //for opening edit form
   const handleShowEditForm = (id: string) => {
     setShowEditForm((prev) => (prev === id ? null : id));
   };
@@ -110,56 +110,29 @@ const CardList: React.FC = () => {
 
   const handleUpdateCountry = (updatedData: EditCardData) => {
     const oldData = data?.find((country) => country.id === updatedData.id);
-
     if (!oldData) return;
+
     const newData = {
       id: updatedData.id,
       countryName: {
-        en:
-          updatedData.countryNameEn !== ""
-            ? updatedData.countryNameEn
-            : oldData.countryName.en,
-        ka:
-          updatedData.countryNameKa !== ""
-            ? updatedData.countryNameKa
-            : oldData.countryName.ka,
+        en: updatedData.countryNameEn || oldData.countryName.en,
+        ka: updatedData.countryNameKa || oldData.countryName.ka,
       },
       capitalCity: {
-        en:
-          updatedData.capitalCityEn !== ""
-            ? updatedData.capitalCityEn
-            : oldData.capitalCity.en,
-        ka:
-          updatedData.capitalCityKa !== ""
-            ? updatedData.capitalCityKa
-            : oldData.capitalCity.ka,
+        en: updatedData.capitalCityEn || oldData.capitalCity.en,
+        ka: updatedData.capitalCityKa || oldData.capitalCity.ka,
       },
-      population:
-        updatedData.population !== 0
-          ? updatedData.population
-          : oldData.population,
-      imgSrc: updatedData.imgSrc !== "" ? updatedData.imgSrc : oldData.imgSrc,
-      article: {
-        en: "New Article",
-        ka: "ახალი ტექსტი",
-      },
+      population: updatedData.population || oldData.population,
+      imgSrc: updatedData.imgSrc || oldData.imgSrc,
+      article: { en: "New Article", ka: "ახალი ტექსტი" },
       vote: oldData.vote,
       deleteStatus: false,
     };
 
-    if (Number(updatedData.id) > 6) {
-      mutateCountry({ id: updatedData.id, payload: newData });
-      setShowEditForm((prev) =>
-        prev === updatedData.id ? null : updatedData.id,
-      ); //იმისთვის რომ ფორმის საბმითზე ფორმა გაგვიქროს
-    }
-    if (Number(updatedData.id) <= 6) {
-      if (currentLang == "en") {
-        alert("Cant change default card");
-      } else {
-        alert("Default ბარათის შეცვლა დროებით არ შეიძლება");
-      }
-    }
+    mutateCountry({ id: updatedData.id, payload: newData });
+    setShowEditForm((prev) =>
+      prev === updatedData.id ? null : updatedData.id,
+    );
   };
 
   const handleCountriesVote = (id: string) => {
@@ -168,27 +141,14 @@ const CardList: React.FC = () => {
       console.error(`Country with id ${id} not found.`);
       return;
     }
-    const newVote = country.vote + 1;
-    mutateVote({ id: country.id, payload: { vote: newVote } });
+    mutateVote({ id: country.id, payload: { vote: country.vote + 1 } });
   };
 
   const handleDeleteCard = (id: string) => {
-    if (Number(id) > 6) {
-      // ეს კოდი უბრალოდ იმისთვის რომ წინასწარ ჩაწერილი მონაცემები რომ არ წამიშალოს და ვიზუალი არ დაამახინჯოს
-      deleteCountryMutate(id);
-    }
-    if (Number(id) <= 6) {
-      if (currentLang == "en") {
-        alert("Cant Delete default card");
-      } else {
-        alert("Default ბარათის წაშლა დროებით არ შეიძლება");
-      }
-    }
+    deleteCountryMutate(id);
   };
 
   const handleCreateCard = (newCardData: NewCardData) => {
-    const newCountryId = newId.toString();
-
     const newCountry = {
       countryName: {
         en: newCardData.countryNameEn,
@@ -200,11 +160,8 @@ const CardList: React.FC = () => {
       },
       population: newCardData.population,
       imgSrc: newCardData.imgSrc,
-      id: newCountryId,
-      article: {
-        en: "Default article",
-        ka: "არტიკლის ტექსტი",
-      },
+      id: newId.toString(),
+      article: { en: "Default article", ka: "არტიკლის ტექსტი" },
       vote: 0,
       deleteStatus: false,
     };
@@ -248,52 +205,61 @@ const CardList: React.FC = () => {
           />
         )}
       </div>
-      <div ref={parentRef} className={styles.cardsBox}>
-        {data &&
-          columnVirtualizer.getVirtualItems().map((virtualRow) => {
-            const country = data[virtualRow.index];
-            return (
-              <div
-                key={country.id}
-                style={{
-                  left: `${virtualRow.start}px`, // Horizontal positioning with translateX
-                  width: "410px", // Width of each card (adjust as needed)
-                  height: "605px",
-                }}
-              >
-                <Card
-                  id={country.id}
-                  deleteStatus={country.deleteStatus}
+      <div
+        ref={parentRef}
+        className={styles.cardsBox}
+        
+      >
+        <div
+          style={{
+            width: `${columnVirtualizer.getTotalSize()}px`,
+            position: "relative",
+          }}
+        >
+          {data &&
+            columnVirtualizer.getVirtualItems().map((virtualColumn) => {
+              const country = data[virtualColumn.index];
+              return (
+                <div
                   key={country.id}
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: `${virtualColumn.start}px`,
+                    width: "410px",
+                    height: "605px",
+                  }}
                 >
-                  <CardImage  id={country.id} />
-                  <CardContent country={country} />
-                  <CardInteractSection
-                    isVoteLoading={isVoteLoading}
-                    isVoteError={isVoteError}
-                    isDeleteLoading={isDeleteLoading}
-                    isDeleteError={isDeleteError}
-                    handleDeleteCard={handleDeleteCard}
-                    country={country}
-                    handleCountriesVote={handleCountriesVote}
-                  />
-                  {showEditForm === country.id && (
-                    <CardEditForm
-                      id={country.id}
-                      onEditSubmit={handleUpdateCountry}
+                  <Card id={country.id} deleteStatus={country.deleteStatus}>
+                    <CardImage id={country.id} />
+                    <CardContent country={country} />
+                    <CardInteractSection
+                      isVoteLoading={isVoteLoading}
+                      isVoteError={isVoteError}
+                      isDeleteLoading={isDeleteLoading}
+                      isDeleteError={isDeleteError}
+                      handleDeleteCard={handleDeleteCard}
+                      country={country}
+                      handleCountriesVote={handleCountriesVote}
                     />
-                  )}
-                  <ShowEditButton
-                    id={country.id}
-                    onSHowEditButtonClick={handleShowEditForm}
-                    isMutateLoading={isCountryLoading}
-                    isCountryError={isCountryError}
-                    countryError={countryError ? countryError.message : ""}
-                  />
-                </Card>
-              </div>
-            );
-          })}
+                    {showEditForm === country.id && (
+                      <CardEditForm
+                        id={country.id}
+                        onEditSubmit={handleUpdateCountry}
+                      />
+                    )}
+                    <ShowEditButton
+                      id={country.id}
+                      onSHowEditButtonClick={handleShowEditForm}
+                      isMutateLoading={isCountryLoading}
+                      isCountryError={isCountryError}
+                      countryError={countryError ? countryError.message : ""}
+                    />
+                  </Card>
+                </div>
+              );
+            })}
+        </div>
       </div>
     </section>
   );
