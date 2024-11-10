@@ -3,6 +3,7 @@ import { CountryType } from "./countries.types";
 
 export const getCountries = async (
   sort: string,
+
 ): Promise<CountryType[] | undefined> => {
   try {
     const response = await httpClient.get(

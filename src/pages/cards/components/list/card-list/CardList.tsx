@@ -38,19 +38,26 @@ type EditCardData = {
 };
 
 const CardList: React.FC = () => {
-  const [formSection, setFormSection] = useState(false);
+  const [formSection, setFormSection] = useState(false);//for show form section 
   const [showEditForm, setShowEditForm] = useState<string | null>(null);
   const [newId, setNewId] = useState(7);
+  //
   const { lang } = useParams();
   const currentLang = lang ?? "en";
+  //
   const [searchParams, setSearchParams] = useSearchParams();
   const sortOrder = searchParams.get("sort") ?? "asc";
   const parentRef = useRef(null);
+  //
+  // const limit = 256;
 
-  const { data, isLoading, isError, refetch } = useQuery({
-    queryKey: ["countries", sortOrder],
-    queryFn: () => getCountries(sortOrder),
-  });
+
+   const { data, isLoading, isError, refetch } = useQuery({
+     queryKey: ["countries", sortOrder,],
+     queryFn: () => getCountries(sortOrder)
+   })
+
+
 
   const columnVirtualizer = useVirtualizer({
     horizontal: true,
@@ -208,7 +215,6 @@ const CardList: React.FC = () => {
       <div
         ref={parentRef}
         className={styles.cardsBox}
-        
       >
         <div
           style={{
