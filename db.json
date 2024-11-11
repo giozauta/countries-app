@@ -1,6 +1,26 @@
 {
   "countries": [
     {
+      "id": "359",
+      "countryName": {
+        "en": "Japan",
+        "ka": "იაპონია"
+      },
+      "capitalCity": {
+        "en": "Tokyo",
+        "ka": "ტოკიო"
+      },
+      "population": 124,
+      "imgSrc": "/images/japan2.jpg",
+      "article": {
+        "en": "Japan is an island country in East Asia. It is located in the Pacific Ocean off the northeast coast of the Asian mainland, and is bordered on the west by the Sea of Japan. The Japanese archipelago consists of four major islands—Hokkaido, Honshu, Shikoku, and Kyushu—and thousands of smaller islands, covering 377,975 square kilometers (145,937 sq mi). Japan has a population of nearly 124 million as of 2024, and is the eleventh-most populous country. Its capital and largest city is Tokyo; the Greater Tokyo Area is the largest metropolitan area in the world, with more than 38 million inhabitants as of 2016. Japan is divided into 47 administrative prefectures and eight traditional regions. About three-quarters of the country's terrain is mountainous and heavily forested, concentrating its agriculture and highly urbanized population along its eastern coastal plains. The country sits on the Pacific Ring of Fire, making its islands prone to destructive earthquakes and tsunamis.",
+        "ka": "იაპონია არის კუნძულოვანი ქვეყანა აღმოსავლეთ აზიაში. იგი მდებარეობს წყნარ ოკეანეში, აზიის მატერიკზე ჩრდილო-აღმოსავლეთ სანაპიროზე და დასავლეთიდან ესაზღვრება იაპონიის ზღვას და ვრცელდება ოხოცკის ზღვიდან ქ. ჩრდილოეთიდან აღმოსავლეთ ჩინეთის ზღვისაკენ. იაპონიის არქიპელაგი შედგება ოთხი ძირითადი კუნძულისგან - ჰოკაიდო, ჰონსუ, შიკოკუ და კიუშუ - და ათასობით პატარა კუნძულიდან, რომელიც მოიცავს 377,975 კვადრატულ კილომეტრს (145,937 კვ მ). 2024 წლის მონაცემებით, თითქმის 124 მილიონი ადამიანი ცხოვრობს და მეთერთმეტე ყველაზე დასახლებული ქვეყანაა. დედაქალაქი და ყველაზე დიდი ქალაქი არის ტოკიო; დიდი ტოკიოს რეგიონი მსოფლიოში ყველაზე დიდი მეტროპოლიური ტერიტორიაა, სადაც 2016 წლის მონაცემებით, 38 მილიონზე მეტი ადამიანი ცხოვრობს. იაპონია 47 ადმინისტრაციულ პრეფექტურად და რვა ტრადიციულ რეგიონად არის დაყოფილი. ქვეყნის ტერიტორიის დაახლოებით სამი მეოთხედი მთიანი და ტყით დაფარულია, რაც ამცირებს სოფლის მეურნეობას და განსაკუთრებით ურბანიზებულ მოსახლეობას აღმოსავლეთის სანაპირო დაბლობზე. ქვეყანა მდებარეობს წყნარ ოკეანეში, რის შედეგადაც მისი კუნძულები მიდრეკილია დამანგრეველი მიწისძვრებისა და ცუნამებისადმი."
+      },
+      
+      "vote": 0,
+      "deleteStatus": false
+    },
+    {
       "id": "1",
       "countryName": {
         "en": "South Georgia",
