@@ -230,7 +230,7 @@ const CardList: React.FC = () => {
                   style={{
                     position: "absolute",
                     top: 0,
-                    left: `${virtualColumn.start}px`,
+                    left: `${virtualColumn.start + virtualColumn.index * 160}px`,
                     width: "410px",
                     height: "605px",
                   }}
