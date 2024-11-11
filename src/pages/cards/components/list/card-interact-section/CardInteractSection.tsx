@@ -66,7 +66,7 @@ const CardInteractSection: React.FC<CardInteractSectionProps> = ({
             <img
               alt="like"
               className={styles.likeIcon}
-              src="/public/icons//like.png"
+              src="/icons//like.png"
             />
           </button>
           <p>
