@@ -74,7 +74,7 @@ export const updateCountryVote = async ({
       `/countries/${id}`,
       payload,
     );
-    console.log(response.data)
+
     return response.data;
   } catch (err) {
     throw new Error(
