@@ -63,7 +63,11 @@ const CardInteractSection: React.FC<CardInteractSectionProps> = ({
               cursor: "pointer",
             }}
           >
-            <img alt="like" className={styles.likeIcon} src="../../../../../../public/icons/like.png" />
+            <img
+              alt="like"
+              className={styles.likeIcon}
+              src="/public/icons//like.png"
+            />
           </button>
           <p>
             {isVoteLoading ? (isVoteError ? 0 : country.vote) : country.vote}
