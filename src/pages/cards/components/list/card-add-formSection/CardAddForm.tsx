@@ -171,8 +171,8 @@ const CardAddForm: React.FC<CardCreateFormProps> = ({
 
       reader.readAsDataURL(file); // Convert image to Base64
     }
-    if(name==="population"){
-            setInputState({
+    if (name === "population") {
+      setInputState({
         ...inputState,
         [name]: value ? Number(value) : 0, // Convert to number or default to 0
       });
@@ -284,7 +284,6 @@ const CardAddForm: React.FC<CardCreateFormProps> = ({
     }
     //თუ ყველა ერორი ცარიელია დაგვიბრუნდება true და შევძლებთ საბმითს
     if (validateState(inputStateErr)) {
-      
       onCardCreate(inputState);
 
       setInputState({

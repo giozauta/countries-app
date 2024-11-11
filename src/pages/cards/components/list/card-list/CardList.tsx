@@ -1,4 +1,4 @@
-import {useRef, useState } from "react";
+import { useRef, useState } from "react";
 import styles from "./cardList.module.css";
 import Card from "../card/Card";
 import CardImage from "../card-image";
@@ -15,9 +15,8 @@ import {
   updateCountryVote,
 } from "@/api/countries/index";
 import { useParams, useSearchParams } from "react-router-dom";
-import {useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { useVirtualizer } from "@tanstack/react-virtual";
-
 
 type NewCardData = {
   countryNameEn: string;
@@ -39,10 +38,9 @@ type EditCardData = {
 };
 
 const CardList: React.FC = () => {
-  const [formSection, setFormSection] = useState(false);//for show form section 
+  const [formSection, setFormSection] = useState(false); //for show form section
   const [showEditForm, setShowEditForm] = useState<string | null>(null);
-  const [newId,setNewId] = useState(0)
-
+  const [newId, setNewId] = useState(0);
 
   //
   const { lang } = useParams();
@@ -53,13 +51,10 @@ const CardList: React.FC = () => {
   const parentRef = useRef(null);
   //
 
-
-   const { data, isLoading, isError, refetch } = useQuery({
-     queryKey: ["countries", sortOrder],
-     queryFn: () => getCountries(sortOrder)
-   })
-
-
+  const { data, isLoading, isError, refetch } = useQuery({
+    queryKey: ["countries", sortOrder],
+    queryFn: () => getCountries(sortOrder),
+  });
 
   const columnVirtualizer = useVirtualizer({
     horizontal: true,
@@ -109,8 +104,6 @@ const CardList: React.FC = () => {
     onSuccess: () => refetch(),
   });
 
-
-
   const handleShowEditForm = (id: string) => {
     setShowEditForm((prev) => (prev === id ? null : id));
   };
@@ -139,7 +132,7 @@ const CardList: React.FC = () => {
       vote: oldData.vote,
       deleteStatus: false,
     };
-    
+
     mutateCountry({ id: updatedData.id, payload: newData });
     setShowEditForm((prev) =>
       prev === updatedData.id ? null : updatedData.id,
@@ -178,12 +171,11 @@ const CardList: React.FC = () => {
     };
 
     createCountryMutate({ payload: newCountry });
-    if(data){
-      setNewId(data?.length + 1)
-    }else{
-      setNewId(1)
+    if (data) {
+      setNewId(data?.length + 1);
+    } else {
+      setNewId(1);
     }
-
   };
 
   if (isLoading && !data) {
@@ -222,10 +214,7 @@ const CardList: React.FC = () => {
           />
         )}
       </div>
-      <div
-        ref={parentRef}
-        className={styles.cardsBox}
-      >
+      <div ref={parentRef} className={styles.cardsBox}>
         <div
           style={{
             width: `${columnVirtualizer.getTotalSize()}px`,
@@ -282,4 +271,3 @@ const CardList: React.FC = () => {
 };
 
 export default CardList;
-

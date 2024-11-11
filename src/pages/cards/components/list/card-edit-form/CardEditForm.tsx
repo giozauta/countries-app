@@ -74,7 +74,7 @@ const CardEditForm: React.FC<CardEditFormProps> = ({ onEditSubmit, id }) => {
           errorMessage = "მოსახლეობა უნდა იყოს დადებითი რიცხვი";
         }
       }
-    } else if  (name === "imgSrc" && files && files[0]) {
+    } else if (name === "imgSrc" && files && files[0]) {
       const file = files[0];
       const reader = new FileReader();
 
@@ -86,7 +86,7 @@ const CardEditForm: React.FC<CardEditFormProps> = ({ onEditSubmit, id }) => {
       };
 
       reader.readAsDataURL(file); // Convert image to Base64
-    } 
+    }
 
     setInputState((prev) => ({
       ...prev,

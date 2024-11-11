@@ -1,13 +1,7 @@
 import { httpClient } from "..";
 import { CountryType } from "./countries.types";
 
-
-
-
-
-export const getCountries = async (
-  sort: string
-): Promise<CountryType[]> => {
+export const getCountries = async (sort: string): Promise<CountryType[]> => {
   try {
     const response = await httpClient.get(
       `/countries?_sort=vote&_order=${sort}`,
@@ -17,13 +11,8 @@ export const getCountries = async (
     throw new Error(
       `${err} Failed to fetch countries. Please check your network connection.`,
     );
-  
   }
 };
-
-
-
-
 
 export const singleCountry = async (id: string | undefined) => {
   if (!id) {
@@ -85,6 +74,7 @@ export const updateCountryVote = async ({
       `/countries/${id}`,
       payload,
     );
+    console.log(response.data)
     return response.data;
   } catch (err) {
     throw new Error(
@@ -108,5 +98,3 @@ export const addCountry = async ({
     );
   }
 };
-
-
