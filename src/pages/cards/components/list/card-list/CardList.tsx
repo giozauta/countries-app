@@ -147,6 +147,8 @@ const CardList: React.FC = () => {
     const oldData = allCountries?.find(
       (country) => country.id === updatedData.id,
     );
+
+
     if (!oldData) return;
 
     const newData = {
@@ -166,10 +168,20 @@ const CardList: React.FC = () => {
       deleteStatus: false,
     };
 
-    mutateCountry({ id: updatedData.id, payload: newData });
+    if(Number(updatedData.id)>6){
+      mutateCountry({ id: updatedData.id, payload: newData });
+    }
+    //იმისთვის რომ პირველი card-ები არ შეგვეცვალოს და არ დამახინჯდეს დიზაინი
+    if(currentLang==="en"){
+      alert("Default card can't be changed")
+    }
+    if(currentLang==="ka"){
+      alert("Default ბარათის შეცვლა დროებით არ შეიძლება")
+    }
     setShowEditForm((prev) =>
       prev === updatedData.id ? null : updatedData.id,
     );
+
   };
 
   const handleCountriesVote = (id: string) => {
@@ -182,7 +194,16 @@ const CardList: React.FC = () => {
   };
 
   const handleDeleteCard = (id: string) => {
-    deleteCountryMutate(id);
+
+    if(Number(id)>6){
+      deleteCountryMutate(id);
+    }
+    if(currentLang==="en"){
+      alert("Default card can't be deleted")
+    }
+    if(currentLang==="ka"){
+      alert("Default ბარათის წაშლა არ შეიძლება")
+    }
   };
 
   const handleCreateCard = (newCardData: NewCardData) => {
@@ -279,7 +300,7 @@ const CardList: React.FC = () => {
                     />
                     {showEditForm === allIds && (
                       <CardEditForm
-                        id={allIds}
+                        id={country.id}
                         onEditSubmit={handleUpdateCountry}
                       />
                     )}

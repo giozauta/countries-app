@@ -101,6 +101,7 @@ const CardEditForm: React.FC<CardEditFormProps> = ({ onEditSubmit, id }) => {
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
+
     onEditSubmit(inputState);
   };
 

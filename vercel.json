@@ -4,7 +4,12 @@
       "src": "server.cjs",
       "use": "@vercel/node",
       "config": {
-        "includeFiles": ["db.json", "images/**/*", "public/images/**/*", "public/icons/**/*"]
+        "includeFiles": [
+          "db.json",
+          "images/**/*",
+          "public/images/**/*",
+          "public/icons/**/*"
+        ]
       }
     },
     {
