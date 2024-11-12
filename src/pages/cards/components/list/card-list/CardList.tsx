@@ -266,7 +266,7 @@ const CardList: React.FC = () => {
                   }}
                 >
                   <Card id={allIds} deleteStatus={country}>
-                    <CardImage id={allIds} />
+                    <CardImage  img={country.imgSrc} />
                     <CardContent country={country} />
                     <CardInteractSection
                       isVoteLoading={isVoteLoading}
