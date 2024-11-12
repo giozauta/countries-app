@@ -13,6 +13,8 @@ import {
   addCountry,
   deleteCountry,
   updateCountryVote,
+
+  
 } from "@/api/countries/index";
 import { useParams, useSearchParams } from "react-router-dom";
 import { useMutation, useQuery } from "@tanstack/react-query";
@@ -51,6 +53,7 @@ const CardList: React.FC = () => {
   const parentRef = useRef(null);
   //
 
+
   const { data, isLoading, isError, refetch } = useQuery({
     queryKey: ["countries", sortOrder],
     queryFn: () => getCountries(sortOrder),
@@ -64,8 +67,6 @@ const CardList: React.FC = () => {
     overscan: 5,
   });
 
-  // console.log("Rendered virtual items:", columnVirtualizer.getVirtualItems());
-  // console.log(data);
 
   const {
     mutate: mutateCountry,
