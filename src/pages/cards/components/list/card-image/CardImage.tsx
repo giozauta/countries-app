@@ -11,7 +11,7 @@ const CardImage: React.FC<{ id: string }> = ({ id }) => {
   const currentLang = lang ?? "en";
 
   const { data } = useQuery({
-    queryKey: ["country", id],
+    queryKey: ["countryImg",id],
     queryFn: () => singleCountry(id),
   });
 

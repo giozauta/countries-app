@@ -7,10 +7,9 @@ const SingleCard: React.FC = () => {
   const { id, lang } = useParams();
   const currentLang = lang ?? "en";
   const { data, isLoading, error } = useQuery({
-    queryKey: ["country",id],
+    queryKey: ["country", id],
     queryFn: () => singleCountry(id),
   });
-
 
   if (isLoading) {
     return <div>...loading</div>;
@@ -18,7 +17,7 @@ const SingleCard: React.FC = () => {
   if (error) {
     return <div>{error.message}</div>;
   }
-  console.log(data)
+  
   const country = data;
   if (!country) {
     return <div>...loading</div>;

@@ -1,18 +1,26 @@
 import { httpClient } from "..";
 import { CountryType } from "./countries.types";
 
-export const fetchPage  = async({page,limit,sort}:{page:number,limit:number,sort:string}) =>{
-  try{
+export const fetchPage = async ({
+  page,
+  limit,
+  sort,
+}: {
+  page: number;
+  limit: number;
+  sort: string;
+}) => {
+  try {
     const response = await httpClient.get(
       `/countries?_sort=vote&_order=${sort}&_page=${page}&_limit=${limit}`,
     );
     return response.data;
-  }catch(err){
+  } catch (err) {
     throw new Error(
       err + "Failed to fetch countries. Please check your network connection.",
     );
   }
-}
+};
 
 // export const getCountries = async (sort: string): Promise<CountryType[]> => {
 //   try {
@@ -28,7 +36,6 @@ export const fetchPage  = async({page,limit,sort}:{page:number,limit:number,sort
 // };
 
 export const singleCountry = async (id: string | undefined) => {
- 
   if (!id) {
     throw new Error("ID is required");
   }
@@ -38,7 +45,6 @@ export const singleCountry = async (id: string | undefined) => {
   } catch (err) {
     throw new Error(
       `${err} Failed to fetch countries. Please check your network connection.`,
-    
     );
   }
 };

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState} from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./cardList.module.css";
 import Card from "../card/Card";
 import CardImage from "../card-image";
@@ -42,7 +42,7 @@ const CardList: React.FC = () => {
   const [formSection, setFormSection] = useState(false); //for show form section
   const [showEditForm, setShowEditForm] = useState<string | null>(null);
   const [newId, setNewId] = useState(0);
- 
+
   //
   const { lang } = useParams();
   const currentLang = lang ?? "en";
@@ -52,27 +52,21 @@ const CardList: React.FC = () => {
   const parentRef = useRef(null);
   //
 
- 
-  const {
-    data,
-    refetch,
-    fetchNextPage,
-    hasNextPage,
-    isFetchingNextPage,
-  } = useInfiniteQuery({
-    queryKey: ["countries", sortOrder],
-    queryFn: ({ pageParam }) => fetchPage({page:pageParam,limit:20,sort:sortOrder}),
-    getNextPageParam: (lastPage, allPages) => {
-      // Assuming lastPage has a length, we check if there’s more data
-      return lastPage.length ? allPages.length + 1 : undefined;
-    },
-    initialPageParam: 1,
-    
-  })
-  //გვჭირდება რომ columnVirtualizer ში count ში მივუთითოთ ზომა 
-  const allCountries =  data ? data.pages.flatMap((d) => d) : [];
-  // როდესაც countries დავმაფავთ აიდები რომ სწორად გადავცეთ 
-  const allIds = allCountries.map((c) => c.id).toString(); // 
+  const { data, refetch, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    useInfiniteQuery({
+      queryKey: ["countries", sortOrder],
+      queryFn: ({ pageParam }) =>
+        fetchPage({ page: pageParam, limit: 20, sort: sortOrder }),
+      getNextPageParam: (lastPage, allPages) => {
+        // Assuming lastPage has a length, we check if there’s more data
+        return lastPage.length ? allPages.length + 1 : undefined;
+      },
+      initialPageParam: 1,
+    });
+  //გვჭირდება რომ columnVirtualizer ში count ში მივუთითოთ ზომა
+  const allCountries = data ? data.pages.flatMap((d) => d) : [];
+  // როდესაც countries დავმაფავთ აიდები რომ სწორად გადავცეთ
+  const allIds = allCountries.map((c) => c.id).toString(); //
   //
   const columnVirtualizer = useVirtualizer({
     horizontal: true,
@@ -81,19 +75,28 @@ const CardList: React.FC = () => {
     estimateSize: () => 410, // Estimated width of each card
     overscan: 5,
   });
-  //columnVirtualizer ფუნქცია რომელსაც  მოაქვს  ქვეყნების სია 
+  //columnVirtualizer ფუნქცია რომელსაც  მოაქვს  ქვეყნების სია
   const countries = columnVirtualizer.getVirtualItems();
 
   useEffect(() => {
-    const lastCountry =countries.at(-1);
+    const lastCountry = countries.at(-1);
     if (!lastCountry) {
       return;
     }
-    if (lastCountry.index >= allCountries.length - 1 && hasNextPage && !isFetchingNextPage) {
+    if (
+      lastCountry.index >= allCountries.length - 1 &&
+      hasNextPage &&
+      !isFetchingNextPage
+    ) {
       fetchNextPage();
     }
-  }, [hasNextPage, fetchNextPage, allCountries.length, isFetchingNextPage, countries]);
-
+  }, [
+    hasNextPage,
+    fetchNextPage,
+    allCountries.length,
+    isFetchingNextPage,
+    countries,
+  ]);
 
   const {
     mutate: mutateCountry,
@@ -141,7 +144,9 @@ const CardList: React.FC = () => {
   };
 
   const handleUpdateCountry = (updatedData: EditCardData) => {
-    const oldData = allCountries?.find((country) => country.id === updatedData.id);
+    const oldData = allCountries?.find(
+      (country) => country.id === updatedData.id,
+    );
     if (!oldData) return;
 
     const newData = {
@@ -206,7 +211,6 @@ const CardList: React.FC = () => {
     }
   };
 
-
   return (
     <section className={styles.cardListSection}>
       <div className={styles.cardButtonSection}>
@@ -244,11 +248,12 @@ const CardList: React.FC = () => {
           }}
         >
           {data?.pages &&
-           countries.map((virtualColumn) => {
-           
+            countries.map((virtualColumn) => {
               const country = allCountries[virtualColumn.index];
-          
-            if(!country) {return}
+
+              if (!country) {
+                return;
+              }
               return (
                 <div
                   key={virtualColumn.index}
@@ -258,11 +263,8 @@ const CardList: React.FC = () => {
                     left: `${virtualColumn.start + virtualColumn.index}px`,
                     width: "410px",
                     height: "605px",
-                    
                   }}
                 >
-                 
-
                   <Card id={allIds} deleteStatus={country}>
                     <CardImage id={allIds} />
                     <CardContent country={country} />
@@ -289,7 +291,6 @@ const CardList: React.FC = () => {
                       countryError={countryError ? countryError.message : ""}
                     />
                   </Card>
-                  
                 </div>
               );
             })}
