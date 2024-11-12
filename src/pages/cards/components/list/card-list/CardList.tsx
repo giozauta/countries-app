@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState} from "react";
 import styles from "./cardList.module.css";
 import Card from "../card/Card";
 import CardImage from "../card-image";
@@ -8,16 +8,15 @@ import CardAddForm from "../card-add-formSection";
 import CardEditForm from "../card-edit-form/CardEditForm";
 import ShowEditButton from "../show-editForm-button/ShowEditButton";
 import {
-  getCountries,
+  // getCountries,
+  fetchPage,
   updateCountry,
   addCountry,
   deleteCountry,
   updateCountryVote,
-
-  
 } from "@/api/countries/index";
 import { useParams, useSearchParams } from "react-router-dom";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery, useMutation } from "@tanstack/react-query";
 import { useVirtualizer } from "@tanstack/react-virtual";
 
 type NewCardData = {
@@ -43,7 +42,7 @@ const CardList: React.FC = () => {
   const [formSection, setFormSection] = useState(false); //for show form section
   const [showEditForm, setShowEditForm] = useState<string | null>(null);
   const [newId, setNewId] = useState(0);
-
+ 
   //
   const { lang } = useParams();
   const currentLang = lang ?? "en";
@@ -53,19 +52,47 @@ const CardList: React.FC = () => {
   const parentRef = useRef(null);
   //
 
-
-  const { data, isLoading, isError, refetch } = useQuery({
+ 
+  const {
+    data,
+    refetch,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+  } = useInfiniteQuery({
     queryKey: ["countries", sortOrder],
-    queryFn: () => getCountries(sortOrder),
-  });
-
+    queryFn: ({ pageParam }) => fetchPage({page:pageParam,limit:20,sort:sortOrder}),
+    getNextPageParam: (lastPage, allPages) => {
+      // Assuming lastPage has a length, we check if there’s more data
+      return lastPage.length ? allPages.length + 1 : undefined;
+    },
+    initialPageParam: 1,
+    
+  })
+  //გვჭირდება რომ columnVirtualizer ში count ში მივუთითოთ ზომა 
+  const allCountries =  data ? data.pages.flatMap((d) => d) : [];
+  // როდესაც countries დავმაფავთ აიდები რომ სწორად გადავცეთ 
+  const allIds = allCountries.map((c) => c.id).toString(); // 
+  //
   const columnVirtualizer = useVirtualizer({
     horizontal: true,
-    count: data?.length || 0,
+    count: hasNextPage ? allCountries.length + 1 : allCountries.length,
     getScrollElement: () => parentRef.current,
     estimateSize: () => 410, // Estimated width of each card
     overscan: 5,
   });
+  //columnVirtualizer ფუნქცია რომელსაც  მოაქვს  ქვეყნების სია 
+  const countries = columnVirtualizer.getVirtualItems();
+
+  useEffect(() => {
+    const lastCountry =countries.at(-1);
+    if (!lastCountry) {
+      return;
+    }
+    if (lastCountry.index >= allCountries.length - 1 && hasNextPage && !isFetchingNextPage) {
+      fetchNextPage();
+    }
+  }, [hasNextPage, fetchNextPage, allCountries.length, isFetchingNextPage, countries]);
 
 
   const {
@@ -114,7 +141,7 @@ const CardList: React.FC = () => {
   };
 
   const handleUpdateCountry = (updatedData: EditCardData) => {
-    const oldData = data?.find((country) => country.id === updatedData.id);
+    const oldData = allCountries?.find((country) => country.id === updatedData.id);
     if (!oldData) return;
 
     const newData = {
@@ -141,7 +168,7 @@ const CardList: React.FC = () => {
   };
 
   const handleCountriesVote = (id: string) => {
-    const country = data?.find((country) => country.id === id);
+    const country = allCountries?.find((country) => country.id === id);
     if (!country) {
       console.error(`Country with id ${id} not found.`);
       return;
@@ -173,18 +200,12 @@ const CardList: React.FC = () => {
 
     createCountryMutate({ payload: newCountry });
     if (data) {
-      setNewId(data?.length + 1);
+      setNewId(allCountries?.length + 1);
     } else {
       setNewId(1);
     }
   };
 
-  if (isLoading && !data) {
-    return <div>Loading...</div>;
-  }
-  if (isError) {
-    return <div>{isError}</div>;
-  }
 
   return (
     <section className={styles.cardListSection}>
@@ -222,22 +243,28 @@ const CardList: React.FC = () => {
             position: "relative",
           }}
         >
-          {data &&
-            columnVirtualizer.getVirtualItems().map((virtualColumn) => {
-              const country = data[virtualColumn.index];
+          {data?.pages &&
+           countries.map((virtualColumn) => {
+           
+              const country = allCountries[virtualColumn.index];
+          
+            if(!country) {return}
               return (
                 <div
-                  key={country.id}
+                  key={virtualColumn.index}
                   style={{
                     position: "absolute",
                     top: 0,
-                    left: `${virtualColumn.start + virtualColumn.index * 160}px`,
+                    left: `${virtualColumn.start + virtualColumn.index}px`,
                     width: "410px",
                     height: "605px",
+                    
                   }}
                 >
-                  <Card id={country.id} deleteStatus={country.deleteStatus}>
-                    <CardImage id={country.id} />
+                 
+
+                  <Card id={allIds} deleteStatus={country}>
+                    <CardImage id={allIds} />
                     <CardContent country={country} />
                     <CardInteractSection
                       isVoteLoading={isVoteLoading}
@@ -248,20 +275,21 @@ const CardList: React.FC = () => {
                       country={country}
                       handleCountriesVote={handleCountriesVote}
                     />
-                    {showEditForm === country.id && (
+                    {showEditForm === allIds && (
                       <CardEditForm
-                        id={country.id}
+                        id={allIds}
                         onEditSubmit={handleUpdateCountry}
                       />
                     )}
                     <ShowEditButton
-                      id={country.id}
+                      id={allIds}
                       onSHowEditButtonClick={handleShowEditForm}
                       isMutateLoading={isCountryLoading}
                       isCountryError={isCountryError}
                       countryError={countryError ? countryError.message : ""}
                     />
                   </Card>
+                  
                 </div>
               );
             })}

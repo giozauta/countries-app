@@ -6,17 +6,19 @@ import { singleCountry } from "@/api/countries";
 const SingleCard: React.FC = () => {
   const { id, lang } = useParams();
   const currentLang = lang ?? "en";
-
   const { data, isLoading, error } = useQuery({
-    queryKey: ["country"],
+    queryKey: ["country",id],
     queryFn: () => singleCountry(id),
   });
+
+
   if (isLoading) {
     return <div>...loading</div>;
   }
   if (error) {
     return <div>{error.message}</div>;
   }
+  console.log(data)
   const country = data;
   if (!country) {
     return <div>...loading</div>;
