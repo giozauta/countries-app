@@ -17,7 +17,7 @@ const SingleCard: React.FC = () => {
   if (error) {
     return <div>{error.message}</div>;
   }
-  
+
   const country = data;
   if (!country) {
     return <div>...loading</div>;

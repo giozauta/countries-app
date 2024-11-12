@@ -11,13 +11,17 @@ const CardImage: React.FC<{ id: string }> = ({ id }) => {
   const currentLang = lang ?? "en";
 
   const { data } = useQuery({
-    queryKey: ["countryImg",id],
+    queryKey: ["countryImg", id],
     queryFn: () => singleCountry(id),
   });
 
   const handleShowContent = () => {
     setIsContentVisible((prev) => !prev); // Toggle visibility
   };
+
+  if(!data) {
+    return <div>...loading</div>
+  }
 
   return (
     <div className={styles.cardImageBox}>
