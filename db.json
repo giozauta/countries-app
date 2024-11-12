@@ -3,6 +3,120 @@
     {
       "id": "1",
       "countryName": {
+        "en": "Japan",
+        "ka": "იაპონია"
+      },
+      "capitalCity": {
+        "en": "Tokyo",
+        "ka": "ტოკიო"
+      },
+      "population": 124,
+      "article": {
+        "en": "Japan is an island country in East Asia. It is located in the Pacific Ocean off the northeast coast of the Asian mainland, and is bordered on the west by the Sea of Japan. The Japanese archipelago consists of four major islands—Hokkaido, Honshu, Shikoku, and Kyushu—and thousands of smaller islands, covering 377,975 square kilometers (145,937 sq mi). Japan has a population of nearly 124 million as of 2024, and is the eleventh-most populous country. Its capital and largest city is Tokyo; the Greater Tokyo Area is the largest metropolitan area in the world, with more than 38 million inhabitants as of 2016. Japan is divided into 47 administrative prefectures and eight traditional regions. About three-quarters of the country's terrain is mountainous and heavily forested, concentrating its agriculture and highly urbanized population along its eastern coastal plains. The country sits on the Pacific Ring of Fire, making its islands prone to destructive earthquakes and tsunamis.",
+        "ka": "იაპონია არის კუნძულოვანი ქვეყანა აღმოსავლეთ აზიაში. იგი მდებარეობს წყნარ ოკეანეში, აზიის მატერიკზე ჩრდილო-აღმოსავლეთ სანაპიროზე და დასავლეთიდან ესაზღვრება იაპონიის ზღვას და ვრცელდება ოხოცკის ზღვიდან ქ. ჩრდილოეთიდან აღმოსავლეთ ჩინეთის ზღვისაკენ. იაპონიის არქიპელაგი შედგება ოთხი ძირითადი კუნძულისგან - ჰოკაიდო, ჰონსუ, შიკოკუ და კიუშუ - და ათასობით პატარა კუნძულიდან, რომელიც მოიცავს 377,975 კვადრატულ კილომეტრს (145,937 კვ მ). 2024 წლის მონაცემებით, თითქმის 124 მილიონი ადამიანი ცხოვრობს და მეთერთმეტე ყველაზე დასახლებული ქვეყანაა. დედაქალაქი და ყველაზე დიდი ქალაქი არის ტოკიო; დიდი ტოკიოს რეგიონი მსოფლიოში ყველაზე დიდი მეტროპოლიური ტერიტორიაა, სადაც 2016 წლის მონაცემებით, 38 მილიონზე მეტი ადამიანი ცხოვრობს. იაპონია 47 ადმინისტრაციულ პრეფექტურად და რვა ტრადიციულ რეგიონად არის დაყოფილი. ქვეყნის ტერიტორიის დაახლოებით სამი მეოთხედი მთიანი და ტყით დაფარულია, რაც ამცირებს სოფლის მეურნეობას და განსაკუთრებით ურბანიზებულ მოსახლეობას აღმოსავლეთის სანაპირო დაბლობზე. ქვეყანა მდებარეობს წყნარ ოკეანეში, რის შედეგადაც მისი კუნძულები მიდრეკილია დამანგრეველი მიწისძვრებისა და ცუნამებისადმი."
+      },
+      "imgSrc": "/images/japan2.jpg",
+      "vote": 0,
+      "deleteStatus": false
+    },
+    {
+      "id": "2",
+      "countryName": {
+        "en": "France",
+        "ka": "საფრანგეთი"
+      },
+      "capitalCity": {
+        "en": "Paris",
+        "ka": "პარიზი"
+      },
+      "population": 67,
+      "article": {
+        "en": "France,[a] officially the French Republic,[b] is a country located primarily in Western Europe. Its overseas regions and territories include French Guiana in South America, Saint Pierre and Miquelon in the North Atlantic, the French West Indies, and many islands in Oceania and the Indian Ocean, giving it one of the largest discontiguous exclusive economic zones in the world. Metropolitan France shares borders with Belgium and Luxembourg to the north, Germany to the northeast, Switzerland to the east, Italy and Monaco to the southeast, Andorra and Spain to the south, and a maritime border with the United Kingdom to the northwest. Its metropolitan area extends from the Rhine to the Atlantic Ocean and from the Mediterranean Sea to the English Channel and the North Sea. Its eighteen integral regions (five of which are overseas) span a combined area of 643,801 km2 (248,573 sq mi) and have a total population of 68.4 million as of January 2024.[6][8] France is a semi-presidential republic with its capital in Paris, the country's largest city and main cultural and commercial centre.",
+        "ka": "საფრანგეთი, [a] ოფიციალურად საფრანგეთის რესპუბლიკა, [b] არის ქვეყანა, რომელიც მდებარეობს ძირითადად დასავლეთ ევროპაში. მისი საზღვარგარეთის რეგიონები და ტერიტორიები მოიცავს საფრანგეთის გვიანას სამხრეთ ამერიკაში, სენტ-პიერსა და მიკელონს ჩრდილო ატლანტიკაში, საფრანგეთის დასავლეთ ინდოეთში და ბევრ კუნძულს ოკეანიასა და ინდოეთის ოკეანეში, რაც მას მსოფლიოში ერთ-ერთ უდიდეს ექსკლუზიურ ეკონომიკურ ზონას აძლევს. მიტროპოლიტ საფრანგეთს ესაზღვრება ჩრდილოეთით ბელგია და ლუქსემბურგი, ჩრდილო-აღმოსავლეთით გერმანია, აღმოსავლეთით შვეიცარია, სამხრეთ-აღმოსავლეთით იტალია და მონაკო, სამხრეთით ანდორა და ესპანეთი და ჩრდილო-დასავლეთით გაერთიანებულ სამეფოსთან საზღვაო საზღვარი. მისი მეტროპოლიტენი ვრცელდება რაინიდან ატლანტის ოკეანემდე და ხმელთაშუა ზღვიდან ინგლისის არხამდე და ჩრდილოეთის ზღვამდე. მისი თვრამეტი ინტეგრალური რეგიონი (მათგან ხუთი საზღვარგარეთ) მოიცავს 643,801 კმ2 (248,573 კვ. მილი) საერთო ფართობს და 2024 წლის იანვრის მდგომარეობით 68,4 მილიონი ადამიანი ცხოვრობს.[6][8] საფრანგეთი არის ნახევრად საპრეზიდენტო რესპუბლიკა თავისი დედაქალაქით პარიზში, ქვეყნის უდიდესი ქალაქი და მთავარი კულტურული და კომერციული ცენტრი."
+      },
+      "imgSrc": "/images/france.jpg",
+      "vote": 0,
+      "deleteStatus": false
+    },
+    {
+      "id": "3",
+      "countryName": {
+        "en": "Greece",
+        "ka": "საბერძნეთი"
+      },
+      "capitalCity": {
+        "en": "Athens",
+        "ka": "ათენი"
+      },
+      "population": 10,
+      "article": {
+        "en": "Greece,[a] officially the Hellenic Republic,[b] is a country in Southeast Europe. Located on the southern tip of the Balkan peninsula, Greece shares land borders with Albania to the northwest, North Macedonia and Bulgaria to the north, and Turkey to the east. The Aegean Sea lies to the east of the mainland, the Ionian Sea to the west, and the Sea of Crete and the Mediterranean Sea to the south. Greece has the longest coastline on the Mediterranean Basin, featuring thousands of islands. The country comprises nine traditional geographic regions, and has a population of over 10.4 million. Athens is the nation's capital and largest city, followed by Thessaloniki and Patras.",
+        "ka": "საბერძნეთი, [a] ოფიციალურად საბერძნეთის რესპუბლიკა, [b] არის ქვეყანა სამხრეთ-აღმოსავლეთ ევროპაში. ბალკანეთის ნახევარკუნძულის სამხრეთ წვერზე მდებარე საბერძნეთი იზიარებს სახმელეთო საზღვრებს ალბანეთთან ჩრდილო-დასავლეთით, ჩრდილოეთ მაკედონიასთან და ბულგარეთთან ჩრდილოეთით და თურქეთთან აღმოსავლეთით. ეგეოსის ზღვა მდებარეობს მატერიკიდან აღმოსავლეთით, იონიის ზღვა დასავლეთით, ხოლო კრეტას ზღვა და ხმელთაშუა ზღვა სამხრეთით. საბერძნეთს აქვს ყველაზე გრძელი სანაპირო ხმელთაშუა ზღვის აუზზე, რომელშიც ათასობით კუნძულია. ქვეყანა მოიცავს ცხრა ტრადიციულ გეოგრაფიულ რეგიონს და აქვს 10,4 მილიონზე მეტი მოსახლეობა. ათენი არის ქვეყნის დედაქალაქი და უდიდესი ქალაქი, შემდეგ მოდის თესალონიკი და პატრა"
+      },
+      "imgSrc": "/images/greece.jpg",
+      "vote": 0,
+      "deleteStatus": false
+    },
+    {
+      "id": "4",
+      "countryName": {
+        "en": "Georgia",
+        "ka": "საქართველო"
+      },
+      "capitalCity": {
+        "en": "Tbilisi",
+        "ka": "თბილისი"
+      },
+      "population": 3,
+      "article": {
+        "en": "Georgia (Georgian: საქართველო, romanized: sakartvelo, IPA: [sakʰartʰʷelo] ⓘ) is a transcontinental country in Eastern Europe[10][11][12] and West Asia. It is part of the Caucasus region, bounded by the Black Sea to the west, Russia to the north and northeast, Turkey to the southwest, Armenia to the south, and Azerbaijan to the southeast. Georgia covers an area of 69,700 square kilometres (26,900 sq mi).[13] It has a population of 3.7 million,[b][14] of which over a third live in the capital and largest city, Tbilisi. Georgians, who are native to the region, constitute a majority of the country's population and are its titular nation.",
+        "ka": "საქართველო (ქართ. საქართველო, ტრანსკონტინენტური ქვეყანა აღმოსავლეთ ევროპაში[10][11][12] და დასავლეთ აზიაში. ეს არის კავკასიის რეგიონის ნაწილი, ესაზღვრება დასავლეთით შავი ზღვა, ჩრდილოეთით რუსეთი და ჩრდილო-აღმოსავლეთი, თურქეთი. სამხრეთ-დასავლეთით, სამხრეთით სომხეთი და სამხრეთ-აღმოსავლეთით აზერბაიჯანი მოიცავს 69,700 კვადრატული კილომეტრის ფართობს.[13] მესამე, დედაქალაქში და უდიდეს ქალაქში, თბილისში მცხოვრები ქართველები შეადგენენ ქვეყნის მოსახლეობის უმრავლესობას და წარმოადგენენ მის ტიტულოვან ერს"
+      },
+      "imgSrc": "/images/georgia2.jpg",
+      "vote": 0,
+      "deleteStatus": false
+    },
+    {
+      "id": "5",
+      "countryName": {
+        "en": "Germany",
+        "ka": "გერმანია"
+      },
+      "capitalCity": {
+        "en": "Berlin",
+        "ka": "ბერლინი"
+      },
+      "population": 81,
+      "article": {
+        "en": "Germany,[e] officially the Federal Republic of Germany,[f] is a country in Central Europe. It lies between the Baltic and North Sea to the north and the Alps to the south. Its sixteen constituent states have a total population of over 82 million in an area of 357,569 km2 (138,058 sq mi), making it the most populous member state of the European Union. It borders Denmark to the north, Poland and Czechia to the east, Austria and Switzerland to the south, and France, Luxembourg, Belgium, and the Netherlands to the west. The nation's capital and most populous city is Berlin and its main financial centre is Frankfurt; the largest urban area is the Ruhr.",
+        "ka": "გერმანია,[e] ოფიციალურად გერმანიის ფედერაციული რესპუბლიკა,[f] არის ქვეყანა ცენტრალურ ევროპაში. მდებარეობს ჩრდილოეთით ბალტიის და ჩრდილოეთის ზღვებსა და სამხრეთით ალპებს შორის. მისი თექვსმეტი შემადგენელი სახელმწიფოს საერთო მოსახლეობა 82 მილიონზე მეტია 357,569 კმ2 (138,058 კვ.მ) ფართობზე, რაც მას ევროკავშირის ყველაზე დასახლებულ წევრ სახელმწიფოდ აქცევს. ჩრდილოეთით ესაზღვრება დანიას, აღმოსავლეთით პოლონეთსა და ჩეხეთს, სამხრეთით ავსტრიას და შვეიცარიას, დასავლეთით კი საფრანგეთს, ლუქსემბურგს, ბელგიას და ნიდერლანდებს. ქვეყნის დედაქალაქი და ყველაზე დასახლებული ქალაქი არის ბერლინი და მისი მთავარი ფინანსური ცენტრია ფრანკფურტი; ყველაზე დიდი ურბანული ტერიტორია არის რური."
+      },
+      "imgSrc": "/images/germany1.jpg",
+      "vote": 0,
+      "deleteStatus": false
+    },
+    {
+      "id": "6",
+      "countryName": {
+        "en": "Italy",
+        "ka": "იტალია"
+      },
+      "capitalCity": {
+        "en": "Rome",
+        "ka": "რომი"
+      },
+      "population": 60,
+      "article": {
+        "en": "Italy,[a] officially the Italian Republic,[b] is a country in Southern[12] and Western[13][c] Europe. It consists of a peninsula that extends into the Mediterranean Sea, with the Alps on its northern land border, as well as islands, notably Sicily and Sardinia.[15] Italy shares its borders with France, Switzerland, Austria, Slovenia and two enclaves: Vatican City and San Marino. It is the tenth-largest country in Europe by area, covering 301,340 km2 (116,350 sq mi),[3] and third-most populous member state of the European Union, with a population of nearly 60 million.[16] Its capital and largest city is Rome; other major urban areas include Milan, Naples, Turin, Palermo, Bologna, Florence, and Venice.",
+        "ka": "იტალია,[a] ოფიციალურად იტალიის რესპუბლიკა,[b] არის ქვეყანა სამხრეთ[12] და დასავლეთ[13][c] ევროპაში. იგი შედგება ნახევარკუნძულისგან, რომელიც ვრცელდება ხმელთაშუა ზღვაში, ალპებით მის ჩრდილოეთ სახმელეთო საზღვარზე, ისევე როგორც კუნძულები, განსაკუთრებით სიცილია და სარდინია.[15] იტალიას ესაზღვრება საფრანგეთი, შვეიცარია, ავსტრია, სლოვენია და ორი ანკლავი: ვატიკანი და სან-მარინო. ეს არის ევროპის სიდიდით მეათე ქვეყანა ფართობის მიხედვით, რომელიც მოიცავს 301,340 კმ2 (116,350 კვ. მილი), [3] და ევროკავშირის მესამე ყველაზე დასახლებული წევრი ქვეყანა, დაახლოებით 60 მილიონი მოსახლეობით.[16] მისი დედაქალაქი და უდიდესი ქალაქია რომი; სხვა დიდ ქალაქებში შედის მილანი, ნეაპოლი, ტურინი, პალერმო, ბოლონია, ფლორენცია და ვენეცია."
+      },
+      "imgSrc": "/images/italy.jpg",
+      "vote": 0,
+      "deleteStatus": false
+    },
+    {
+      "id": "7",
+      "countryName": {
         "en": "South Georgia",
         "ka": "South Georgia"
       },
@@ -20,7 +134,7 @@
       "deleteStatus": false
     },
     {
-      "id": "2",
+      "id": "8",
       "countryName": {
         "en": "Grenada",
         "ka": "Grenada"
@@ -39,7 +153,7 @@
       "deleteStatus": false
     },
     {
-      "id": "3",
+      "id": "9",
       "countryName": {
         "en": "Switzerland",
         "ka": "Switzerland"
@@ -58,7 +172,7 @@
       "deleteStatus": false
     },
     {
-      "id": "4",
+      "id": "10",
       "countryName": {
         "en": "Sierra Leone",
         "ka": "Sierra Leone"
@@ -77,7 +191,7 @@
       "deleteStatus": false
     },
     {
-      "id": "5",
+      "id": "11",
       "countryName": {
         "en": "Hungary",
         "ka": "Hungary"
@@ -96,7 +210,7 @@
       "deleteStatus": false
     },
     {
-      "id": "6",
+      "id": "12",
       "countryName": {
         "en": "Taiwan",
         "ka": "Taiwan"
@@ -115,7 +229,7 @@
       "deleteStatus": false
     },
     {
-      "id": "7",
+      "id": "13",
       "countryName": {
         "en": "Wallis and Futuna",
         "ka": "Wallis and Futuna"
@@ -134,7 +248,7 @@
       "deleteStatus": false
     },
     {
-      "id": "8",
+      "id": "14",
       "countryName": {
         "en": "Barbados",
         "ka": "Barbados"
@@ -153,7 +267,7 @@
       "deleteStatus": false
     },
     {
-      "id": "9",
+      "id": "15",
       "countryName": {
         "en": "Pitcairn Islands",
         "ka": "Pitcairn Islands"
@@ -172,7 +286,7 @@
       "deleteStatus": false
     },
     {
-      "id": "10",
+      "id": "16",
       "countryName": {
         "en": "Ivory Coast",
         "ka": "Ivory Coast"
@@ -191,7 +305,7 @@
       "deleteStatus": false
     },
     {
-      "id": "11",
+      "id": "17",
       "countryName": {
         "en": "Tunisia",
         "ka": "Tunisia"
@@ -210,7 +324,7 @@
       "deleteStatus": false
     },
     {
-      "id": "12",
+      "id": "18",
       "countryName": {
         "en": "Italy",
         "ka": "Italy"
@@ -229,7 +343,7 @@
       "deleteStatus": false
     },
     {
-      "id": "13",
+      "id": "19",
       "countryName": {
         "en": "Benin",
         "ka": "Benin"
@@ -248,7 +362,7 @@
       "deleteStatus": false
     },
     {
-      "id": "14",
+      "id": "20",
       "countryName": {
         "en": "Indonesia",
         "ka": "Indonesia"
@@ -267,7 +381,7 @@
       "deleteStatus": false
     },
     {
-      "id": "15",
+      "id": "21",
       "countryName": {
         "en": "Cape Verde",
         "ka": "Cape Verde"
@@ -286,7 +400,7 @@
       "deleteStatus": false
     },
     {
-      "id": "16",
+      "id": "22",
       "countryName": {
         "en": "Saint Kitts and Nevis",
         "ka": "Saint Kitts and Nevis"
@@ -305,7 +419,7 @@
       "deleteStatus": false
     },
     {
-      "id": "17",
+      "id": "23",
       "countryName": {
         "en": "Laos",
         "ka": "Laos"
@@ -324,7 +438,7 @@
       "deleteStatus": false
     },
     {
-      "id": "18",
+      "id": "24",
       "countryName": {
         "en": "Caribbean Netherlands",
         "ka": "Caribbean Netherlands"
@@ -343,7 +457,7 @@
       "deleteStatus": false
     },
     {
-      "id": "19",
+      "id": "25",
       "countryName": {
         "en": "Uganda",
         "ka": "Uganda"
@@ -362,7 +476,7 @@
       "deleteStatus": false
     },
     {
-      "id": "20",
+      "id": "26",
       "countryName": {
         "en": "Andorra",
         "ka": "Andorra"
@@ -381,7 +495,7 @@
       "deleteStatus": false
     },
     {
-      "id": "21",
+      "id": "27",
       "countryName": {
         "en": "Burundi",
         "ka": "Burundi"
@@ -400,7 +514,7 @@
       "deleteStatus": false
     },
     {
-      "id": "22",
+      "id": "28",
       "countryName": {
         "en": "South Africa",
         "ka": "South Africa"
@@ -419,7 +533,7 @@
       "deleteStatus": false
     },
     {
-      "id": "23",
+      "id": "29",
       "countryName": {
         "en": "France",
         "ka": "France"
@@ -438,7 +552,7 @@
       "deleteStatus": false
     },
     {
-      "id": "24",
+      "id": "30",
       "countryName": {
         "en": "Libya",
         "ka": "Libya"
@@ -457,7 +571,7 @@
       "deleteStatus": false
     },
     {
-      "id": "25",
+      "id": "31",
       "countryName": {
         "en": "Mexico",
         "ka": "Mexico"
@@ -476,7 +590,7 @@
       "deleteStatus": false
     },
     {
-      "id": "26",
+      "id": "32",
       "countryName": {
         "en": "Gabon",
         "ka": "Gabon"
@@ -495,7 +609,7 @@
       "deleteStatus": false
     },
     {
-      "id": "27",
+      "id": "33",
       "countryName": {
         "en": "Northern Mariana Islands",
         "ka": "Northern Mariana Islands"
@@ -514,7 +628,7 @@
       "deleteStatus": false
     },
     {
-      "id": "28",
+      "id": "34",
       "countryName": {
         "en": "North Macedonia",
         "ka": "North Macedonia"
@@ -533,7 +647,7 @@
       "deleteStatus": false
     },
     {
-      "id": "29",
+      "id": "35",
       "countryName": {
         "en": "China",
         "ka": "China"
@@ -552,7 +666,7 @@
       "deleteStatus": false
     },
     {
-      "id": "30",
+      "id": "36",
       "countryName": {
         "en": "Yemen",
         "ka": "Yemen"
@@ -571,7 +685,7 @@
       "deleteStatus": false
     },
     {
-      "id": "31",
+      "id": "37",
       "countryName": {
         "en": "Saint Barthélemy",
         "ka": "Saint Barthélemy"
@@ -590,7 +704,7 @@
       "deleteStatus": false
     },
     {
-      "id": "32",
+      "id": "38",
       "countryName": {
         "en": "Guernsey",
         "ka": "Guernsey"
@@ -609,7 +723,7 @@
       "deleteStatus": false
     },
     {
-      "id": "33",
+      "id": "39",
       "countryName": {
         "en": "Solomon Islands",
         "ka": "Solomon Islands"
@@ -628,7 +742,7 @@
       "deleteStatus": false
     },
     {
-      "id": "34",
+      "id": "40",
       "countryName": {
         "en": "Svalbard and Jan Mayen",
         "ka": "Svalbard and Jan Mayen"
@@ -647,7 +761,7 @@
       "deleteStatus": false
     },
     {
-      "id": "35",
+      "id": "41",
       "countryName": {
         "en": "Faroe Islands",
         "ka": "Faroe Islands"
@@ -666,7 +780,7 @@
       "deleteStatus": false
     },
     {
-      "id": "36",
+      "id": "42",
       "countryName": {
         "en": "Uzbekistan",
         "ka": "Uzbekistan"
@@ -685,7 +799,7 @@
       "deleteStatus": false
     },
     {
-      "id": "37",
+      "id": "43",
       "countryName": {
         "en": "Egypt",
         "ka": "Egypt"
@@ -704,7 +818,7 @@
       "deleteStatus": false
     },
     {
-      "id": "38",
+      "id": "44",
       "countryName": {
         "en": "Senegal",
         "ka": "Senegal"
@@ -723,7 +837,7 @@
       "deleteStatus": false
     },
     {
-      "id": "39",
+      "id": "45",
       "countryName": {
         "en": "Sri Lanka",
         "ka": "Sri Lanka"
@@ -742,7 +856,7 @@
       "deleteStatus": false
     },
     {
-      "id": "40",
+      "id": "46",
       "countryName": {
         "en": "Palestine",
         "ka": "Palestine"
@@ -761,7 +875,7 @@
       "deleteStatus": false
     },
     {
-      "id": "41",
+      "id": "47",
       "countryName": {
         "en": "Bangladesh",
         "ka": "Bangladesh"
@@ -780,7 +894,7 @@
       "deleteStatus": false
     },
     {
-      "id": "42",
+      "id": "48",
       "countryName": {
         "en": "Peru",
         "ka": "Peru"
@@ -799,7 +913,7 @@
       "deleteStatus": false
     },
     {
-      "id": "43",
+      "id": "49",
       "countryName": {
         "en": "Singapore",
         "ka": "Singapore"
@@ -818,7 +932,7 @@
       "deleteStatus": false
     },
     {
-      "id": "44",
+      "id": "50",
       "countryName": {
         "en": "Turkey",
         "ka": "Turkey"
@@ -837,7 +951,7 @@
       "deleteStatus": false
     },
     {
-      "id": "45",
+      "id": "51",
       "countryName": {
         "en": "Afghanistan",
         "ka": "Afghanistan"
@@ -856,7 +970,7 @@
       "deleteStatus": false
     },
     {
-      "id": "46",
+      "id": "52",
       "countryName": {
         "en": "Aruba",
         "ka": "Aruba"
@@ -875,7 +989,7 @@
       "deleteStatus": false
     },
     {
-      "id": "47",
+      "id": "53",
       "countryName": {
         "en": "Cook Islands",
         "ka": "Cook Islands"
@@ -894,7 +1008,7 @@
       "deleteStatus": false
     },
     {
-      "id": "48",
+      "id": "54",
       "countryName": {
         "en": "United Kingdom",
         "ka": "United Kingdom"
@@ -913,7 +1027,7 @@
       "deleteStatus": false
     },
     {
-      "id": "49",
+      "id": "55",
       "countryName": {
         "en": "Zambia",
         "ka": "Zambia"
@@ -932,7 +1046,7 @@
       "deleteStatus": false
     },
     {
-      "id": "50",
+      "id": "56",
       "countryName": {
         "en": "Finland",
         "ka": "Finland"
@@ -951,7 +1065,7 @@
       "deleteStatus": false
     },
     {
-      "id": "51",
+      "id": "57",
       "countryName": {
         "en": "Niger",
         "ka": "Niger"
@@ -970,7 +1084,7 @@
       "deleteStatus": false
     },
     {
-      "id": "52",
+      "id": "58",
       "countryName": {
         "en": "Christmas Island",
         "ka": "Christmas Island"
@@ -989,7 +1103,7 @@
       "deleteStatus": false
     },
     {
-      "id": "53",
+      "id": "59",
       "countryName": {
         "en": "Tokelau",
         "ka": "Tokelau"
@@ -1008,7 +1122,7 @@
       "deleteStatus": false
     },
     {
-      "id": "54",
+      "id": "60",
       "countryName": {
         "en": "Guinea-Bissau",
         "ka": "Guinea-Bissau"
@@ -1027,7 +1141,7 @@
       "deleteStatus": false
     },
     {
-      "id": "55",
+      "id": "61",
       "countryName": {
         "en": "Azerbaijan",
         "ka": "Azerbaijan"
@@ -1046,7 +1160,7 @@
       "deleteStatus": false
     },
     {
-      "id": "56",
+      "id": "62",
       "countryName": {
         "en": "Réunion",
         "ka": "Réunion"
@@ -1065,7 +1179,7 @@
       "deleteStatus": false
     },
     {
-      "id": "57",
+      "id": "63",
       "countryName": {
         "en": "Djibouti",
         "ka": "Djibouti"
@@ -1084,7 +1198,7 @@
       "deleteStatus": false
     },
     {
-      "id": "58",
+      "id": "64",
       "countryName": {
         "en": "North Korea",
         "ka": "North Korea"
@@ -1103,7 +1217,7 @@
       "deleteStatus": false
     },
     {
-      "id": "59",
+      "id": "65",
       "countryName": {
         "en": "Mauritius",
         "ka": "Mauritius"
@@ -1122,7 +1236,7 @@
       "deleteStatus": false
     },
     {
-      "id": "60",
+      "id": "66",
       "countryName": {
         "en": "Montserrat",
         "ka": "Montserrat"
@@ -1141,7 +1255,7 @@
       "deleteStatus": false
     },
     {
-      "id": "61",
+      "id": "67",
       "countryName": {
         "en": "United States Virgin Islands",
         "ka": "United States Virgin Islands"
@@ -1160,7 +1274,7 @@
       "deleteStatus": false
     },
     {
-      "id": "62",
+      "id": "68",
       "countryName": {
         "en": "Colombia",
         "ka": "Colombia"
@@ -1179,7 +1293,7 @@
       "deleteStatus": false
     },
     {
-      "id": "63",
+      "id": "69",
       "countryName": {
         "en": "Greece",
         "ka": "Greece"
@@ -1198,7 +1312,7 @@
       "deleteStatus": false
     },
     {
-      "id": "64",
+      "id": "70",
       "countryName": {
         "en": "Croatia",
         "ka": "Croatia"
@@ -1217,7 +1331,7 @@
       "deleteStatus": false
     },
     {
-      "id": "65",
+      "id": "71",
       "countryName": {
         "en": "Morocco",
         "ka": "Morocco"
@@ -1236,7 +1350,7 @@
       "deleteStatus": false
     },
     {
-      "id": "66",
+      "id": "72",
       "countryName": {
         "en": "Algeria",
         "ka": "Algeria"
@@ -1255,7 +1369,7 @@
       "deleteStatus": false
     },
     {
-      "id": "67",
+      "id": "73",
       "countryName": {
         "en": "Antarctica",
         "ka": "Antarctica"
@@ -1274,7 +1388,7 @@
       "deleteStatus": false
     },
     {
-      "id": "68",
+      "id": "74",
       "countryName": {
         "en": "Netherlands",
         "ka": "Netherlands"
@@ -1293,7 +1407,7 @@
       "deleteStatus": false
     },
     {
-      "id": "69",
+      "id": "75",
       "countryName": {
         "en": "Sudan",
         "ka": "Sudan"
@@ -1312,7 +1426,7 @@
       "deleteStatus": false
     },
     {
-      "id": "70",
+      "id": "76",
       "countryName": {
         "en": "Fiji",
         "ka": "Fiji"
@@ -1331,7 +1445,7 @@
       "deleteStatus": false
     },
     {
-      "id": "71",
+      "id": "77",
       "countryName": {
         "en": "Liechtenstein",
         "ka": "Liechtenstein"
@@ -1350,7 +1464,7 @@
       "deleteStatus": false
     },
     {
-      "id": "72",
+      "id": "78",
       "countryName": {
         "en": "Nepal",
         "ka": "Nepal"
@@ -1369,7 +1483,7 @@
       "deleteStatus": false
     },
     {
-      "id": "73",
+      "id": "79",
       "countryName": {
         "en": "Puerto Rico",
         "ka": "Puerto Rico"
@@ -1388,7 +1502,7 @@
       "deleteStatus": false
     },
     {
-      "id": "74",
+      "id": "80",
       "countryName": {
         "en": "Georgia",
         "ka": "Georgia"
@@ -1407,7 +1521,7 @@
       "deleteStatus": false
     },
     {
-      "id": "75",
+      "id": "81",
       "countryName": {
         "en": "Pakistan",
         "ka": "Pakistan"
@@ -1426,7 +1540,7 @@
       "deleteStatus": false
     },
     {
-      "id": "76",
+      "id": "82",
       "countryName": {
         "en": "Monaco",
         "ka": "Monaco"
@@ -1445,7 +1559,7 @@
       "deleteStatus": false
     },
     {
-      "id": "77",
+      "id": "83",
       "countryName": {
         "en": "Botswana",
         "ka": "Botswana"
@@ -1464,7 +1578,7 @@
       "deleteStatus": false
     },
     {
-      "id": "78",
+      "id": "84",
       "countryName": {
         "en": "Lebanon",
         "ka": "Lebanon"
@@ -1483,7 +1597,7 @@
       "deleteStatus": false
     },
     {
-      "id": "79",
+      "id": "85",
       "countryName": {
         "en": "Papua New Guinea",
         "ka": "Papua New Guinea"
@@ -1502,7 +1616,7 @@
       "deleteStatus": false
     },
     {
-      "id": "80",
+      "id": "86",
       "countryName": {
         "en": "Mayotte",
         "ka": "Mayotte"
@@ -1521,7 +1635,7 @@
       "deleteStatus": false
     },
     {
-      "id": "81",
+      "id": "87",
       "countryName": {
         "en": "Dominican Republic",
         "ka": "Dominican Republic"
@@ -1540,7 +1654,7 @@
       "deleteStatus": false
     },
     {
-      "id": "82",
+      "id": "88",
       "countryName": {
         "en": "Norfolk Island",
         "ka": "Norfolk Island"
@@ -1559,7 +1673,7 @@
       "deleteStatus": false
     },
     {
-      "id": "83",
+      "id": "89",
       "countryName": {
         "en": "Bouvet Island",
         "ka": "Bouvet Island"
@@ -1578,7 +1692,7 @@
       "deleteStatus": false
     },
     {
-      "id": "84",
+      "id": "90",
       "countryName": {
         "en": "Qatar",
         "ka": "Qatar"
@@ -1597,7 +1711,7 @@
       "deleteStatus": false
     },
     {
-      "id": "85",
+      "id": "91",
       "countryName": {
         "en": "Madagascar",
         "ka": "Madagascar"
@@ -1616,7 +1730,7 @@
       "deleteStatus": false
     },
     {
-      "id": "86",
+      "id": "92",
       "countryName": {
         "en": "India",
         "ka": "India"
@@ -1635,7 +1749,7 @@
       "deleteStatus": false
     },
     {
-      "id": "87",
+      "id": "93",
       "countryName": {
         "en": "Syria",
         "ka": "Syria"
@@ -1654,7 +1768,7 @@
       "deleteStatus": false
     },
     {
-      "id": "88",
+      "id": "94",
       "countryName": {
         "en": "Montenegro",
         "ka": "Montenegro"
@@ -1673,7 +1787,7 @@
       "deleteStatus": false
     },
     {
-      "id": "89",
+      "id": "95",
       "countryName": {
         "en": "Eswatini",
         "ka": "Eswatini"
@@ -1692,7 +1806,7 @@
       "deleteStatus": false
     },
     {
-      "id": "90",
+      "id": "96",
       "countryName": {
         "en": "Paraguay",
         "ka": "Paraguay"
@@ -1711,7 +1825,7 @@
       "deleteStatus": false
     },
     {
-      "id": "91",
+      "id": "97",
       "countryName": {
         "en": "El Salvador",
         "ka": "El Salvador"
@@ -1730,7 +1844,7 @@
       "deleteStatus": false
     },
     {
-      "id": "92",
+      "id": "98",
       "countryName": {
         "en": "Ukraine",
         "ka": "Ukraine"
@@ -1749,7 +1863,7 @@
       "deleteStatus": false
     },
     {
-      "id": "93",
+      "id": "99",
       "countryName": {
         "en": "Isle of Man",
         "ka": "Isle of Man"
@@ -1768,7 +1882,7 @@
       "deleteStatus": false
     },
     {
-      "id": "94",
+      "id": "100",
       "countryName": {
         "en": "Namibia",
         "ka": "Namibia"
@@ -1787,7 +1901,7 @@
       "deleteStatus": false
     },
     {
-      "id": "95",
+      "id": "101",
       "countryName": {
         "en": "United Arab Emirates",
         "ka": "United Arab Emirates"
@@ -1806,7 +1920,7 @@
       "deleteStatus": false
     },
     {
-      "id": "96",
+      "id": "102",
       "countryName": {
         "en": "Bulgaria",
         "ka": "Bulgaria"
@@ -1825,7 +1939,7 @@
       "deleteStatus": false
     },
     {
-      "id": "97",
+      "id": "103",
       "countryName": {
         "en": "Greenland",
         "ka": "Greenland"
@@ -1844,7 +1958,7 @@
       "deleteStatus": false
     },
     {
-      "id": "98",
+      "id": "104",
       "countryName": {
         "en": "Germany",
         "ka": "Germany"
@@ -1863,7 +1977,7 @@
       "deleteStatus": false
     },
     {
-      "id": "99",
+      "id": "105",
       "countryName": {
         "en": "Cambodia",
         "ka": "Cambodia"
@@ -1882,7 +1996,7 @@
       "deleteStatus": false
     },
     {
-      "id": "100",
+      "id": "106",
       "countryName": {
         "en": "Iraq",
         "ka": "Iraq"
@@ -1901,7 +2015,7 @@
       "deleteStatus": false
     },
     {
-      "id": "101",
+      "id": "107",
       "countryName": {
         "en": "French Southern and Antarctic Lands",
         "ka": "French Southern and Antarctic Lands"
@@ -1920,7 +2034,7 @@
       "deleteStatus": false
     },
     {
-      "id": "102",
+      "id": "108",
       "countryName": {
         "en": "Sweden",
         "ka": "Sweden"
@@ -1939,7 +2053,7 @@
       "deleteStatus": false
     },
     {
-      "id": "103",
+      "id": "109",
       "countryName": {
         "en": "Cuba",
         "ka": "Cuba"
@@ -1958,7 +2072,7 @@
       "deleteStatus": false
     },
     {
-      "id": "104",
+      "id": "110",
       "countryName": {
         "en": "Kyrgyzstan",
         "ka": "Kyrgyzstan"
@@ -1977,7 +2091,7 @@
       "deleteStatus": false
     },
     {
-      "id": "105",
+      "id": "111",
       "countryName": {
         "en": "Russia",
         "ka": "Russia"
@@ -1996,7 +2110,7 @@
       "deleteStatus": false
     },
     {
-      "id": "106",
+      "id": "112",
       "countryName": {
         "en": "Malaysia",
         "ka": "Malaysia"
@@ -2015,7 +2129,7 @@
       "deleteStatus": false
     },
     {
-      "id": "107",
+      "id": "113",
       "countryName": {
         "en": "São Tomé and Príncipe",
         "ka": "São Tomé and Príncipe"
@@ -2034,7 +2148,7 @@
       "deleteStatus": false
     },
     {
-      "id": "108",
+      "id": "114",
       "countryName": {
         "en": "Cyprus",
         "ka": "Cyprus"
@@ -2053,7 +2167,7 @@
       "deleteStatus": false
     },
     {
-      "id": "109",
+      "id": "115",
       "countryName": {
         "en": "Canada",
         "ka": "Canada"
@@ -2072,7 +2186,7 @@
       "deleteStatus": false
     },
     {
-      "id": "110",
+      "id": "116",
       "countryName": {
         "en": "Malawi",
         "ka": "Malawi"
@@ -2091,7 +2205,7 @@
       "deleteStatus": false
     },
     {
-      "id": "111",
+      "id": "117",
       "countryName": {
         "en": "Saudi Arabia",
         "ka": "Saudi Arabia"
@@ -2110,7 +2224,7 @@
       "deleteStatus": false
     },
     {
-      "id": "112",
+      "id": "118",
       "countryName": {
         "en": "Bosnia and Herzegovina",
         "ka": "Bosnia and Herzegovina"
@@ -2129,7 +2243,7 @@
       "deleteStatus": false
     },
     {
-      "id": "113",
+      "id": "119",
       "countryName": {
         "en": "Ethiopia",
         "ka": "Ethiopia"
@@ -2148,7 +2262,7 @@
       "deleteStatus": false
     },
     {
-      "id": "114",
+      "id": "120",
       "countryName": {
         "en": "Spain",
         "ka": "Spain"
@@ -2167,7 +2281,7 @@
       "deleteStatus": false
     },
     {
-      "id": "115",
+      "id": "121",
       "countryName": {
         "en": "Slovenia",
         "ka": "Slovenia"
@@ -2186,7 +2300,7 @@
       "deleteStatus": false
     },
     {
-      "id": "116",
+      "id": "122",
       "countryName": {
         "en": "Oman",
         "ka": "Oman"
@@ -2205,7 +2319,7 @@
       "deleteStatus": false
     },
     {
-      "id": "117",
+      "id": "123",
       "countryName": {
         "en": "Saint Pierre and Miquelon",
         "ka": "Saint Pierre and Miquelon"
@@ -2224,7 +2338,7 @@
       "deleteStatus": false
     },
     {
-      "id": "118",
+      "id": "124",
       "countryName": {
         "en": "Macau",
         "ka": "Macau"
@@ -2243,7 +2357,7 @@
       "deleteStatus": false
     },
     {
-      "id": "119",
+      "id": "125",
       "countryName": {
         "en": "San Marino",
         "ka": "San Marino"
@@ -2262,7 +2376,7 @@
       "deleteStatus": false
     },
     {
-      "id": "120",
+      "id": "126",
       "countryName": {
         "en": "Lesotho",
         "ka": "Lesotho"
@@ -2281,7 +2395,7 @@
       "deleteStatus": false
     },
     {
-      "id": "121",
+      "id": "127",
       "countryName": {
         "en": "Marshall Islands",
         "ka": "Marshall Islands"
@@ -2300,7 +2414,7 @@
       "deleteStatus": false
     },
     {
-      "id": "122",
+      "id": "128",
       "countryName": {
         "en": "Sint Maarten",
         "ka": "Sint Maarten"
@@ -2319,7 +2433,7 @@
       "deleteStatus": false
     },
     {
-      "id": "123",
+      "id": "129",
       "countryName": {
         "en": "Iceland",
         "ka": "Iceland"
@@ -2338,7 +2452,7 @@
       "deleteStatus": false
     },
     {
-      "id": "124",
+      "id": "130",
       "countryName": {
         "en": "Luxembourg",
         "ka": "Luxembourg"
@@ -2357,7 +2471,7 @@
       "deleteStatus": false
     },
     {
-      "id": "125",
+      "id": "131",
       "countryName": {
         "en": "Argentina",
         "ka": "Argentina"
@@ -2376,7 +2490,7 @@
       "deleteStatus": false
     },
     {
-      "id": "126",
+      "id": "132",
       "countryName": {
         "en": "Turks and Caicos Islands",
         "ka": "Turks and Caicos Islands"
@@ -2395,7 +2509,7 @@
       "deleteStatus": false
     },
     {
-      "id": "127",
+      "id": "133",
       "countryName": {
         "en": "Nauru",
         "ka": "Nauru"
@@ -2414,7 +2528,7 @@
       "deleteStatus": false
     },
     {
-      "id": "128",
+      "id": "134",
       "countryName": {
         "en": "Cocos (Keeling) Islands",
         "ka": "Cocos (Keeling) Islands"
@@ -2433,7 +2547,7 @@
       "deleteStatus": false
     },
     {
-      "id": "129",
+      "id": "135",
       "countryName": {
         "en": "Western Sahara",
         "ka": "Western Sahara"
@@ -2452,7 +2566,7 @@
       "deleteStatus": false
     },
     {
-      "id": "130",
+      "id": "136",
       "countryName": {
         "en": "Dominica",
         "ka": "Dominica"
@@ -2471,7 +2585,7 @@
       "deleteStatus": false
     },
     {
-      "id": "131",
+      "id": "137",
       "countryName": {
         "en": "Costa Rica",
         "ka": "Costa Rica"
@@ -2490,7 +2604,7 @@
       "deleteStatus": false
     },
     {
-      "id": "132",
+      "id": "138",
       "countryName": {
         "en": "Australia",
         "ka": "Australia"
@@ -2509,7 +2623,7 @@
       "deleteStatus": false
     },
     {
-      "id": "133",
+      "id": "139",
       "countryName": {
         "en": "Thailand",
         "ka": "Thailand"
@@ -2528,7 +2642,7 @@
       "deleteStatus": false
     },
     {
-      "id": "134",
+      "id": "140",
       "countryName": {
         "en": "Haiti",
         "ka": "Haiti"
@@ -2547,7 +2661,7 @@
       "deleteStatus": false
     },
     {
-      "id": "135",
+      "id": "141",
       "countryName": {
         "en": "Tuvalu",
         "ka": "Tuvalu"
@@ -2566,7 +2680,7 @@
       "deleteStatus": false
     },
     {
-      "id": "136",
+      "id": "142",
       "countryName": {
         "en": "Honduras",
         "ka": "Honduras"
@@ -2585,7 +2699,7 @@
       "deleteStatus": false
     },
     {
-      "id": "137",
+      "id": "143",
       "countryName": {
         "en": "Equatorial Guinea",
         "ka": "Equatorial Guinea"
@@ -2604,7 +2718,7 @@
       "deleteStatus": false
     },
     {
-      "id": "138",
+      "id": "144",
       "countryName": {
         "en": "Saint Lucia",
         "ka": "Saint Lucia"
@@ -2623,7 +2737,7 @@
       "deleteStatus": false
     },
     {
-      "id": "139",
+      "id": "145",
       "countryName": {
         "en": "French Polynesia",
         "ka": "French Polynesia"
@@ -2642,7 +2756,7 @@
       "deleteStatus": false
     },
     {
-      "id": "140",
+      "id": "146",
       "countryName": {
         "en": "Belarus",
         "ka": "Belarus"
@@ -2661,7 +2775,7 @@
       "deleteStatus": false
     },
     {
-      "id": "141",
+      "id": "147",
       "countryName": {
         "en": "Latvia",
         "ka": "Latvia"
@@ -2680,7 +2794,7 @@
       "deleteStatus": false
     },
     {
-      "id": "142",
+      "id": "148",
       "countryName": {
         "en": "Palau",
         "ka": "Palau"
@@ -2699,7 +2813,7 @@
       "deleteStatus": false
     },
     {
-      "id": "143",
+      "id": "149",
       "countryName": {
         "en": "Guadeloupe",
         "ka": "Guadeloupe"
@@ -2718,7 +2832,7 @@
       "deleteStatus": false
     },
     {
-      "id": "144",
+      "id": "150",
       "countryName": {
         "en": "Philippines",
         "ka": "Philippines"
@@ -2737,7 +2851,7 @@
       "deleteStatus": false
     },
     {
-      "id": "145",
+      "id": "151",
       "countryName": {
         "en": "Gibraltar",
         "ka": "Gibraltar"
@@ -2756,7 +2870,7 @@
       "deleteStatus": false
     },
     {
-      "id": "146",
+      "id": "152",
       "countryName": {
         "en": "Denmark",
         "ka": "Denmark"
@@ -2775,7 +2889,7 @@
       "deleteStatus": false
     },
     {
-      "id": "147",
+      "id": "153",
       "countryName": {
         "en": "Cameroon",
         "ka": "Cameroon"
@@ -2794,7 +2908,7 @@
       "deleteStatus": false
     },
     {
-      "id": "148",
+      "id": "154",
       "countryName": {
         "en": "Guinea",
         "ka": "Guinea"
@@ -2813,7 +2927,7 @@
       "deleteStatus": false
     },
     {
-      "id": "149",
+      "id": "155",
       "countryName": {
         "en": "Bahrain",
         "ka": "Bahrain"
@@ -2832,7 +2946,7 @@
       "deleteStatus": false
     },
     {
-      "id": "150",
+      "id": "156",
       "countryName": {
         "en": "Suriname",
         "ka": "Suriname"
@@ -2851,7 +2965,7 @@
       "deleteStatus": false
     },
     {
-      "id": "151",
+      "id": "157",
       "countryName": {
         "en": "DR Congo",
         "ka": "DR Congo"
@@ -2870,7 +2984,7 @@
       "deleteStatus": false
     },
     {
-      "id": "152",
+      "id": "158",
       "countryName": {
         "en": "Somalia",
         "ka": "Somalia"
@@ -2889,7 +3003,7 @@
       "deleteStatus": false
     },
     {
-      "id": "153",
+      "id": "159",
       "countryName": {
         "en": "Czechia",
         "ka": "Czechia"
@@ -2908,7 +3022,7 @@
       "deleteStatus": false
     },
     {
-      "id": "154",
+      "id": "160",
       "countryName": {
         "en": "New Caledonia",
         "ka": "New Caledonia"
@@ -2927,7 +3041,7 @@
       "deleteStatus": false
     },
     {
-      "id": "155",
+      "id": "161",
       "countryName": {
         "en": "Vanuatu",
         "ka": "Vanuatu"
@@ -2946,7 +3060,7 @@
       "deleteStatus": false
     },
     {
-      "id": "156",
+      "id": "162",
       "countryName": {
         "en": "Saint Helena, Ascension and Tristan da Cunha",
         "ka": "Saint Helena, Ascension and Tristan da Cunha"
@@ -2965,7 +3079,7 @@
       "deleteStatus": false
     },
     {
-      "id": "157",
+      "id": "163",
       "countryName": {
         "en": "Togo",
         "ka": "Togo"
@@ -2984,7 +3098,7 @@
       "deleteStatus": false
     },
     {
-      "id": "158",
+      "id": "164",
       "countryName": {
         "en": "British Virgin Islands",
         "ka": "British Virgin Islands"
@@ -3003,7 +3117,7 @@
       "deleteStatus": false
     },
     {
-      "id": "159",
+      "id": "165",
       "countryName": {
         "en": "Kenya",
         "ka": "Kenya"
@@ -3022,7 +3136,7 @@
       "deleteStatus": false
     },
     {
-      "id": "160",
+      "id": "166",
       "countryName": {
         "en": "Niue",
         "ka": "Niue"
@@ -3041,7 +3155,7 @@
       "deleteStatus": false
     },
     {
-      "id": "161",
+      "id": "167",
       "countryName": {
         "en": "Heard Island and McDonald Islands",
         "ka": "Heard Island and McDonald Islands"
@@ -3060,7 +3174,7 @@
       "deleteStatus": false
     },
     {
-      "id": "162",
+      "id": "168",
       "countryName": {
         "en": "Rwanda",
         "ka": "Rwanda"
@@ -3079,7 +3193,7 @@
       "deleteStatus": false
     },
     {
-      "id": "163",
+      "id": "169",
       "countryName": {
         "en": "Estonia",
         "ka": "Estonia"
@@ -3098,7 +3212,7 @@
       "deleteStatus": false
     },
     {
-      "id": "164",
+      "id": "170",
       "countryName": {
         "en": "Romania",
         "ka": "Romania"
@@ -3117,7 +3231,7 @@
       "deleteStatus": false
     },
     {
-      "id": "165",
+      "id": "171",
       "countryName": {
         "en": "Trinidad and Tobago",
         "ka": "Trinidad and Tobago"
@@ -3136,7 +3250,7 @@
       "deleteStatus": false
     },
     {
-      "id": "166",
+      "id": "172",
       "countryName": {
         "en": "Guyana",
         "ka": "Guyana"
@@ -3155,7 +3269,7 @@
       "deleteStatus": false
     },
     {
-      "id": "167",
+      "id": "173",
       "countryName": {
         "en": "Timor-Leste",
         "ka": "Timor-Leste"
@@ -3174,7 +3288,7 @@
       "deleteStatus": false
     },
     {
-      "id": "168",
+      "id": "174",
       "countryName": {
         "en": "Vietnam",
         "ka": "Vietnam"
@@ -3193,7 +3307,7 @@
       "deleteStatus": false
     },
     {
-      "id": "169",
+      "id": "175",
       "countryName": {
         "en": "Uruguay",
         "ka": "Uruguay"
@@ -3212,7 +3326,7 @@
       "deleteStatus": false
     },
     {
-      "id": "170",
+      "id": "176",
       "countryName": {
         "en": "Vatican City",
         "ka": "Vatican City"
@@ -3231,7 +3345,7 @@
       "deleteStatus": false
     },
     {
-      "id": "171",
+      "id": "177",
       "countryName": {
         "en": "Hong Kong",
         "ka": "Hong Kong"
@@ -3250,7 +3364,7 @@
       "deleteStatus": false
     },
     {
-      "id": "172",
+      "id": "178",
       "countryName": {
         "en": "Austria",
         "ka": "Austria"
@@ -3269,7 +3383,7 @@
       "deleteStatus": false
     },
     {
-      "id": "173",
+      "id": "179",
       "countryName": {
         "en": "Antigua and Barbuda",
         "ka": "Antigua and Barbuda"
@@ -3288,7 +3402,7 @@
       "deleteStatus": false
     },
     {
-      "id": "174",
+      "id": "180",
       "countryName": {
         "en": "Turkmenistan",
         "ka": "Turkmenistan"
@@ -3307,7 +3421,7 @@
       "deleteStatus": false
     },
     {
-      "id": "175",
+      "id": "181",
       "countryName": {
         "en": "Mozambique",
         "ka": "Mozambique"
@@ -3326,7 +3440,7 @@
       "deleteStatus": false
     },
     {
-      "id": "176",
+      "id": "182",
       "countryName": {
         "en": "Panama",
         "ka": "Panama"
@@ -3345,7 +3459,7 @@
       "deleteStatus": false
     },
     {
-      "id": "177",
+      "id": "183",
       "countryName": {
         "en": "Micronesia",
         "ka": "Micronesia"
@@ -3364,7 +3478,7 @@
       "deleteStatus": false
     },
     {
-      "id": "178",
+      "id": "184",
       "countryName": {
         "en": "Ireland",
         "ka": "Ireland"
@@ -3383,7 +3497,7 @@
       "deleteStatus": false
     },
     {
-      "id": "179",
+      "id": "185",
       "countryName": {
         "en": "Curaçao",
         "ka": "Curaçao"
@@ -3402,7 +3516,7 @@
       "deleteStatus": false
     },
     {
-      "id": "180",
+      "id": "186",
       "countryName": {
         "en": "French Guiana",
         "ka": "French Guiana"
@@ -3421,7 +3535,7 @@
       "deleteStatus": false
     },
     {
-      "id": "181",
+      "id": "187",
       "countryName": {
         "en": "Norway",
         "ka": "Norway"
@@ -3440,7 +3554,7 @@
       "deleteStatus": false
     },
     {
-      "id": "182",
+      "id": "188",
       "countryName": {
         "en": "Åland Islands",
         "ka": "Åland Islands"
@@ -3459,7 +3573,7 @@
       "deleteStatus": false
     },
     {
-      "id": "183",
+      "id": "189",
       "countryName": {
         "en": "Central African Republic",
         "ka": "Central African Republic"
@@ -3478,7 +3592,7 @@
       "deleteStatus": false
     },
     {
-      "id": "184",
+      "id": "190",
       "countryName": {
         "en": "Burkina Faso",
         "ka": "Burkina Faso"
@@ -3497,7 +3611,7 @@
       "deleteStatus": false
     },
     {
-      "id": "185",
+      "id": "191",
       "countryName": {
         "en": "Eritrea",
         "ka": "Eritrea"
@@ -3516,7 +3630,7 @@
       "deleteStatus": false
     },
     {
-      "id": "186",
+      "id": "192",
       "countryName": {
         "en": "Tanzania",
         "ka": "Tanzania"
@@ -3535,7 +3649,7 @@
       "deleteStatus": false
     },
     {
-      "id": "187",
+      "id": "193",
       "countryName": {
         "en": "South Korea",
         "ka": "South Korea"
@@ -3554,7 +3668,7 @@
       "deleteStatus": false
     },
     {
-      "id": "188",
+      "id": "194",
       "countryName": {
         "en": "Jordan",
         "ka": "Jordan"
@@ -3573,7 +3687,7 @@
       "deleteStatus": false
     },
     {
-      "id": "189",
+      "id": "195",
       "countryName": {
         "en": "Mauritania",
         "ka": "Mauritania"
@@ -3592,7 +3706,7 @@
       "deleteStatus": false
     },
     {
-      "id": "190",
+      "id": "196",
       "countryName": {
         "en": "Lithuania",
         "ka": "Lithuania"
@@ -3611,7 +3725,7 @@
       "deleteStatus": false
     },
     {
-      "id": "191",
+      "id": "197",
       "countryName": {
         "en": "United States Minor Outlying Islands",
         "ka": "United States Minor Outlying Islands"
@@ -3630,7 +3744,7 @@
       "deleteStatus": false
     },
     {
-      "id": "192",
+      "id": "198",
       "countryName": {
         "en": "Slovakia",
         "ka": "Slovakia"
@@ -3649,7 +3763,7 @@
       "deleteStatus": false
     },
     {
-      "id": "193",
+      "id": "199",
       "countryName": {
         "en": "Angola",
         "ka": "Angola"
@@ -3668,7 +3782,7 @@
       "deleteStatus": false
     },
     {
-      "id": "194",
+      "id": "200",
       "countryName": {
         "en": "Kazakhstan",
         "ka": "Kazakhstan"
@@ -3687,7 +3801,7 @@
       "deleteStatus": false
     },
     {
-      "id": "195",
+      "id": "201",
       "countryName": {
         "en": "Moldova",
         "ka": "Moldova"
@@ -3706,7 +3820,7 @@
       "deleteStatus": false
     },
     {
-      "id": "196",
+      "id": "202",
       "countryName": {
         "en": "Mali",
         "ka": "Mali"
@@ -3725,7 +3839,7 @@
       "deleteStatus": false
     },
     {
-      "id": "197",
+      "id": "203",
       "countryName": {
         "en": "Falkland Islands",
         "ka": "Falkland Islands"
@@ -3744,7 +3858,7 @@
       "deleteStatus": false
     },
     {
-      "id": "198",
+      "id": "204",
       "countryName": {
         "en": "Armenia",
         "ka": "Armenia"
@@ -3763,7 +3877,7 @@
       "deleteStatus": false
     },
     {
-      "id": "199",
+      "id": "205",
       "countryName": {
         "en": "Samoa",
         "ka": "Samoa"
@@ -3782,7 +3896,7 @@
       "deleteStatus": false
     },
     {
-      "id": "200",
+      "id": "206",
       "countryName": {
         "en": "Jersey",
         "ka": "Jersey"
@@ -3801,7 +3915,7 @@
       "deleteStatus": false
     },
     {
-      "id": "201",
+      "id": "207",
       "countryName": {
         "en": "Japan",
         "ka": "Japan"
@@ -3820,7 +3934,7 @@
       "deleteStatus": false
     },
     {
-      "id": "202",
+      "id": "208",
       "countryName": {
         "en": "Bolivia",
         "ka": "Bolivia"
@@ -3839,7 +3953,7 @@
       "deleteStatus": false
     },
     {
-      "id": "203",
+      "id": "209",
       "countryName": {
         "en": "Chile",
         "ka": "Chile"
@@ -3858,7 +3972,7 @@
       "deleteStatus": false
     },
     {
-      "id": "204",
+      "id": "210",
       "countryName": {
         "en": "United States",
         "ka": "United States"
@@ -3877,7 +3991,7 @@
       "deleteStatus": false
     },
     {
-      "id": "205",
+      "id": "211",
       "countryName": {
         "en": "Saint Vincent and the Grenadines",
         "ka": "Saint Vincent and the Grenadines"
@@ -3896,7 +4010,7 @@
       "deleteStatus": false
     },
     {
-      "id": "206",
+      "id": "212",
       "countryName": {
         "en": "Bermuda",
         "ka": "Bermuda"
@@ -3915,7 +4029,7 @@
       "deleteStatus": false
     },
     {
-      "id": "207",
+      "id": "213",
       "countryName": {
         "en": "Seychelles",
         "ka": "Seychelles"
@@ -3934,7 +4048,7 @@
       "deleteStatus": false
     },
     {
-      "id": "208",
+      "id": "214",
       "countryName": {
         "en": "British Indian Ocean Territory",
         "ka": "British Indian Ocean Territory"
@@ -3953,7 +4067,7 @@
       "deleteStatus": false
     },
     {
-      "id": "209",
+      "id": "215",
       "countryName": {
         "en": "Guatemala",
         "ka": "Guatemala"
@@ -3972,7 +4086,7 @@
       "deleteStatus": false
     },
     {
-      "id": "210",
+      "id": "216",
       "countryName": {
         "en": "Ecuador",
         "ka": "Ecuador"
@@ -3991,7 +4105,7 @@
       "deleteStatus": false
     },
     {
-      "id": "211",
+      "id": "217",
       "countryName": {
         "en": "Martinique",
         "ka": "Martinique"
@@ -4010,7 +4124,7 @@
       "deleteStatus": false
     },
     {
-      "id": "212",
+      "id": "218",
       "countryName": {
         "en": "Tajikistan",
         "ka": "Tajikistan"
@@ -4029,7 +4143,7 @@
       "deleteStatus": false
     },
     {
-      "id": "213",
+      "id": "219",
       "countryName": {
         "en": "Malta",
         "ka": "Malta"
@@ -4048,7 +4162,7 @@
       "deleteStatus": false
     },
     {
-      "id": "214",
+      "id": "220",
       "countryName": {
         "en": "Gambia",
         "ka": "Gambia"
@@ -4067,7 +4181,7 @@
       "deleteStatus": false
     },
     {
-      "id": "215",
+      "id": "221",
       "countryName": {
         "en": "Nigeria",
         "ka": "Nigeria"
@@ -4086,7 +4200,7 @@
       "deleteStatus": false
     },
     {
-      "id": "216",
+      "id": "222",
       "countryName": {
         "en": "Bahamas",
         "ka": "Bahamas"
@@ -4105,7 +4219,7 @@
       "deleteStatus": false
     },
     {
-      "id": "217",
+      "id": "223",
       "countryName": {
         "en": "Kosovo",
         "ka": "Kosovo"
@@ -4124,7 +4238,7 @@
       "deleteStatus": false
     },
     {
-      "id": "218",
+      "id": "224",
       "countryName": {
         "en": "Kuwait",
         "ka": "Kuwait"
@@ -4143,7 +4257,7 @@
       "deleteStatus": false
     },
     {
-      "id": "219",
+      "id": "225",
       "countryName": {
         "en": "Maldives",
         "ka": "Maldives"
@@ -4162,7 +4276,7 @@
       "deleteStatus": false
     },
     {
-      "id": "220",
+      "id": "226",
       "countryName": {
         "en": "South Sudan",
         "ka": "South Sudan"
@@ -4181,7 +4295,7 @@
       "deleteStatus": false
     },
     {
-      "id": "221",
+      "id": "227",
       "countryName": {
         "en": "Iran",
         "ka": "Iran"
@@ -4200,7 +4314,7 @@
       "deleteStatus": false
     },
     {
-      "id": "222",
+      "id": "228",
       "countryName": {
         "en": "Albania",
         "ka": "Albania"
@@ -4219,7 +4333,7 @@
       "deleteStatus": false
     },
     {
-      "id": "223",
+      "id": "229",
       "countryName": {
         "en": "Brazil",
         "ka": "Brazil"
@@ -4238,7 +4352,7 @@
       "deleteStatus": false
     },
     {
-      "id": "224",
+      "id": "230",
       "countryName": {
         "en": "Serbia",
         "ka": "Serbia"
@@ -4257,7 +4371,7 @@
       "deleteStatus": false
     },
     {
-      "id": "225",
+      "id": "231",
       "countryName": {
         "en": "Belize",
         "ka": "Belize"
@@ -4276,7 +4390,7 @@
       "deleteStatus": false
     },
     {
-      "id": "226",
+      "id": "232",
       "countryName": {
         "en": "Myanmar",
         "ka": "Myanmar"
@@ -4295,7 +4409,7 @@
       "deleteStatus": false
     },
     {
-      "id": "227",
+      "id": "233",
       "countryName": {
         "en": "Bhutan",
         "ka": "Bhutan"
@@ -4314,7 +4428,7 @@
       "deleteStatus": false
     },
     {
-      "id": "228",
+      "id": "234",
       "countryName": {
         "en": "Venezuela",
         "ka": "Venezuela"
@@ -4333,7 +4447,7 @@
       "deleteStatus": false
     },
     {
-      "id": "229",
+      "id": "235",
       "countryName": {
         "en": "Liberia",
         "ka": "Liberia"
@@ -4352,7 +4466,7 @@
       "deleteStatus": false
     },
     {
-      "id": "230",
+      "id": "236",
       "countryName": {
         "en": "Jamaica",
         "ka": "Jamaica"
@@ -4371,7 +4485,7 @@
       "deleteStatus": false
     },
     {
-      "id": "231",
+      "id": "237",
       "countryName": {
         "en": "Poland",
         "ka": "Poland"
@@ -4390,7 +4504,7 @@
       "deleteStatus": false
     },
     {
-      "id": "232",
+      "id": "238",
       "countryName": {
         "en": "Cayman Islands",
         "ka": "Cayman Islands"
@@ -4409,7 +4523,7 @@
       "deleteStatus": false
     },
     {
-      "id": "233",
+      "id": "239",
       "countryName": {
         "en": "Brunei",
         "ka": "Brunei"
@@ -4428,7 +4542,7 @@
       "deleteStatus": false
     },
     {
-      "id": "234",
+      "id": "240",
       "countryName": {
         "en": "Comoros",
         "ka": "Comoros"
@@ -4447,7 +4561,7 @@
       "deleteStatus": false
     },
     {
-      "id": "235",
+      "id": "241",
       "countryName": {
         "en": "Guam",
         "ka": "Guam"
@@ -4466,7 +4580,7 @@
       "deleteStatus": false
     },
     {
-      "id": "236",
+      "id": "242",
       "countryName": {
         "en": "Tonga",
         "ka": "Tonga"
@@ -4485,7 +4599,7 @@
       "deleteStatus": false
     },
     {
-      "id": "237",
+      "id": "243",
       "countryName": {
         "en": "Kiribati",
         "ka": "Kiribati"
@@ -4504,7 +4618,7 @@
       "deleteStatus": false
     },
     {
-      "id": "238",
+      "id": "244",
       "countryName": {
         "en": "Ghana",
         "ka": "Ghana"
@@ -4523,7 +4637,7 @@
       "deleteStatus": false
     },
     {
-      "id": "239",
+      "id": "245",
       "countryName": {
         "en": "Chad",
         "ka": "Chad"
@@ -4542,7 +4656,7 @@
       "deleteStatus": false
     },
     {
-      "id": "240",
+      "id": "246",
       "countryName": {
         "en": "Zimbabwe",
         "ka": "Zimbabwe"
@@ -4561,7 +4675,7 @@
       "deleteStatus": false
     },
     {
-      "id": "241",
+      "id": "247",
       "countryName": {
         "en": "Saint Martin",
         "ka": "Saint Martin"
@@ -4580,7 +4694,7 @@
       "deleteStatus": false
     },
     {
-      "id": "242",
+      "id": "248",
       "countryName": {
         "en": "Mongolia",
         "ka": "Mongolia"
@@ -4599,7 +4713,7 @@
       "deleteStatus": false
     },
     {
-      "id": "243",
+      "id": "249",
       "countryName": {
         "en": "Portugal",
         "ka": "Portugal"
@@ -4618,7 +4732,7 @@
       "deleteStatus": false
     },
     {
-      "id": "244",
+      "id": "250",
       "countryName": {
         "en": "American Samoa",
         "ka": "American Samoa"
@@ -4637,7 +4751,7 @@
       "deleteStatus": false
     },
     {
-      "id": "245",
+      "id": "251",
       "countryName": {
         "en": "Republic of the Congo",
         "ka": "Republic of the Congo"
@@ -4656,7 +4770,7 @@
       "deleteStatus": false
     },
     {
-      "id": "246",
+      "id": "252",
       "countryName": {
         "en": "Belgium",
         "ka": "Belgium"
@@ -4675,7 +4789,7 @@
       "deleteStatus": false
     },
     {
-      "id": "247",
+      "id": "253",
       "countryName": {
         "en": "Israel",
         "ka": "Israel"
@@ -4694,7 +4808,7 @@
       "deleteStatus": false
     },
     {
-      "id": "248",
+      "id": "254",
       "countryName": {
         "en": "New Zealand",
         "ka": "New Zealand"
@@ -4713,7 +4827,7 @@
       "deleteStatus": false
     },
     {
-      "id": "249",
+      "id": "255",
       "countryName": {
         "en": "Nicaragua",
         "ka": "Nicaragua"
@@ -4732,7 +4846,7 @@
       "deleteStatus": false
     },
     {
-      "id": "250",
+      "id": "256",
       "countryName": {
         "en": "Anguilla",
         "ka": "Anguilla"

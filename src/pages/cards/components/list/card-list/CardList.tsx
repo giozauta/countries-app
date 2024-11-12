@@ -260,13 +260,13 @@ const CardList: React.FC = () => {
                   style={{
                     position: "absolute",
                     top: 0,
-                    left: `${virtualColumn.start + virtualColumn.index}px`,
+                    left: `${virtualColumn.start + virtualColumn.index *50}px`,
                     width: "410px",
                     height: "605px",
                   }}
                 >
                   <Card id={allIds} deleteStatus={country}>
-                    <CardImage  img={country.imgSrc} />
+                    <CardImage img={country.imgSrc} />
                     <CardContent country={country} />
                     <CardInteractSection
                       isVoteLoading={isVoteLoading}

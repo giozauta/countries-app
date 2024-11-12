@@ -8,11 +8,9 @@ const CardImage: React.FC<{ img: string }> = ({ img }) => {
   const { lang } = useParams();
   const currentLang = lang ?? "en";
 
-
   const handleShowContent = () => {
     setIsContentVisible((prev) => !prev); // Toggle visibility
   };
-
 
   return (
     <div className={styles.cardImageBox}>
