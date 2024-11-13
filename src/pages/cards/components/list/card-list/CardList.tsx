@@ -278,9 +278,10 @@ const CardList: React.FC = () => {
                   style={{
                     position: "absolute",
                     top: 0,
-                    left: `${virtualColumn.start + virtualColumn.index * 50}px`,
+                    left: `${virtualColumn.start + virtualColumn.index}px`,
                     width: "410px",
                     height: "605px",
+                   
                   }}
                 >
                   <Card id={allIds} deleteStatus={country}>
